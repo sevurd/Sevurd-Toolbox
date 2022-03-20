@@ -10,6 +10,9 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Exit
 }
 
+Import-Module BitsTransfer
+Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Sevurd_Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
+
 # GUI Specs
 Write-Host "Checking winget..."
 
@@ -30,6 +33,7 @@ else{
 
 Write-Host "Created 'Sevurd_Toolbox' folder in C drive..."
 New-Item -Path "C:\" -Name "Sevurd_Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
+
 
 $Form                         = New-Object system.Windows.Forms.Form
 $Form.ClientSize              = New-Object System.Drawing.Point(1050,1000)
