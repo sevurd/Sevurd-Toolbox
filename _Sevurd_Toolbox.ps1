@@ -10,6 +10,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Exit
 }
 
+Write-Host "Downloading script..."
 Import-Module BitsTransfer
 Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Sevurd_Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
 
