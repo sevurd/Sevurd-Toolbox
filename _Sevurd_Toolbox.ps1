@@ -1172,8 +1172,14 @@ $essentialtweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "MultiTaskingAltTabFilter" -Type DWord -Value 3
 
     # Transfer user files
-    robocopy "C:\Windows\Administrator" "C:\Users\Administrator" /NFL /NDL /NJH /NJS /nc /ns /np /E /MOVE 
-
+    New-Item -Path "C:\Users\*\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
+    New-Item -Path "C:\Users\*\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
+    New-Item -Path "C:\Users\*\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/discord/settings.json" -Destination 'C:\Users\*\AppData\Roaming\discord\settings.json'
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination 'C:\Users\*\AppData\Roaming\Notepad++\config.xml'
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/discord/settings.json" -Destination 'C:\Users\*\AppData\Roaming\discord\settings.json'
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Spotify/prefs" -Destination 'C:\Users\*\AppData\Roaming\Spotify\prefs'
 
     # Service tweaks to Manual 
 
