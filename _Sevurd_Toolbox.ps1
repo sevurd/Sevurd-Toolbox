@@ -28,12 +28,16 @@ else{
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
 }
 
+Write-Host "Created 'Sevurd_Toolbox' folder in C drive..."
+New-Item -Path "C:\" -Name "Sevurd_Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
+
 $Form                         = New-Object system.Windows.Forms.Form
 $Form.ClientSize              = New-Object System.Drawing.Point(1050,1000)
 $Form.text                    = "Windows Toolbox By Sevurd"
 $Form.StartPosition           = "CenterScreen"
 $Form.TopMost                 = $false
-$Form.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#00000")
+$Form.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#202020")
+$Form.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#FFFFFF")
 $Form.AutoScaleDimensions     = '192, 192'
 $Form.AutoScaleMode           = "Dpi"
 $Form.AutoSize                = $True
@@ -247,7 +251,7 @@ $essentialtweaks                 = New-Object system.Windows.Forms.Button
 $essentialtweaks.text            = "Essential Tweaks"
 $essentialtweaks.width           = 205
 $essentialtweaks.height          = 75
-$essentialtweaks.location        = New-Object System.Drawing.Point(0,17)
+$essentialtweaks.location        = New-Object System.Drawing.Point(0,24)
 $essentialtweaks.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
 $backgroundapps                  = New-Object system.Windows.Forms.Button
@@ -355,7 +359,7 @@ $PictureBox1                     = New-Object system.Windows.Forms.PictureBox
 $PictureBox1.width               = 343
 $PictureBox1.height              = 136
 $PictureBox1.location            = New-Object System.Drawing.Point(580,850)
-$PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox.png?raw=true"
+$PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
 $PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom
 $lightmode                       = New-Object system.Windows.Forms.Button
 $lightmode.text                  = "Light Mode"
@@ -642,6 +646,7 @@ $telegram.Add_Click({
     if($?) { Write-Host "Installed Telegram" }
     $ResultText.text = "`r`n" + "Finished Installing Telegram" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
+
 $discord.Add_Click({
     Write-Host "Installing Discord"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Discord... Please Wait" 
@@ -654,7 +659,7 @@ $nvidia.Add_Click({
     Write-Host "Installing Nvidia Driver"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Nvidia Driver... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://us.download.nvidia.com/Windows/497.29/497.29-notebook-win10-win11-64bit-international-dch-whql.exe" -Destination 'C:\Installer\nvidia-497.29.exe'
+    Start-BitsTransfer -Source "https://us.download.nvidia.com/Windows/497.29/497.29-notebook-win10-win11-64bit-international-dch-whql.exe" -Destination 'C:\Sevurd_Toolbox\nvidia-497.29.exe'
     $ResultText.text = "`r`n" + "Finished Installing Nvidia Driver" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -662,8 +667,8 @@ $notepad.Add_Click({
     Write-Host "Installing Notepad++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Installer\notepad++.exe'
-    & 'C:\Installer\notepad++.exe'
+    Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Sevurd_Toolbox\notepad++.exe'
+    & 'C:\Sevurd_Toolbox\notepad++.exe'
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -679,8 +684,8 @@ $valorant.Add_Click({
     Write-Host "Installing Valorant"
     $ResultText.text = "`r`n" +"`r`n" + "Valorant... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Installer\Varorant.exe'
-    & 'C:\Installer\Varorant.exe'
+    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd_Toolbox\Varorant.exe'
+    & 'C:\Sevurd_Toolbox\Varorant.exe'
     $ResultText.text = "`r`n" + "Finished Installing Valorant" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -704,9 +709,9 @@ $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
     $ResultText.text = "`r`n" +"`r`n" + "Display Driver Uninstaller... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://www.wagnardsoft.com/DDU/download/DDU%20v18.0.4.9.exe" -Destination 'C:\Installer\DDU.exe'
-    & 'C:\Installer\DDU.exe'
-    & 'C:\Installer\DDU v18.0.4.9\Display Driver Uninstaller.exe'
+    Start-BitsTransfer -Source "https://www.wagnardsoft.com/DDU/download/DDU%20v18.0.4.9.exe" -Destination 'C:\Sevurd_Toolbox\DDU.exe'
+    & 'C:\Sevurd_Toolbox\DDU.exe'
+    & 'C:\Sevurd_Toolbox\DDU v18.0.4.9\Display Driver Uninstaller.exe'
     $ResultText.text = "`r`n" + "Finished Installing Display Driver Uninstaller" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -726,9 +731,9 @@ $visualc.Add_Click({
     Write-Host "Installing Visual C++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Visual C++... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Installer\VisualCppRedist.zip'
-    expand-archive -path 'C:\Installer\VisualCppRedist.zip' -destinationpath 'C:\Installer'
-    & 'C:\Installer\VisualCppRedist_AIO_x86_x64.exe'
+    Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd_Toolbox\VisualCppRedist.zip'
+    expand-archive -path 'C:\Sevurd_Toolbox\VisualCppRedist.zip' -destinationpath 'C:\Sevurd_Toolbox'
+    & 'C:\Sevurd_Toolbox\VisualCppRedist_AIO_x86_x64.exe'
     $ResultText.text = "`r`n" + "Finished Installing Visual C++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -736,8 +741,8 @@ $directx.Add_Click({
     Write-Host "Installing DirectX"
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Installer\dxwebsetup.exe'
-    & 'C:\Installer\dxwebsetup.exe'
+    Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Sevurd_Toolbox\dxwebsetup.exe'
+    & 'C:\Sevurd_Toolbox\dxwebsetup.exe'
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -745,14 +750,15 @@ $rufus.Add_Click({
     Write-Host "Installing Rufus"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Installer\rufus-3.18.exe'
+    Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd_Toolbox\rufus-3.18.exe'
     $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
-    winget install -e Spotify.Spotify | Out-Host
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd_Toolbox\SpotifyFullSetup.exe'
     Write-Host "Installed Spotify"
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
