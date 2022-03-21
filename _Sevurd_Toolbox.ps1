@@ -14,6 +14,7 @@ Write-Host "Downloading script..."
 Import-Module BitsTransfer
 Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Sevurd_Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
 
+
 # GUI Specs
 Write-Host "Checking winget..."
 
@@ -798,7 +799,10 @@ $autoruns.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\Autoruns.zip'
     expand-archive -path 'C:\Sevurd_Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
     & 'C:\Program Files\Autoruns\Autoruns64.exe'
-    New-Item -ItemType Shortcut -Path "C:\Program Files\Autoruns" -Name "Autoruns.lnk" -Value "C:\Program Files\Autoruns\Autoruns64.exe"
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut('C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk')
+    $Shortcut.TargetPath = 'C:\Program Files\Autoruns\Autoruns64.exe'
+    $Shortcut.Save()
     Write-Host "Installed Autoruns"
     $ResultText.text = "`r`n" + "Finished Installing Autoruns" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
