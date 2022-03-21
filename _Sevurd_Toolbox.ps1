@@ -764,6 +764,7 @@ $spotify.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd_Toolbox\SpotifyFullSetup.exe'
+    & 'C:\Sevurd_Toolbox\SpotifyFullSetup.exe'
     Write-Host "Installed Spotify"
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
