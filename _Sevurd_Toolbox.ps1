@@ -13,7 +13,12 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 Write-Host "Downloading script..."
 Import-Module BitsTransfer
 Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Sevurd_Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
-
+Write-Host "Creating shortcut on Desktop..."
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.lnk")
+$Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+$Shortcut.Arguments = "iwr -useb https://bit.ly/sevurdtoolbox | iex"
+$Shortcut.Save()
 
 # GUI Specs
 Write-Host "Checking winget..."
@@ -800,8 +805,8 @@ $autoruns.Add_Click({
     expand-archive -path 'C:\Sevurd_Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
     & 'C:\Program Files\Autoruns\Autoruns64.exe'
     $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut('C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk')
-    $Shortcut.TargetPath = 'C:\Program Files\Autoruns\Autoruns64.exe'
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk")
+    $Shortcut.TargetPath = "C:\Program Files\Autoruns\Autoruns64.exe"
     $Shortcut.Save()
     Write-Host "Installed Autoruns"
     $ResultText.text = "`r`n" + "Finished Installing Autoruns" + "`r`n" + "`r`n" + "Ready for Next Task"
