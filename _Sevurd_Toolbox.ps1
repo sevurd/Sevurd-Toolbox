@@ -232,7 +232,7 @@ $nvcleanstall.location           = New-Object System.Drawing.Point(4,750)
 $nvcleanstall.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $nvidia                          = New-Object system.Windows.Forms.Button
-$nvidia.text                     = "Nvidia Driver (497.29)"
+$nvidia.text                     = "Download Nvidia Driver"
 $nvidia.width                    = 212
 $nvidia.height                   = 30
 $nvidia.location                 = New-Object System.Drawing.Point(4,785)
@@ -295,7 +295,7 @@ $performancefx.location          = New-Object System.Drawing.Point(3,419)
 $performancefx.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $onedrive                        = New-Object system.Windows.Forms.Button
-$onedrive.text                   = "Uninstall & Disable  OneDrive"
+$onedrive.text                   = "Uninstall OneDrive"
 $onedrive.width                  = 205
 $onedrive.height                 = 30
 $onedrive.location               = New-Object System.Drawing.Point(3,521)
@@ -421,7 +421,7 @@ $ELocation.location              = New-Object System.Drawing.Point(2,655)
 $ELocation.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $InstallOneDrive                 = New-Object system.Windows.Forms.Button
-$InstallOneDrive.text            = "Install & Enable OneDrive"
+$InstallOneDrive.text            = "Install OneDrive"
 $InstallOneDrive.width           = 205
 $InstallOneDrive.height          = 30
 $InstallOneDrive.location        = New-Object System.Drawing.Point(2,554)
@@ -661,11 +661,9 @@ $discord.Add_Click({
 })
 
 $nvidia.Add_Click({
-    Write-Host "Installing Nvidia Driver"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Nvidia Driver... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://us.download.nvidia.com/Windows/497.29/497.29-notebook-win10-win11-64bit-international-dch-whql.exe" -Destination 'C:\Sevurd_Toolbox\nvidia-497.29.exe'
-    $ResultText.text = "`r`n" + "Finished Installing Nvidia Driver" + "`r`n" + "`r`n" + "Ready for Next Task"
+    Write-Host "Download Nvidia Driver"
+    $ResultText.text = "`r`n" +"`r`n" + "Download Nvidia Driver..." 
+    Start-Process "https://www.nvidia.com/Download/Find.aspx"
 })
 
 $notepad.Add_Click({
