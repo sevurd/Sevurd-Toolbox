@@ -685,7 +685,7 @@ $ubisoft.Add_Click({
 
 $valorant.Add_Click({
     Write-Host "Installing Valorant"
-    $ResultText.text = "`r`n" +"`r`n" + "Valorant... Please Wait" 
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Valorant... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd_Toolbox\Varorant.exe'
     & 'C:\Sevurd_Toolbox\Varorant.exe'
