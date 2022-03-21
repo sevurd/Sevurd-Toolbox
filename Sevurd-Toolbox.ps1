@@ -805,7 +805,13 @@ $rufus.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd Toolbox\rufus-3.18.exe'
+    Write-Host "Installed Rufus"
     $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
+    & 'C:\Sevurd Toolbox\rufus-3.18.exe' | Out-Host
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Rufus.lnk")
+    $Shortcut.TargetPath = "C:\Sevurd Toolbox\rufus-3.18.exe"
+    $Shortcut.Save()
 })
 
 $spotify.Add_Click({
