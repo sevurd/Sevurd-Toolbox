@@ -742,6 +742,10 @@ $ddu.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\DDU.zip'
     expand-archive -path 'C:\Sevurd_Toolbox\DDU.zip' -destinationpath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe'
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
+    $Shortcut.TargetPath = "C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe"
+    $Shortcut.Save()
     $ResultText.text = "`r`n" + "Finished Installing Display Driver Uninstaller" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
