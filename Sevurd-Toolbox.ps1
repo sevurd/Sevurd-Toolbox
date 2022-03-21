@@ -250,6 +250,12 @@ $nvidia.height                   = 30
 $nvidia.location                 = New-Object System.Drawing.Point(4,815)
 $nvidia.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$msimode                         = New-Object system.Windows.Forms.Button
+$msimode.text                    = "MSI Mode Utility"
+$msimode.width                   = 212
+$msimode.height                  = 30
+$msimode.location                = New-Object System.Drawing.Point(4,850)
+$msimode.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Panel2                          = New-Object system.Windows.Forms.Panel
 $Panel2.height                   = 938
@@ -625,7 +631,7 @@ $restorepower.location           = New-Object System.Drawing.Point(4,159)
 $restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Label11,$urlfixwinstartup,$urlremovevirus,$urlcreateiso))
-$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
+$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
@@ -679,6 +685,21 @@ $nvidia.Add_Click({
     Write-Host "Download Nvidia Driver"
     $ResultText.text = "`r`n" +"`r`n" + "Download Nvidia Driver..." 
     Start-Process "https://www.nvidia.com/Download/Find.aspx"
+})
+
+$msimode.Add_Click({
+    Write-Host "Installing MSI Mode Utility"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing MSI Mode Utility" 
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
+    Expand-Archive -path 'C:\Sevurd Toolbox\MSI Mode.zip' -DestinationPath 'C:\Program Files (x86)'
+    & 'C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe'
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MSI Mode.lnk")
+    $Shortcut.TargetPath = "C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe"
+    $Shortcut.Save()
+    Write-Host "Installed MSI Mode Utility"
+    $ResultText.text = "`r`n" + "Finished Installing MSI Mode Utility" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $notepad.Add_Click({
@@ -739,7 +760,7 @@ $ddu.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd Toolbox\DDU.zip'
-    expand-archive -path 'C:\Sevurd Toolbox\DDU.zip' -destinationpath 'C:\Program Files (x86)'
+    Expand-Archive -path 'C:\Sevurd Toolbox\DDU.zip' -DestinationPath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
@@ -765,7 +786,7 @@ $visualc.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Visual C++... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd Toolbox\VisualCppRedist.zip'
-    expand-archive -path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -destinationpath 'C:\Sevurd Toolbox'
+    Expand-Archive -path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -DestinationPath 'C:\Sevurd Toolbox'
     & 'C:\Sevurd Toolbox\VisualCppRedist_AIO_x86_x64.exe'
     $ResultText.text = "`r`n" + "Finished Installing Visual C++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -805,7 +826,7 @@ $autoruns.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Autoruns... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd Toolbox\Autoruns.zip'
-    expand-archive -path 'C:\Sevurd Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
+    Expand-Archive -path 'C:\Sevurd Toolbox\Autoruns.zip' -DestinationPath 'C:\Program Files'
     & 'C:\Program Files\Autoruns\Autoruns64.exe'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk")
