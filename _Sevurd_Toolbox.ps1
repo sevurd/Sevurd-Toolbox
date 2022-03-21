@@ -712,11 +712,11 @@ $nvcleanstall.Add_Click({
 
 $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
-    $ResultText.text = "`r`n" +"`r`n" + "Display Driver Uninstaller... Please Wait" 
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://www.wagnardsoft.com/DDU/download/DDU%20v18.0.4.9.exe" -Destination 'C:\Sevurd_Toolbox\DDU.exe'
-    & 'C:\Sevurd_Toolbox\DDU.exe'
-    & 'C:\Sevurd_Toolbox\DDU v18.0.4.9\Display Driver Uninstaller.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\DDU.zip'
+    expand-archive -path 'C:\Sevurd_Toolbox\DDU.zip' -destinationpath 'C:\Program Files (x86)'
+    & 'C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe'
     $ResultText.text = "`r`n" + "Finished Installing Display Driver Uninstaller" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
