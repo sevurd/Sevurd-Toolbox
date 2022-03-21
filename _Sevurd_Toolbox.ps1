@@ -678,8 +678,12 @@ $notepad.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Sevurd_Toolbox\notepad++.exe'
-    & 'C:\Sevurd_Toolbox\notepad++.exe'
+    & 'C:\Sevurd_Toolbox\notepad++.exe' /S
+    New-Item -Path "C:\Users\*\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination 'C:\Users\*\AppData\Roaming\Notepad++\config.xml'
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
+
 })
 
 $ubisoft.Add_Click({
