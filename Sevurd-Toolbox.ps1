@@ -17,7 +17,7 @@ Write-Host "Creating shortcut on Desktop..."
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.lnk")
 $Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-$Shortcut.Arguments = "iwr -useb https://bit.ly/sevurdtoolbox | iex"
+$Shortcut.Arguments = "iwr -useb https://bit.ly/sevurd-toolbox | iex"
 $Shortcut.Save()
 Write-Host "Creating folder in C drive..."
 New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
