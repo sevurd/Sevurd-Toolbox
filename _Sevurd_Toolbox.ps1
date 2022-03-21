@@ -19,6 +19,8 @@ $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.ln
 $Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 $Shortcut.Arguments = "iwr -useb https://bit.ly/sevurdtoolbox | iex"
 $Shortcut.Save()
+Write-Host "Creating folder in C drive..."
+New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
 # GUI Specs
 Write-Host "Checking winget..."
@@ -37,9 +39,6 @@ else{
 	Write-Host Winget Installed
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
 }
-
-Write-Host "Created 'Sevurd_Toolbox' folder in C drive..."
-New-Item -Path "C:\" -Name "Sevurd_Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
 
 $Form                         = New-Object system.Windows.Forms.Form
@@ -686,8 +685,8 @@ $notepad.Add_Click({
     Write-Host "Installing Notepad++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Sevurd_Toolbox\notepad++.exe'
-    & 'C:\Sevurd_Toolbox\notepad++.exe' /S
+    Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Sevurd Toolbox\notepad++.exe'
+    & 'C:\Sevurd Toolbox\notepad++.exe' /S
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
@@ -714,8 +713,8 @@ $valorant.Add_Click({
     Write-Host "Installing Valorant"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Valorant... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd_Toolbox\Varorant.exe'
-    & 'C:\Sevurd_Toolbox\Varorant.exe'
+    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd Toolbox\Varorant.exe'
+    & 'C:\Sevurd Toolbox\Varorant.exe'
     $ResultText.text = "`r`n" + "Finished Installing Valorant" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -739,8 +738,8 @@ $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\DDU.zip'
-    expand-archive -path 'C:\Sevurd_Toolbox\DDU.zip' -destinationpath 'C:\Program Files (x86)'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd Toolbox\DDU.zip'
+    expand-archive -path 'C:\Sevurd Toolbox\DDU.zip' -destinationpath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
@@ -765,9 +764,9 @@ $visualc.Add_Click({
     Write-Host "Installing Visual C++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Visual C++... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd_Toolbox\VisualCppRedist.zip'
-    expand-archive -path 'C:\Sevurd_Toolbox\VisualCppRedist.zip' -destinationpath 'C:\Sevurd_Toolbox'
-    & 'C:\Sevurd_Toolbox\VisualCppRedist_AIO_x86_x64.exe'
+    Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd Toolbox\VisualCppRedist.zip'
+    expand-archive -path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -destinationpath 'C:\Sevurd Toolbox'
+    & 'C:\Sevurd Toolbox\VisualCppRedist_AIO_x86_x64.exe'
     $ResultText.text = "`r`n" + "Finished Installing Visual C++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -775,8 +774,8 @@ $directx.Add_Click({
     Write-Host "Installing DirectX"
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Sevurd_Toolbox\dxwebsetup.exe'
-    & 'C:\Sevurd_Toolbox\dxwebsetup.exe'
+    Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Sevurd Toolbox\dxwebsetup.exe'
+    & 'C:\Sevurd Toolbox\dxwebsetup.exe'
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -784,7 +783,7 @@ $rufus.Add_Click({
     Write-Host "Installing Rufus"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd_Toolbox\rufus-3.18.exe'
+    Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd Toolbox\rufus-3.18.exe'
     $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -792,8 +791,8 @@ $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd_Toolbox\SpotifyFullSetup.exe'
-    & 'C:\Sevurd_Toolbox\SpotifyFullSetup.exe' /Silent
+    Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd Toolbox\SpotifyFullSetup.exe'
+    & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Spotify/prefs" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
@@ -805,8 +804,8 @@ $autoruns.Add_Click({
     Write-Host "Installing Autoruns"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Autoruns... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\Autoruns.zip'
-    expand-archive -path 'C:\Sevurd_Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd Toolbox\Autoruns.zip'
+    expand-archive -path 'C:\Sevurd Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
     & 'C:\Program Files\Autoruns\Autoruns64.exe'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk")
