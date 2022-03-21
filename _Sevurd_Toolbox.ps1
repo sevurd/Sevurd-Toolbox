@@ -202,11 +202,18 @@ $ubisoft.height                  = 30
 $ubisoft.location                = New-Object System.Drawing.Point(4,605)
 $ubisoft.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$origin                          = New-Object system.Windows.Forms.Button
+$origin.text                     = "Origin"
+$origin.width                    = 212
+$origin.height                   = 30
+$origin.location                 = New-Object System.Drawing.Point(4,640)
+$origin.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $valorant                        = New-Object system.Windows.Forms.Button
 $valorant.text                   = "Valorant"
 $valorant.width                  = 212
 $valorant.height                 = 30
-$valorant.location               = New-Object System.Drawing.Point(4,640)
+$valorant.location               = New-Object System.Drawing.Point(4,675)
 $valorant.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label7                          = New-Object system.Windows.Forms.Label
@@ -214,28 +221,28 @@ $Label7.text                     = "Others"
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(90,695)
+$Label7.location                 = New-Object System.Drawing.Point(90,725)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
 $ddu                             = New-Object system.Windows.Forms.Button
 $ddu.text                        = "Display Driver Uninstaller"
 $ddu.width                       = 212
 $ddu.height                      = 30
-$ddu.location                    = New-Object System.Drawing.Point(4,715)
+$ddu.location                    = New-Object System.Drawing.Point(4,745)
 $ddu.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $nvcleanstall                    = New-Object system.Windows.Forms.Button
 $nvcleanstall.text               = "NVCleanstall"
 $nvcleanstall.width              = 212
 $nvcleanstall.height             = 30
-$nvcleanstall.location           = New-Object System.Drawing.Point(4,750)
+$nvcleanstall.location           = New-Object System.Drawing.Point(4,780)
 $nvcleanstall.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $nvidia                          = New-Object system.Windows.Forms.Button
 $nvidia.text                     = "Download Nvidia Driver"
 $nvidia.width                    = 212
 $nvidia.height                   = 30
-$nvidia.location                 = New-Object System.Drawing.Point(4,785)
+$nvidia.location                 = New-Object System.Drawing.Point(4,815)
 $nvidia.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 
@@ -613,7 +620,7 @@ $restorepower.location           = New-Object System.Drawing.Point(4,159)
 $restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Label11,$urlfixwinstartup,$urlremovevirus,$urlcreateiso))
-$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$ubisoft,$directx,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$etcher,$translucenttb,$spotify,$discord,$autohotkey))
+$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$etcher,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
@@ -681,6 +688,14 @@ $ubisoft.Add_Click({
     winget install -e Ubisoft.Connect | Out-Host
     if($?) { Write-Host "Installed Ubisift Connect" }
     $ResultText.text = "`r`n" + "Finished Installing Ubisift Connect" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$origin.Add_Click({
+    Write-Host "Installing Origin"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Origin... Please Wait" 
+    winget install -e ElectronicArts.EADesktop | Out-Host
+    if($?) { Write-Host "Installed Origin" }
+    $ResultText.text = "`r`n" + "Finished Installing Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $valorant.Add_Click({
