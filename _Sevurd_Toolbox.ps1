@@ -683,7 +683,6 @@ $notepad.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination 'C:\Users\*\AppData\Roaming\Notepad++\config.xml'
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
-
 })
 
 $ubisoft.Add_Click({
