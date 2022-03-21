@@ -12,7 +12,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 Write-Host "Downloading script..."
 Import-Module BitsTransfer
-Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Sevurd_Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
+Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
 Write-Host "Creating shortcut on Desktop..."
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.lnk")
@@ -671,7 +671,7 @@ $discord.Add_Click({
     if($?) { Write-Host "Installed Discord" }
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/discord/settings.json" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
     $ResultText.text = "`r`n" + "Finished Installing Discord" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -689,7 +689,7 @@ $notepad.Add_Click({
     & 'C:\Sevurd Toolbox\notepad++.exe' /S
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -795,7 +795,7 @@ $spotify.Add_Click({
     & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Spotify/prefs" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
     Write-Host "Installed Spotify"
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
