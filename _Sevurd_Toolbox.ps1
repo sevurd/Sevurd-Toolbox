@@ -137,12 +137,12 @@ $telegram.height                 = 30
 $telegram.location               = New-Object System.Drawing.Point(4,275)
 $telegram.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$etcher                          = New-Object system.Windows.Forms.Button
-$etcher.text                     = "Etcher USB Creator"
-$etcher.width                    = 212
-$etcher.height                   = 30
-$etcher.location                 = New-Object System.Drawing.Point(4,310)
-$etcher.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$autoruns                        = New-Object system.Windows.Forms.Button
+$autoruns.text                   = "Autoruns"
+$autoruns.width                  = 212
+$autoruns.height                 = 30
+$autoruns.location               = New-Object System.Drawing.Point(4,310)
+$autoruns.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $rufus                           = New-Object system.Windows.Forms.Button
 $rufus.text                      = "Rufus"
@@ -620,7 +620,7 @@ $restorepower.location           = New-Object System.Drawing.Point(4,159)
 $restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Label11,$urlfixwinstartup,$urlremovevirus,$urlcreateiso))
-$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$etcher,$translucenttb,$spotify,$discord,$autohotkey))
+$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
@@ -791,12 +791,16 @@ $spotify.Add_Click({
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
-$etcher.Add_Click({
-    Write-Host "Installing Etcher USB Imager"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Etcher USB Imager... Please Wait" 
-    winget install -e Balena.Etcher | Out-Host
-    Write-Host "Installed Etcher USB Imager"
-    $ResultText.text = "`r`n" + "Finished Installing Etcher USB Imager" + "`r`n" + "`r`n" + "Ready for Next Task"
+$autoruns.Add_Click({
+    Write-Host "Installing Autoruns"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Autoruns... Please Wait" 
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd_Toolbox\Autoruns.zip'
+    expand-archive -path 'C:\Sevurd_Toolbox\Autoruns.zip' -destinationpath 'C:\Program Files'
+    & 'C:\Program Files\Autoruns\Autoruns64.exe'
+    New-Item -ItemType Shortcut -Path "C:\Program Files\Autoruns" -Name "Autoruns.lnk" -Value "C:\Program Files\Autoruns\Autoruns64.exe"
+    Write-Host "Installed Autoruns"
+    $ResultText.text = "`r`n" + "Finished Installing Autoruns" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $whatsapp.Add_Click({
@@ -1209,7 +1213,7 @@ $essentialtweaks.Add_Click({
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Notepad%2B%2B/config.xml" -Destination 'C:\Users\*\AppData\Roaming\Notepad++\config.xml'
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/Spotify/prefs" -Destination 'C:\Users\*\AppData\Roaming\Spotify\prefs'
     #>
-    
+
     # Service tweaks to Manual 
 
     $services = @(
