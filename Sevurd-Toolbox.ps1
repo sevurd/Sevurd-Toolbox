@@ -751,6 +751,9 @@ $7zip.Add_Click({
     Write-Host "Installing 7-Zip Compression Tool"
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     winget install -e 7zip.7zip | Out-Host
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
+    regedit /s "C:\Sevurd Toolbox\7-ZIP.reg"
     if($?) { Write-Host "Installed 7-Zip Compression Tool" }
     $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
