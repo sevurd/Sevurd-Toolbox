@@ -1764,7 +1764,7 @@ $actioncenter.Add_Click({
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Force
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Name "Enabled" -Type DWord -Value 0
     Write-Host "Disabled Action Center and Notifications"
-    $ResultText.text = "`r`n" +"`r`n" + "Disabled Action Center and Notifications"
+    $ResultText.text = "`r`n" +"`r`n" + "Disabled Action Center and Notifications" +"`r`n" + "Restart to take effect"
 })
 
 $performancefx.Add_Click({
@@ -1843,7 +1843,7 @@ $lightmode.Add_Click({
 })
 
 $EActionCenter.Add_Click({
-    Write-Host "Enabling Action Center..."
+    Write-Host "Enabling Action Center and Notifications..."
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -ErrorAction SilentlyContinue
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -ErrorAction SilentlyContinue
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance" -Name "Enabled" -Type DWord -Value 0
@@ -1851,7 +1851,7 @@ $EActionCenter.Add_Click({
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.CapabilityAccess" -Name "Enabled" -Type DWord -Value 0
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Name "Enabled" -Type DWord -Value 0
 	Write-Host "Done - Reverted to Stock Settings"
-    $ResultText.text = "`r`n" +"`r`n" + "Enabled Action Center"
+    $ResultText.text = "`r`n" +"`r`n" + "Enabled Action Center and Notifications" +"`r`n" + "Restart to take effect"
 })
 
 $ECortana.Add_Click({
