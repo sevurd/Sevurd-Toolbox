@@ -675,7 +675,7 @@ $sdio.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.2.742.zip" -Destination "C:\Sevurd Toolbox\SDIO.zip"
     Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)"
-    & "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
+    & 'C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_auto.bat'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk")
     $Shortcut.TargetPath = "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
