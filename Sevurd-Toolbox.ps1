@@ -1599,12 +1599,17 @@ $Bloatware = @(
     "Microsoft.Office.Sway"
     "Microsoft.Office.OneNote"
     "Microsoft.OneConnect"
+    "Microsoft.OneDriveSync"
     "Microsoft.People"
+    "Microsoft.PowerAutomateDesktop"
     "Microsoft.Print3D"
     "Microsoft.SkypeApp"
+    "MicrosoftTeams"
+    "Microsoft.Todos"
     "Microsoft.Wallet"
     "Microsoft.Whiteboard"
     "Microsoft.WindowsAlarms"
+    "Microsoft.WindowsCamera"
     "Microsoft.windowscommunicationsapps"
     "Microsoft.WindowsFeedbackHub"
     "Microsoft.WindowsMaps"
@@ -1626,9 +1631,11 @@ $Bloatware = @(
     "Microsoft.YourPhone"
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
+    "MicrosoftWindows.Client.WebExperience"
 	"Disney.37853FC22B2CE"
+    "SpotifyAB.SpotifyMusic"
 	"Microsoft.549981C3F5F10"
-	"MicrosoftWindows.Client.WebExperience"
+	
 	
 
     #Sponsored Windows 10 AppX Apps
@@ -1647,7 +1654,7 @@ $Bloatware = @(
     "*Royal Revolt*"
     "*Sway*"
     "*Speed Test*"
-    #"*Dolby*"
+    "*Dolby*"
     "*Viber*"
     "*ACGMediaPlayer*"
     "*Netflix*"
@@ -1661,7 +1668,7 @@ $Bloatware = @(
 
     #Optional: Typically not removed but you can if you need to for some reason
     "*Microsoft.Advertising.Xaml*"
-    #"*Microsoft.MSPaint*"
+    "*Microsoft.MSPaint*"
     "*Microsoft.MicrosoftStickyNotes*"
     #"*Microsoft.Windows.Photos*"
     #"*Microsoft.WindowsCalculator*"
