@@ -718,6 +718,7 @@ $notepad.Add_Click({
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
+    Write-Host "Installed Notepad++"
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -741,8 +742,8 @@ $valorant.Add_Click({
     Write-Host "Installing Valorant"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Valorant... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd Toolbox\Varorant.exe'
-    & 'C:\Sevurd Toolbox\Varorant.exe'
+    Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd Toolbox\Valorant.exe'
+    & 'C:\Sevurd Toolbox\Valorant.exe'
     $ResultText.text = "`r`n" + "Finished Installing Valorant" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
