@@ -2,8 +2,9 @@
 Windows 10 Toolbox. Edited from ChrisTitusTech Toolbox.
 
 # Requirments
->> Internet
->> Windows 10
+ - Internet
+ 
+ - Windows 10
 
 # How to run
 Paste this command in Powershell
