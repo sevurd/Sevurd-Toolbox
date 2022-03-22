@@ -274,8 +274,15 @@ $essentialtweaks                 = New-Object system.Windows.Forms.Button
 $essentialtweaks.text            = "Essential Tweaks"
 $essentialtweaks.width           = 205
 $essentialtweaks.height          = 75
-$essentialtweaks.location        = New-Object System.Drawing.Point(0,24)
+$essentialtweaks.location        = New-Object System.Drawing.Point(3,24)
 $essentialtweaks.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+
+$cleanup                         = New-Object system.Windows.Forms.Button
+$cleanup.text                    = "Cleanup Windows"
+$cleanup.width                   = 205
+$cleanup.height                  = 30
+$cleanup.location                = New-Object System.Drawing.Point(3,104)
+$cleanup.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $backgroundapps                  = New-Object system.Windows.Forms.Button
 $backgroundapps.text             = "Disable Background Apps"
@@ -632,7 +639,7 @@ $restorepower.Font               = New-Object System.Drawing.Font('Microsoft San
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Label11,$urlfixwinstartup,$urlremovevirus,$urlcreateiso))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
+$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
 
@@ -1416,8 +1423,19 @@ foreach ($service in $services) {
     }
 })
 
+$cleanup.Add_Click({
+    Write-Host "Cleaning up windows"
+    $ResultText.text = "`r`n" + "`r`n" + "Cleaning up windows...Please wait"
+    Remove-Item -Path “C:\Users\*\Appdata\Local\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path “C:\Windows\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path “C:\Windows\Prefetch\*” -Recurse -Force -ErrorAction SilentlyContinue
+    cleanmgr /sagerun:1 | Out-Null
+    Write-Host "Cleaned up windows"
+    $ResultText.text = "`r`n" + "Cleaned up windows" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
 $dualboottime.Add_Click({
-Write-Host "Setting BIOS time to UTC..."
+    Write-Host "Setting BIOS time to UTC..."
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" -Name "RealTimeIsUniversal" -Type DWord -Value 1
     $ResultText.text = "`r`n" + "Time set to UTC for consistent time in Dual Boot Systems" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -1430,7 +1448,6 @@ $laptopnumlock.Add_Click({
         $wsh.SendKeys('{NUMLOCK}')
     }
 })
-
 
 $windowssearch.Add_Click({
     Write-Host "Disabling Bing Search in Start Menu..."
