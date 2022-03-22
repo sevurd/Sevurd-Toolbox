@@ -1426,9 +1426,9 @@ foreach ($service in $services) {
 $cleanup.Add_Click({
     Write-Host "Cleaning up windows"
     $ResultText.text = "`r`n" + "`r`n" + "Cleaning up windows...Please wait"
-    Remove-Item -Path “C:\Users\*\Appdata\Local\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
-    Remove-Item -Path “C:\Windows\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
-    Remove-Item -Path “C:\Windows\Prefetch\*” -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
+    #Remove-Item -Path “C:\Windows\Prefetch\*” -Recurse -Force -ErrorAction SilentlyContinue
     Write-Host "Cleaned up windows"
     $ResultText.text = "`r`n" + "Cleaned up windows" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
