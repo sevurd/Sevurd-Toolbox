@@ -135,12 +135,12 @@ $whatsapp.height                 = 30
 $whatsapp.location               = New-Object System.Drawing.Point(4,240)
 $whatsapp.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$telegram                        = New-Object system.Windows.Forms.Button
-$telegram.text                   = "Telegram"
-$telegram.width                  = 212
-$telegram.height                 = 30
-$telegram.location               = New-Object System.Drawing.Point(4,275)
-$telegram.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$sdio                            = New-Object system.Windows.Forms.Button
+$sdio.text                       = "Snappy Driver Installer"
+$sdio.width                      = 212
+$sdio.height                     = 30
+$sdio.location                   = New-Object System.Drawing.Point(4,275)
+$sdio.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $autoruns                        = New-Object system.Windows.Forms.Button
 $autoruns.text                   = "Autoruns"
@@ -638,7 +638,7 @@ $restorepower.location           = New-Object System.Drawing.Point(4,159)
 $restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Label11,$urlfixwinstartup,$urlremovevirus,$urlcreateiso))
-$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$telegram,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
+$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$EClipboardHistory,$ELocation,$InstallOneDrive,$removebloat,$reinstallbloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$EHibernation,$dualboottime))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
@@ -669,12 +669,19 @@ $gchrome.Add_Click({
     $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
-$telegram.Add_Click({
-    Write-Host "Installing Telegram"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Telegram... Please Wait" 
-    winget install -e Telegram.TelegramDesktop | Out-Host
-    if($?) { Write-Host "Installed Telegram" }
-    $ResultText.text = "`r`n" + "Finished Installing Telegram" + "`r`n" + "`r`n" + "Ready for Next Task"
+$sdio.Add_Click({
+    Write-Host "Installing Snappy Driver Installer Origin"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing sdio... Please Wait" 
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.2.742.zip" -Destination "C:\Sevurd Toolbox\SDIO.zip"
+    Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)"
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk")
+    $Shortcut.TargetPath = "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
+    $Shortcut.Save()
+    & 'C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe'
+    Write-Host "Installed Snappy Driver Installer Origin"
+    $ResultText.text = "`r`n" + "Finished Installing Snappy Driver Installer Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $discord.Add_Click({
@@ -699,7 +706,7 @@ $msimode.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing MSI Mode Utility" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
-    Expand-Archive -path 'C:\Sevurd Toolbox\MSI Mode.zip' -DestinationPath 'C:\Program Files (x86)'
+    Expand-Archive -Path 'C:\Sevurd Toolbox\MSI Mode.zip' -DestinationPath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe'
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MSI Mode.lnk")
