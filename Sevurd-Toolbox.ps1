@@ -1429,7 +1429,6 @@ $cleanup.Add_Click({
     Remove-Item -Path “C:\Users\*\Appdata\Local\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
     Remove-Item -Path “C:\Windows\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
     Remove-Item -Path “C:\Windows\Prefetch\*” -Recurse -Force -ErrorAction SilentlyContinue
-    cleanmgr /sagerun:1 | Out-Null
     Write-Host "Cleaned up windows"
     $ResultText.text = "`r`n" + "Cleaned up windows" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
