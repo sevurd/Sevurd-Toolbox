@@ -784,6 +784,7 @@ $ddu.Add_Click({
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
     $Shortcut.TargetPath = "C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe"
     $Shortcut.Save()
+    Write-Host "Installed Display Driver Uninstaller"
     $ResultText.text = "`r`n" + "Finished Installing Display Driver Uninstaller" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -823,13 +824,12 @@ $rufus.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd Toolbox\rufus-3.18.exe'
-    & 'C:\Sevurd Toolbox\rufus-3.18.exe' | Out-Host
-    $WshShell = New-Object -comObject WScript.Shell
+    Write-Host "Installed Rufus"
+    $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
+    & 'C:\Sevurd Toolbox\rufus-3.18.exe' | Out-Null
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Rufus.lnk")
     $Shortcut.TargetPath = "C:\Sevurd Toolbox\rufus-3.18.exe"
     $Shortcut.Save()
-    if($?) { Write-Host "Installed Rufus" }
-    $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $spotify.Add_Click({
