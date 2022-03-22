@@ -671,15 +671,15 @@ $gchrome.Add_Click({
 
 $sdio.Add_Click({
     Write-Host "Installing Snappy Driver Installer Origin"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing sdio... Please Wait" 
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Snappy Driver Installer Origin... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.2.742.zip" -Destination "C:\Sevurd Toolbox\SDIO.zip"
-    Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)"
+    Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)\"
+    & 'C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe' | Out-Null
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk")
     $Shortcut.TargetPath = "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
     $Shortcut.Save()
-    & 'C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe'
     Write-Host "Installed Snappy Driver Installer Origin"
     $ResultText.text = "`r`n" + "Finished Installing Snappy Driver Installer Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
