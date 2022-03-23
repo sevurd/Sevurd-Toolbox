@@ -893,6 +893,8 @@ $essentialtweaks.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/PowerRun.ini?raw=true" -Destination 'C:\Windows\PowerRun.ini'
 
     Write-Host "Running O&O Shutup with Recommended Settings"
     $ResultText.text += "`r`n" +"Running O&O Shutup with Recommended Settings"
