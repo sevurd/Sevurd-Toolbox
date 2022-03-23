@@ -493,13 +493,16 @@ $windowsupdatefix.height         = 30
 $windowsupdatefix.location       = New-Object System.Drawing.Point(25,216)
 $windowsupdatefix.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
-$ResultText                      = New-Object System.Windows.Forms.TextBox
-$ResultText.Multiline            = $true
-$ResultText.ScrollBars           = "Vertical"  
+$ResultText                      = New-Object System.Windows.Forms.TextBox  
 $ResultText.width                = 382
 $ResultText.height               = 130
 $ResultText.location             = New-Object System.Drawing.Point(576,491)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ResultText.Multiline            = $true
+$ResultText.ScrollBars           = "Vertical"
+$ResultText.SelectionStart       = $ResultText.Text.Length;
+$ResultText.ScrollToCaret();
+
 
 $Label10                         = New-Object system.Windows.Forms.Label
 $Label10.text                    = "Current Status:"
@@ -1264,7 +1267,7 @@ $essentialtweaks.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
     PowerRun.exe regedit.exe /S "C:\Sevurd Toolbox\Gamebar Presence Writer.reg"
-    
+
     # Search
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "SafeSearchMode" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "IsAADCloudSearchEnabled" -Type DWord -Value 0
