@@ -817,7 +817,8 @@ $directx.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Sevurd Toolbox\dxwebsetup.exe'
-    & 'C:\Sevurd Toolbox\dxwebsetup.exe'
+    & 'C:\Sevurd Toolbox\dxwebsetup.exe' | Out-Host
+    if($?) { Write-Host "Installed DirectX" }
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
