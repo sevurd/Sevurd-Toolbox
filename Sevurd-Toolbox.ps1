@@ -1450,7 +1450,7 @@ foreach ($service in $services) {
     Write-Host "Essential Tweaks Completed - Please Reboot"
     $ResultText.text = "`r`n" + "Essential Tweaks Done" + "`r`n" + "`r`n" + "Ready for Next Task"
     
-    Add-Type -AssemblyName System.Windows.Forms
+    <#Add-Type -AssemblyName System.Windows.Forms
     $msgBoxInput =  [System.Windows.Forms.MessageBox]::Show('Click OK to restart the pc.','Restart','OK')
     switch  ($msgBoxInput) {
         'OK' {
@@ -1458,7 +1458,7 @@ foreach ($service in $services) {
         C:\Windows\System32\shutdown.exe /r /t 0
 
         }
-    }
+    }#>
 })
 
 $cleanup.Add_Click({
