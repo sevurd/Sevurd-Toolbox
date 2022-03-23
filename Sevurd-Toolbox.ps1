@@ -1,4 +1,5 @@
 Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 $ErrorActionPreference = 'SilentlyContinue'
@@ -388,6 +389,7 @@ $PictureBox1.height              = 136
 $PictureBox1.location            = New-Object System.Drawing.Point(580,850)
 $PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
 $PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom
+
 $lightmode                       = New-Object system.Windows.Forms.Button
 $lightmode.text                  = "Light Mode"
 $lightmode.width                 = 205
@@ -491,8 +493,9 @@ $windowsupdatefix.height         = 30
 $windowsupdatefix.location       = New-Object System.Drawing.Point(25,216)
 $windowsupdatefix.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
-$ResultText                      = New-Object system.Windows.Forms.TextBox
-$ResultText.multiline            = $true
+$ResultText                      = New-Object System.Windows.Forms.TextBox
+$ResultText.Multiline            = $true
+$ResultText.ScrollBars           = "Vertical"  
 $ResultText.width                = 382
 $ResultText.height               = 130
 $ResultText.location             = New-Object System.Drawing.Point(576,491)
@@ -839,6 +842,7 @@ $spotify.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd Toolbox\SpotifyFullSetup.exe'
     & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent | Out-Host
+    Stop-Process -Name "Spotify"
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
@@ -1127,8 +1131,8 @@ $essentialtweaks.Add_Click({
 
     # Edge
     Write-Host "Tweaking Edge..."
-    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineCore"
-    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineUA"
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineCore" | Out-Null
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineUA" | Out-Null
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "HardwareAccelerationModeEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "BackgroundModeEnabled" -Type DWord -Value 0
