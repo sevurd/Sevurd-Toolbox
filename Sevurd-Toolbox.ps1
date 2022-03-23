@@ -10,9 +10,6 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Exit
 }
 
-Write-Host "Downloading script..."
-Import-Module BitsTransfer
-Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox.ps1?raw=true" -Destination 'C:\Windows\_Sevurd_Toolbox.ps1'
 Write-Host "Creating shortcut on Desktop..."
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.lnk")
@@ -806,7 +803,7 @@ $visualc.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Visual C++... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd Toolbox\VisualCppRedist.zip'
-    Expand-Archive -path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -DestinationPath 'C:\Sevurd Toolbox'
+    Expand-Archive -Path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -DestinationPath 'C:\Sevurd Toolbox'
     & 'C:\Sevurd Toolbox\VisualCppRedist_AIO_x86_x64.exe' /ai | Out-Host
     if($?) { Write-Host "Installed Visual C++" }
     $ResultText.text = "`r`n" + "Finished Installing Visual C++" + "`r`n" + "`r`n" + "Ready for Next Task"
@@ -816,8 +813,9 @@ $directx.Add_Click({
     Write-Host "Installing DirectX"
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -Destination 'C:\Sevurd Toolbox\dxwebsetup.exe'
-    & 'C:\Sevurd Toolbox\dxwebsetup.exe' | Out-Host
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DirectX.zip?raw=true" -Destination 'C:\Sevurd Toolbox\DirectX.zip'
+    Expand-Archive -Path 'C:\Sevurd Toolbox\DirectX.zip' -DestinationPath 'C:\Sevurd Toolbox'
+    & 'C:\Sevurd Toolbox\DirectX\DXSETUP.exe' /silent | Out-Host
     if($?) { Write-Host "Installed DirectX" }
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -840,11 +838,11 @@ $spotify.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd Toolbox\SpotifyFullSetup.exe'
-    & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent
+    & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
-    Write-Host "Installed Spotify"
+    if($?) { Write-Host "Installed Spotify" }
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -888,7 +886,6 @@ $essentialtweaks.Add_Click({
     Write-Host "Transfering Essential Files..."
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_Cleanup.cmd?raw=true" -Destination 'C:\Windows\_Cleanup.cmd'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
@@ -911,12 +908,14 @@ $essentialtweaks.Add_Click({
     Disable-ScheduledTask -TaskName "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" | Out-Null
     Disable-ScheduledTask -TaskName "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" | Out-Null
     Write-Host "Disabling Wi-Fi Sense..."
+    $ResultText.text += "`r`n" +"Disabling Wi-Fi Sense..."
     If (!(Test-Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting")) {
         New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" -Name "Value" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" -Name "Value" -Type DWord -Value 0
     Write-Host "Disabling Application suggestions..."
+    $ResultText.text += "`r`n" +"Disabling Application suggestions..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "ContentDeliveryAllowed" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "OemPreInstalledAppsEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "PreInstalledAppsEnabled" -Type DWord -Value 0
@@ -932,20 +931,24 @@ $essentialtweaks.Add_Click({
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableWindowsConsumerFeatures" -Type DWord -Value 1
     Write-Host "Disabling Activity History..."
+    $ResultText.text += "`r`n" +"Disabling Activity History..."
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableActivityFeed" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "PublishUserActivities" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "UploadUserActivities" -Type DWord -Value 0
     # Keep Location Tracking commented out if you want the ability to locate your device
     Write-Host "Disabling Location Tracking..."
+    $ResultText.text += "`r`n" +"Disabling Location Tracking..."
     If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location")) {
         New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Name "Value" -Type String -Value "Deny"
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" -Name "SensorPermissionState" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration" -Name "Status" -Type DWord -Value 0
-    Write-Host "Disabling automatic Maps updates..."
+    Write-Host "Disabling Automatic Maps Updates..."
+    $ResultText.text += "`r`n" +"Disabling Automatic Maps Updates..."
     Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
     Write-Host "Disabling Feedback..."
+    $ResultText.text += "`r`n" +"Disabling Feedback..."
     If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules" -Force | Out-Null
     }
@@ -954,26 +957,32 @@ $essentialtweaks.Add_Click({
     Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClient" -ErrorAction SilentlyContinue | Out-Null
     Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" -ErrorAction SilentlyContinue | Out-Null
     Write-Host "Disabling Tailored Experiences..."
+    $ResultText.text += "`r`n" +"Disabling Tailored Experiences..."
     If (!(Test-Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent")) {
         New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableTailoredExperiencesWithDiagnosticData" -Type DWord -Value 1
     Write-Host "Disabling Advertising ID..."
+    $ResultText.text += "`r`n" +"Disabling Advertising ID..."
     If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo")) {
         New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" -Name "DisabledByGroupPolicy" -Type DWord -Value 1
-    Write-Host "Disabling Error reporting..."
+    Write-Host "Disabling Error Reporting..."
+    $ResultText.text += "`r`n" +"Disabling Error Reporting..."
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Type DWord -Value 1
     Disable-ScheduledTask -TaskName "Microsoft\Windows\Windows Error Reporting\QueueReporting" | Out-Null
     Write-Host "Restricting Windows Update P2P only to local network..."
+    $ResultText.text += "`r`n" +"Restricting Windows Update P2P Only to Local Network..."
     If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config")) {
         New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
     Write-Host "Enabling F8 boot menu options..."
+    $ResultText.text += "`r`n" +"Enabling F8 boot menu options..."
     bcdedit /set `{current`} bootmenupolicy Legacy | Out-Null
     # Disabling Services
+    $ResultText.text += "`r`n" +"Disabling unnecessary things..."
     Write-Host "Stopping and disabling Diagnostics Tracking Service..."
     Stop-Service "DiagTrack" -WarningAction SilentlyContinue
     Set-Service "DiagTrack" -StartupType Disabled
@@ -1015,15 +1024,25 @@ $essentialtweaks.Add_Click({
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" -Name "EnthusiastMode" -Type DWord -Value 1
     Write-Host "Hiding Task View button..."
+    $ResultText.text += "`r`n" +"Hiding Task View button..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
     Write-Host "Hiding People icon..."
+    $ResultText.text += "`r`n" +"Hiding People icon..."
     If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" | Out-Null
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Type DWord -Value 0
+    Write-Host "Hiding Cortana icon..."
+    $ResultText.text += "`r`n" +"Hiding Cortana..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Type DWord -Value 0
+    Write-Host "Set searchbox to icon..."
+    $ResultText.text += "`r`n" +"Set searchbox to icon..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
     Write-Host "Show tray icons..."
+    $ResultText.text += "`r`n" +"Show tray icons..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
     Write-Host "Enabling NumLock after startup..."
+    $ResultText.text += "`r`n" +"Enabling NumLock after startup..."
     If (!(Test-Path "HKU:")) {
         New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
     }
@@ -1035,10 +1054,11 @@ $essentialtweaks.Add_Click({
     }
 
     Write-Host "Changing default Explorer view to This PC..."
-    $ResultText.text += "`r`n" +"Quality of Life Tweaks"
+    $ResultText.text += "`r`n" +"Changing default Explorer view to This PC..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
 
     Write-Host "Hiding 3D Objects icon from This PC..."
+    $ResultText.text += "`r`n" +"Hiding 3D Objects icon from This PC..."
     Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" -Recurse -ErrorAction SilentlyContinue
 
 	# Network Tweaks
@@ -1076,6 +1096,7 @@ $essentialtweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 0
 
     
+    $ResultText.text += "`r`n" +"More System Tweaks"
 
     
     Write-Host "Disable Hibernate"
@@ -1106,6 +1127,8 @@ $essentialtweaks.Add_Click({
 
     # Edge
     Write-Host "Tweaking Edge..."
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineCore"
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineUA"
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "HardwareAccelerationModeEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "BackgroundModeEnabled" -Type DWord -Value 0
@@ -1179,8 +1202,6 @@ $essentialtweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "EnableTransparency" -Type DWord -Value 0
     Write-Host "Increase wallpaper quality..."
     Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "JPEGImportQuality" -Type DWord -Value 100
-    Write-Host "Set search icon..."
-    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
 
     # Sound
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Multimedia\Audio" -Name "UserDuckingPreference" -Type DWord -Value 3
@@ -1197,7 +1218,7 @@ $essentialtweaks.Add_Click({
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
     New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "ctfmon" -Type String -Value "C:\\Windows\\System32\\ctfmon.exe"
-    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree" -Force -ErrorAction SilentlyContinue
 
     # Power Settings
     Write-Host "Disable Sleep..."
