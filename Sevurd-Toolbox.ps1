@@ -36,7 +36,7 @@ else{
 	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
 	$nid = (Get-Process AppInstaller).Id
 	Wait-Process -Id $nid
-	Write-Host Winget Installed
+	Write-Host "Winget Installed"
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
 }
 
@@ -675,12 +675,12 @@ $sdio.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.2.742.zip" -Destination "C:\Sevurd Toolbox\SDIO.zip"
     Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)"
-    Start-Process -FilePath "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe" -WorkingDirectory "C:\Program Files (x86)\SDIO_1.12.2.742"
+    Start-Process -FilePath "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe" -WorkingDirectory "C:\Program Files (x86)\SDIO_1.12.2.742" | Out-Host
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk")
     $Shortcut.TargetPath = "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
     $Shortcut.Save()
-    Write-Host "Installed Snappy Driver Installer Origin"
+    if($?) { Write-Host "Installed Snappy Driver Installer Origin" }
     $ResultText.text = "`r`n" + "Finished Installing Snappy Driver Installer Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -688,10 +688,10 @@ $discord.Add_Click({
     Write-Host "Installing Discord"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Discord... Please Wait" 
     winget install -e Discord.Discord | Out-Host
-    if($?) { Write-Host "Installed Discord" }
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
+    if($?) { Write-Host "Installed Discord" }
     $ResultText.text = "`r`n" + "Finished Installing Discord" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -712,7 +712,7 @@ $msimode.Add_Click({
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\MSI Mode.lnk")
     $Shortcut.TargetPath = "C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe"
     $Shortcut.Save()
-    Write-Host "Installed MSI Mode Utility"
+    if($?) { Write-Host "Installed MSI Mode Utility" }
     $ResultText.text = "`r`n" + "Finished Installing MSI Mode Utility" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -751,6 +751,7 @@ $valorant.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.na.exe" -Destination 'C:\Sevurd Toolbox\Valorant.exe'
     & 'C:\Sevurd Toolbox\Valorant.exe'
+    Write-Host "Installed Valorant"
     $ResultText.text = "`r`n" + "Finished Installing Valorant" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
@@ -806,7 +807,8 @@ $visualc.Add_Click({
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://kutt.it/vcppredist" -Destination 'C:\Sevurd Toolbox\VisualCppRedist.zip'
     Expand-Archive -path 'C:\Sevurd Toolbox\VisualCppRedist.zip' -DestinationPath 'C:\Sevurd Toolbox'
-    & 'C:\Sevurd Toolbox\VisualCppRedist_AIO_x86_x64.exe'
+    & 'C:\Sevurd Toolbox\VisualCppRedist_AIO_x86_x64.exe' /ai | Out-Host
+    if($?) { Write-Host "Installed Visual C++" }
     $ResultText.text = "`r`n" + "Finished Installing Visual C++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
