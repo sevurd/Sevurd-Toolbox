@@ -17,4 +17,4 @@ Or,
 
 iwr -useb https://bit.ly/sevurd-toolbox | iex
 
-You need this command only for one time. Next time when you want to run it you don't need to paste this command. A shortcut of the script will be created  automatically on Desktop. You can run the scipt from there anytime.
+A shortcut of the script will be created  automatically on Desktop. You can run the scipt from there anytime.
