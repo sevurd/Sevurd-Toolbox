@@ -1,1 +1,0 @@
-Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree" -Recurse -ErrorAction SilentlyContinue
