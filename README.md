@@ -7,6 +7,8 @@ Windows 10 Toolbox. Edited from ChrisTitusTech Toolbox.
  - Windows 10
 
 # How to run
+Open Powershell with Admin Privilege
+
 Paste this command in Powershell
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://bit.ly/sevurd-toolbox'))
