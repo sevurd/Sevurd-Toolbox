@@ -7,6 +7,8 @@ Windows 10 Toolbox. Edited from ChrisTitusTech Toolbox.
  - Windows 10
 
 # How to run
+Open Powershell with Admin Privilege
+
 Paste this command in Powershell
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://bit.ly/sevurd-toolbox'))
@@ -15,4 +17,4 @@ Or,
 
 iwr -useb https://bit.ly/sevurd-toolbox | iex
 
-You need this command only for one time. Next time when you want to run it you don't need to paste this command. A shortcut of the script will be created  automatically on Desktop. You can run the scipt from there anytime.
+A shortcut of the script will be created  automatically on Desktop. You can run the scipt from there anytime.
