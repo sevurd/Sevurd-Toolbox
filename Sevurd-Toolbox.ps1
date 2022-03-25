@@ -605,9 +605,9 @@ if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
 else{
     # Installing chocolatey
 	Write-Host "Chocolatey not found, installing it now."
-    #$ResultText.text += "`r`n" + "`r`n" + "Chocolatey not found"
-    #$ResultText.text += "`r`n" + "`r`n" + "Installing Chocolatey... Please Wait"
-	iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    	#$ResultText.text += "`r`n" + "`r`n" + "Chocolatey not found"
+    	#$ResultText.text += "`r`n" + "`r`n" + "Installing Chocolatey... Please Wait"
+	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 	Write-Host "Chocolatey Installed. Please close powershell and run the script again"
     $ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
 }
