@@ -20,25 +20,6 @@ $Shortcut.Save()
 Write-Host "Creating folder in C drive..."
 New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
-# GUI Specs
-Write-Host "Checking winget..."
-
-# Check if winget is installed
-if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
-    'Winget Already Installed'
-}  
-else{
-    # Installing winget from the Microsoft Store
-	Write-Host "Winget not found, installing it now."
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Winget... Please Wait"
-	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
-	$nid = (Get-Process AppInstaller).Id
-	Wait-Process -Id $nid
-	Write-Host "Winget Installed"
-    $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
-}
-
-
 $Form                         = New-Object system.Windows.Forms.Form
 $Form.ClientSize              = New-Object System.Drawing.Point(1050,1000)
 $Form.text                    = "Windows Toolbox By Sevurd"
@@ -242,7 +223,7 @@ $nvcleanstall.location           = New-Object System.Drawing.Point(4,780)
 $nvcleanstall.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $nvidia                          = New-Object system.Windows.Forms.Button
-$nvidia.text                     = "Download Nvidia Driver"
+$nvidia.text                     = "Nvidia Display Driver"
 $nvidia.width                    = 212
 $nvidia.height                   = 30
 $nvidia.location                 = New-Object System.Drawing.Point(4,815)
@@ -613,10 +594,28 @@ $Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$backgroundapps,$cortana,$
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$NFS,$laptopnumlock,$Virtualization,$oldpower,$restorepower))
 
+# GUI Specs
+Write-Host "Checking if chocolatey installed..."
+#$ResultText.text = "`r`n" + "Checking if chocolatey installed..."
+
+# Check if chocolatey is installed
+if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
+    'Chocolatey Already Installed'
+}
+else{
+    # Installing chocolatey
+	Write-Host "Chocolatey not found, installing it now."
+    #$ResultText.text += "`r`n" + "`r`n" + "Chocolatey not found"
+    #$ResultText.text += "`r`n" + "`r`n" + "Installing Chocolatey... Please Wait"
+	iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+	Write-Host "Chocolatey Installed. Please close powershell and run the script again"
+    $ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
+}
+
 $firefox.Add_Click({
     Write-Host "Installing Firefox"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
-    winget install -e Mozilla.Firefox | Out-Host
+    choco install firefox --params "/TaskbarShortcut /DesktopShortcut /NoMaintenanceService" -y -f | Out-Host
     if($?) { Write-Host "Installed Firefox" }
     $ResultText.text = "`r`n" + "Finished Installing Firefox" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -624,7 +623,7 @@ $firefox.Add_Click({
 $brave.Add_Click({
     Write-Host "Installing Brave Browser"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
-    winget install -e BraveSoftware.BraveBrowser | Out-Host
+    choco install brave -y -f | Out-Host
     if($?) { Write-Host "Installed Brave Browser" }
     $ResultText.text = "`r`n" + "Finished Installing Brave" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -632,7 +631,7 @@ $brave.Add_Click({
 $gchrome.Add_Click({
     Write-Host "Installing Google Chrome"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
-    winget install -e Google.Chrome | Out-Host
+    choco install googlechrome -y -f | Out-Host
     if($?) { Write-Host "Installed Google Chrome" }
     $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -640,14 +639,7 @@ $gchrome.Add_Click({
 $sdio.Add_Click({
     Write-Host "Installing Snappy Driver Installer Origin"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Snappy Driver Installer Origin... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.2.742.zip" -Destination "C:\Sevurd Toolbox\SDIO.zip"
-    Expand-Archive -Path 'C:\Sevurd Toolbox\SDIO.zip' -DestinationPath "C:\Program Files (x86)"
-    Start-Process -FilePath "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe" -WorkingDirectory "C:\Program Files (x86)\SDIO_1.12.2.742" | Out-Host
-    $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk")
-    $Shortcut.TargetPath = "C:\Program Files (x86)\SDIO_1.12.2.742\SDIO_x64_R742.exe"
-    $Shortcut.Save()
+    choco install sdio -y -f | Out-Host
     if($?) { Write-Host "Installed Snappy Driver Installer Origin" }
     $ResultText.text = "`r`n" + "Finished Installing Snappy Driver Installer Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -655,7 +647,7 @@ $sdio.Add_Click({
 $discord.Add_Click({
     Write-Host "Installing Discord"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Discord... Please Wait" 
-    winget install -e Discord.Discord | Out-Host
+    choco install discord.install -y -f | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
@@ -664,9 +656,11 @@ $discord.Add_Click({
 })
 
 $nvidia.Add_Click({
-    Write-Host "Download Nvidia Driver"
-    $ResultText.text = "`r`n" +"`r`n" + "Download Nvidia Driver..." 
-    Start-Process "https://www.nvidia.com/Download/Find.aspx"
+    Write-Host "Installing Nvidia Driver"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Nvidia Driver..." 
+    choco install nvidia-display-driver --params "'/DCH'" -y | Out-Host
+    Write-Host "Installed Nvidia Driver"
+    $ResultText.text = "`r`n" +"`r`n" + "Finished Installing Nvidia Driver..." +"`r`n" + "Please restart computer."
 })
 
 $msimode.Add_Click({
@@ -687,9 +681,7 @@ $msimode.Add_Click({
 $notepad.Add_Click({
     Write-Host "Installing Notepad++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.3/npp.8.3.3.Installer.x64.exe" -Destination 'C:\Sevurd Toolbox\notepad++.exe'
-    & 'C:\Sevurd Toolbox\notepad++.exe' /S
+    choco install notepadplusplus.install -y -f | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
@@ -700,7 +692,7 @@ $notepad.Add_Click({
 $ubisoft.Add_Click({
     Write-Host "Installing Ubisift Connect"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Ubisift Connect... Please Wait" 
-    winget install -e Ubisoft.Connect | Out-Host
+    choco install ubisoft-connect -y -f | Out-Host
     if($?) { Write-Host "Installed Ubisift Connect" }
     $ResultText.text = "`r`n" + "Finished Installing Ubisift Connect" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -708,7 +700,7 @@ $ubisoft.Add_Click({
 $origin.Add_Click({
     Write-Host "Installing Origin"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Origin... Please Wait" 
-    winget install -e ElectronicArts.EADesktop | Out-Host
+    choco install origin -y -f --params "/DesktopIcon" | Out-Host
     if($?) { Write-Host "Installed Origin" }
     $ResultText.text = "`r`n" + "Finished Installing Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -726,7 +718,7 @@ $valorant.Add_Click({
 $7zip.Add_Click({
     Write-Host "Installing 7-Zip Compression Tool"
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
-    winget install -e 7zip.7zip | Out-Host
+    choco install 7zip.install -y -f | Out-Host
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
     regedit /s "C:\Sevurd Toolbox\7-ZIP.reg"
@@ -737,7 +729,7 @@ $7zip.Add_Click({
 $nvcleanstall.Add_Click({
     Write-Host "Installing NVCleanstall"
     $ResultText.text = "`r`n" +"`r`n" + "Installing NVCleanstall... Please Wait" 
-    winget install -e TechPowerUp.NVCleanstall | Out-Host
+    
     if($?) { Write-Host "Installed NVCleanstall" }
     $ResultText.text = "`r`n" + "Finished Installing NVCleanstall" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -745,28 +737,13 @@ $nvcleanstall.Add_Click({
 $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DDU.zip?raw=true" -Destination 'C:\Sevurd Toolbox\DDU.zip'
-    Expand-Archive -path 'C:\Sevurd Toolbox\DDU.zip' -DestinationPath 'C:\Program Files (x86)'
-    & 'C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe'
+    choco install ddu -y -f | Out-Host
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
-    $Shortcut.TargetPath = "C:\Program Files (x86)\Display Driver Uninstaller\Display Driver Uninstaller.exe"
+    $Shortcut.TargetPath = "C:\ProgramData\chocolatey\bin\Display Driver Uninstaller.exe"
     $Shortcut.Save()
     Write-Host "Installed Display Driver Uninstaller"
     $ResultText.text = "`r`n" + "Finished Installing Display Driver Uninstaller" + "`r`n" + "`r`n" + "Ready for Next Task"
-})
-
-$urlremovevirus.Add_Click({
-    Start-Process "https://youtu.be/CHtZ9-9ch2w"
-})
-
-$urlfixwinstartup.Add_Click({
-    Start-Process "https://youtu.be/sOihh4ZNOf4"
-})
-
-$urlcreateiso.Add_Click({
-    Start-Process "https://youtu.be/R6XPff38iSc"
 })
 
 $visualc.Add_Click({
@@ -783,10 +760,7 @@ $visualc.Add_Click({
 $directx.Add_Click({
     Write-Host "Installing DirectX"
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/DirectX.zip?raw=true" -Destination 'C:\Sevurd Toolbox\DirectX.zip'
-    Expand-Archive -Path 'C:\Sevurd Toolbox\DirectX.zip' -DestinationPath 'C:\Sevurd Toolbox'
-    & 'C:\Sevurd Toolbox\DirectX\DXSETUP.exe' /silent | Out-Host
+    choco install directx -y -f | Out-Host
     if($?) { Write-Host "Installed DirectX" }
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -794,23 +768,19 @@ $directx.Add_Click({
 $rufus.Add_Click({
     Write-Host "Installing Rufus"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/pbatard/rufus/releases/download/v3.18/rufus-3.18.exe" -Destination 'C:\Sevurd Toolbox\rufus-3.18.exe'
+    choco install rufus -y -f | Out-Host
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Rufus.lnk")
+    $Shortcut.TargetPath = "C:\ProgramData\chocolatey\bin\rufus.exe"
+    $Shortcut.Save()
     Write-Host "Installed Rufus"
     $ResultText.text = "`r`n" + "Finished Installing Rufus" + "`r`n" + "`r`n" + "Ready for Next Task"
-    & 'C:\Sevurd Toolbox\rufus-3.18.exe' | Out-Null
-    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Rufus.lnk")
-    $Shortcut.TargetPath = "C:\Sevurd Toolbox\rufus-3.18.exe"
-    $Shortcut.Save()
 })
 
 $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.scdn.co/SpotifyFullSetup.exe" -Destination 'C:\Sevurd Toolbox\SpotifyFullSetup.exe'
-    & 'C:\Sevurd Toolbox\SpotifyFullSetup.exe' /Silent | Out-Host
-    Stop-Process -Name "Spotify"
+    choco install spotify -y -f | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
@@ -821,14 +791,7 @@ $spotify.Add_Click({
 $autoruns.Add_Click({
     Write-Host "Installing Autoruns"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Autoruns... Please Wait" 
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Autoruns.zip?raw=true" -Destination 'C:\Sevurd Toolbox\Autoruns.zip'
-    Expand-Archive -path 'C:\Sevurd Toolbox\Autoruns.zip' -DestinationPath 'C:\Program Files'
-    & 'C:\Program Files\Autoruns\Autoruns64.exe'
-    $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Autoruns.lnk")
-    $Shortcut.TargetPath = "C:\Program Files\Autoruns\Autoruns64.exe"
-    $Shortcut.Save()
+    choco install autoruns -y -f | Out-Host
     Write-Host "Installed Autoruns"
     $ResultText.text = "`r`n" + "Finished Installing Autoruns" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -836,7 +799,7 @@ $autoruns.Add_Click({
 $whatsapp.Add_Click({
     Write-Host "Installing WhatsApp"
     $ResultText.text = "`r`n" +"`r`n" + "Installing WhatsApp... Please Wait" 
-    winget install -e WhatsApp.WhatsApp | Out-Host
+    choco install whatsapp -y -f | Out-Host
     Write-Host "Installed Whatsapp "
     $ResultText.text = "`r`n" + "Finished Installing WhatsApp" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -844,7 +807,7 @@ $whatsapp.Add_Click({
 $steam.Add_Click({
     Write-Host "Installing Steam"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Steam... Please Wait" 
-    winget install -e Valve.Steam | Out-Host
+    choco install steam-client -y -f | Out-Host
     Write-Host "Installed Steam"
     $ResultText.text = "`r`n" + "Finished Installing Steam" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
