@@ -667,7 +667,7 @@ $msimode.Add_Click({
     Write-Host "Installing MSI Mode Utility"
     $ResultText.text = "`r`n" +"`r`n" + "Installing MSI Mode Utility" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
     Expand-Archive -Path 'C:\Sevurd Toolbox\MSI Mode.zip' -DestinationPath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe'
     $WshShell = New-Object -comObject WScript.Shell
@@ -720,7 +720,7 @@ $7zip.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     choco install 7zip.install -y -f | Out-Host
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
     regedit /s "C:\Sevurd Toolbox\7-ZIP.reg"
     if($?) { Write-Host "Installed 7-Zip Compression Tool" }
     $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "`r`n" + "Ready for Next Task"
@@ -730,7 +730,7 @@ $nvcleanstall.Add_Click({
     Write-Host "Installing NVCleanstall"
     $ResultText.text = "`r`n" +"`r`n" + "Installing NVCleanstall... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/NVCleanstall_1.13.0.exe?raw=true" -Destination 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/NVCleanstall_1.13.0.exe?raw=true" -Destination 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
     & 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
     if($?) { Write-Host "Installed NVCleanstall" }
     $ResultText.text = "`r`n" + "Finished Installing NVCleanstall" + "`r`n" + "`r`n" + "Ready for Next Task"
@@ -822,17 +822,17 @@ $essentialtweaks.Add_Click({
 
     Write-Host "Transfering Essential Files..."
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/PowerRun.ini?raw=true" -Destination 'C:\Windows\PowerRun.ini'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.ini?raw=true" -Destination 'C:\Windows\PowerRun.ini'
 
     Write-Host "Running O&O Shutup with Recommended Settings"
     $ResultText.text += "`r`n" +"Running O&O Shutup with Recommended Settings"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/ooshutup10.cfg?raw=true" -Destination ooshutup10.cfg
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/files/ooshutup10.cfg?raw=true" -Destination ooshutup10.cfg
     Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
     ./OOSU10.exe ooshutup10.cfg /quiet
 
@@ -1197,7 +1197,7 @@ $essentialtweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "UseNexusForGameBarEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Type DWord -Value 1
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
     PowerRun.exe regedit.exe /S "C:\Sevurd Toolbox\Gamebar Presence Writer.reg"
 
     # Search
@@ -1406,8 +1406,7 @@ $cleanup.Add_Click({
     Remove-Item -Path $env:TEMP\* -Recurse -ErrorAction SilentlyContinue
     Remove-Item -Path $env:windir\Temp\* -Recurse -ErrorAction SilentlyContinue
     Remove-Item -Path $env:windir\Prefetch\* -Recurse -ErrorAction SilentlyContinue
-    cleanmgr /sageset:1 | Out-Null
-    cleanmgr /sagerun:1 | Out-Null
+    cleanmgr /d C | Out-Null
     Write-Host "Cleaned up windows"
     $ResultText.text = "`r`n" + "Cleaned up windows" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
