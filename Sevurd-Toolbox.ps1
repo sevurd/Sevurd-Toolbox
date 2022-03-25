@@ -731,7 +731,7 @@ $nvcleanstall.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing NVCleanstall... Please Wait" 
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/NVCleanstall_1.13.0.exe?raw=true" -Destination 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
-    & 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe' | Out-Host
+    & 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
     if($?) { Write-Host "Installed NVCleanstall" }
     $ResultText.text = "`r`n" + "Finished Installing NVCleanstall" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
