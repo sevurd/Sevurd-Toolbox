@@ -648,6 +648,7 @@ $discord.Add_Click({
     Write-Host "Installing Discord"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Discord... Please Wait" 
     choco install discord.install -y -f --ignore-checksums | Out-Host
+    Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "Discord"
     #New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
@@ -1717,6 +1718,7 @@ $securitywindowsupdate.Add_Click({
 
 $actioncenter.Add_Click({
     Write-Host "Disabling Action Center and Notifications..."
+    $ResultText.text = "`r`n" +"`r`n" + "Disabling Action Center and Notifications"
     If (!(Test-Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer")) {
         New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" | Out-Null
     }
@@ -1730,7 +1732,7 @@ $actioncenter.Add_Click({
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Force
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Name "Enabled" -Type DWord -Value 0
     Write-Host "Disabled Action Center and Notifications"
-    $ResultText.text = "`r`n" +"`r`n" + "Disabled Action Center and Notifications" +"`r`n" + "Restart to take effect"
+    $ResultText.text = "`r`n" + "`r`n" + "Disabled Action Center and Notifications" +"`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $performancefx.Add_Click({
