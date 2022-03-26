@@ -783,6 +783,7 @@ $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
     choco install spotify -y -f --ignore-checksums | Out-Host
+    Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "Spotify"
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
