@@ -609,13 +609,13 @@ else{
     	#$ResultText.text += "`r`n" + "`r`n" + "Installing Chocolatey... Please Wait"
 	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 	Write-Host "Chocolatey Installed. Please close powershell and run the script again"
-    $ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
+    	$ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
 }
 
 $firefox.Add_Click({
     Write-Host "Installing Firefox"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
-    choco install firefox --params "/TaskbarShortcut /DesktopShortcut /NoMaintenanceService" -y -f | Out-Host
+    choco install firefox --params "/TaskbarShortcut /DesktopShortcut /NoMaintenanceService" -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Firefox" }
     $ResultText.text = "`r`n" + "Finished Installing Firefox" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -623,7 +623,7 @@ $firefox.Add_Click({
 $brave.Add_Click({
     Write-Host "Installing Brave Browser"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
-    choco install brave -y -f | Out-Host
+    choco install brave -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Brave Browser" }
     $ResultText.text = "`r`n" + "Finished Installing Brave" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -631,7 +631,7 @@ $brave.Add_Click({
 $gchrome.Add_Click({
     Write-Host "Installing Google Chrome"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
-    choco install googlechrome -y -f | Out-Host
+    choco install googlechrome -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Google Chrome" }
     $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -639,7 +639,7 @@ $gchrome.Add_Click({
 $sdio.Add_Click({
     Write-Host "Installing Snappy Driver Installer Origin"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Snappy Driver Installer Origin... Please Wait" 
-    choco install sdio -y -f | Out-Host
+    choco install sdio -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Snappy Driver Installer Origin" }
     $ResultText.text = "`r`n" + "Finished Installing Snappy Driver Installer Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -647,8 +647,8 @@ $sdio.Add_Click({
 $discord.Add_Click({
     Write-Host "Installing Discord"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Discord... Please Wait" 
-    choco install discord.install -y -f | Out-Host
-    New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
+    choco install discord.install -y -f --ignore-checksums | Out-Host
+    #New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
     if($?) { Write-Host "Installed Discord" }
@@ -658,7 +658,7 @@ $discord.Add_Click({
 $nvidia.Add_Click({
     Write-Host "Installing Nvidia Driver"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Nvidia Driver..." 
-    choco install nvidia-display-driver --params "'/DCH'" -y | Out-Host
+    choco install nvidia-display-driver --params "'/DCH'" -y --ignore-checksums | Out-Host
     Write-Host "Installed Nvidia Driver"
     $ResultText.text = "`r`n" +"`r`n" + "Finished Installing Nvidia Driver..." +"`r`n" + "Please restart computer."
 })
@@ -681,7 +681,7 @@ $msimode.Add_Click({
 $notepad.Add_Click({
     Write-Host "Installing Notepad++"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
-    choco install notepadplusplus.install -y -f | Out-Host
+    choco install notepadplusplus.install -y -f --ignore-checksums | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
@@ -692,7 +692,7 @@ $notepad.Add_Click({
 $ubisoft.Add_Click({
     Write-Host "Installing Ubisift Connect"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Ubisift Connect... Please Wait" 
-    choco install ubisoft-connect -y -f | Out-Host
+    choco install ubisoft-connect -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Ubisift Connect" }
     $ResultText.text = "`r`n" + "Finished Installing Ubisift Connect" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -700,7 +700,7 @@ $ubisoft.Add_Click({
 $origin.Add_Click({
     Write-Host "Installing Origin"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Origin... Please Wait" 
-    choco install origin -y -f --params "/DesktopIcon" | Out-Host
+    choco install origin -y -f --params "/DesktopIcon" --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed Origin" }
     $ResultText.text = "`r`n" + "Finished Installing Origin" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -718,7 +718,7 @@ $valorant.Add_Click({
 $7zip.Add_Click({
     Write-Host "Installing 7-Zip Compression Tool"
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
-    choco install 7zip.install -y -f | Out-Host
+    choco install 7zip.install -y -f --ignore-checksums | Out-Host
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
     regedit /s "C:\Sevurd Toolbox\7-ZIP.reg"
@@ -739,7 +739,7 @@ $nvcleanstall.Add_Click({
 $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
-    choco install ddu -y -f | Out-Host
+    choco install ddu -y -f --ignore-checksums | Out-Host
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
     $Shortcut.TargetPath = "C:\ProgramData\chocolatey\bin\Display Driver Uninstaller.exe"
@@ -762,7 +762,7 @@ $visualc.Add_Click({
 $directx.Add_Click({
     Write-Host "Installing DirectX"
     $ResultText.text = "`r`n" +"`r`n" + "Installing DirectX... Please Wait" 
-    choco install directx -y -f | Out-Host
+    choco install directx -y -f --ignore-checksums | Out-Host
     if($?) { Write-Host "Installed DirectX" }
     $ResultText.text = "`r`n" + "Finished Installing DirectX" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -770,7 +770,7 @@ $directx.Add_Click({
 $rufus.Add_Click({
     Write-Host "Installing Rufus"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Rufus... Please Wait" 
-    choco install rufus -y -f | Out-Host
+    choco install rufus -y -f --ignore-checksums | Out-Host
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Rufus.lnk")
     $Shortcut.TargetPath = "C:\ProgramData\chocolatey\bin\rufus.exe"
@@ -782,7 +782,7 @@ $rufus.Add_Click({
 $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
-    choco install spotify -y -f | Out-Host
+    choco install spotify -y -f --ignore-checksums | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
@@ -793,7 +793,7 @@ $spotify.Add_Click({
 $autoruns.Add_Click({
     Write-Host "Installing Autoruns"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Autoruns... Please Wait" 
-    choco install autoruns -y -f | Out-Host
+    choco install autoruns -y -f --ignore-checksums | Out-Host
     Write-Host "Installed Autoruns"
     $ResultText.text = "`r`n" + "Finished Installing Autoruns" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -801,7 +801,7 @@ $autoruns.Add_Click({
 $whatsapp.Add_Click({
     Write-Host "Installing WhatsApp"
     $ResultText.text = "`r`n" +"`r`n" + "Installing WhatsApp... Please Wait" 
-    choco install whatsapp -y -f | Out-Host
+    choco install whatsapp -y -f --ignore-checksums | Out-Host
     Write-Host "Installed Whatsapp "
     $ResultText.text = "`r`n" + "Finished Installing WhatsApp" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -809,7 +809,7 @@ $whatsapp.Add_Click({
 $steam.Add_Click({
     Write-Host "Installing Steam"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Steam... Please Wait" 
-    choco install steam-client -y -f | Out-Host
+    choco install steam-client -y -f --ignore-checksums | Out-Host
     Write-Host "Installed Steam"
     $ResultText.text = "`r`n" + "Finished Installing Steam" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
