@@ -242,7 +242,7 @@ $Panel2.width                    = 211
 $Panel2.location                 = New-Object System.Drawing.Point(240,54)
 
 $Label3                          = New-Object system.Windows.Forms.Label
-$Label3.text                     = "System Tweaks"
+$Label3.text                     = "Optimizations"
 $Label3.AutoSize                 = $true
 $Label3.width                    = 230
 $Label3.height                   = 25
@@ -287,90 +287,152 @@ $DDefender.height                = 30
 $DDefender.location              = New-Object System.Drawing.Point(3,215)
 $DDefender.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$EDefender                       = New-Object system.Windows.Forms.Button
+$EDefender.text                  = "Enable Defender"
+$EDefender.width                 = 205
+$EDefender.height                = 30
+$EDefender.location              = New-Object System.Drawing.Point(3,250)
+$EDefender.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $actioncenter                    = New-Object system.Windows.Forms.Button
 $actioncenter.text               = "Disable Action Center"
 $actioncenter.width              = 205
 $actioncenter.height             = 30
-$actioncenter.location           = New-Object System.Drawing.Point(3,256)
+$actioncenter.location           = New-Object System.Drawing.Point(3,285)
 $actioncenter.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $EActionCenter                   = New-Object system.Windows.Forms.Button
 $EActionCenter.text              = "Enable Action Center"
 $EActionCenter.width             = 205
 $EActionCenter.height            = 30
-$EActionCenter.location          = New-Object System.Drawing.Point(3,290)
+$EActionCenter.location          = New-Object System.Drawing.Point(3,320)
 $EActionCenter.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $STrayIcons                      = New-Object System.Windows.Forms.Button
 $STrayIcons.text                 = "Show Tray Icons"
 $STrayIcons.width                = 205
 $STrayIcons.height               = 30
-$STrayIcons.location             = New-Object System.Drawing.Point(3,324)
+$STrayIcons.location             = New-Object System.Drawing.Point(3,355)
 $STrayIcons.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $HTrayIcons                      = New-Object system.Windows.Forms.Button
 $HTrayIcons.text                 = "Hide Tray Icons"
 $HTrayIcons.width                = 205
 $HTrayIcons.height               = 30
-$HTrayIcons.location             = New-Object System.Drawing.Point(3,358)
+$HTrayIcons.location             = New-Object System.Drawing.Point(3,390)
 $HTrayIcons.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $darkmode                        = New-Object system.Windows.Forms.Button
 $darkmode.text                   = "Dark Mode"
 $darkmode.width                  = 205
 $darkmode.height                 = 30
-$darkmode.location               = New-Object System.Drawing.Point(3,395)
+$darkmode.location               = New-Object System.Drawing.Point(3,425)
 $darkmode.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $lightmode                       = New-Object system.Windows.Forms.Button
 $lightmode.text                  = "Light Mode"
 $lightmode.width                 = 205
 $lightmode.height                = 30
-$lightmode.location              = New-Object System.Drawing.Point(3,430)
+$lightmode.location              = New-Object System.Drawing.Point(3,460)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $appearancefx                    = New-Object system.Windows.Forms.Button
 $appearancefx.text               = "Appearance Visual FX"
 $appearancefx.width              = 205
 $appearancefx.height             = 30
-$appearancefx.location           = New-Object System.Drawing.Point(3,465)
+$appearancefx.location           = New-Object System.Drawing.Point(3,495)
 $appearancefx.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $performancefx                   = New-Object system.Windows.Forms.Button
 $performancefx.text              = "Performance Visual FX"
 $performancefx.width             = 205
 $performancefx.height            = 30
-$performancefx.location          = New-Object System.Drawing.Point(3,499)
+$performancefx.location          = New-Object System.Drawing.Point(3,530)
 $performancefx.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $backgroundapps                  = New-Object system.Windows.Forms.Button
 $backgroundapps.text             = "Disable Background Apps"
 $backgroundapps.width            = 205
 $backgroundapps.height           = 30
-$backgroundapps.location         = New-Object System.Drawing.Point(3,533)
+$backgroundapps.location         = New-Object System.Drawing.Point(3,565)
 $backgroundapps.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $RBackgroundApps                 = New-Object system.Windows.Forms.Button
 $RBackgroundApps.text            = "Allow Background Apps"
 $RBackgroundApps.width           = 205
 $RBackgroundApps.height          = 30
-$RBackgroundApps.location        = New-Object System.Drawing.Point(3,567)
+$RBackgroundApps.location        = New-Object System.Drawing.Point(3,600)
 $RBackgroundApps.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $cortana                         = New-Object system.Windows.Forms.Button
 $cortana.text                    = "Disable Cortana (Search)"
 $cortana.width                   = 205
 $cortana.height                  = 30
-$cortana.location                = New-Object System.Drawing.Point(3,668)
+$cortana.location                = New-Object System.Drawing.Point(3,635)
 $cortana.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $ECortana                        = New-Object system.Windows.Forms.Button
 $ECortana.text                   = "Enable Cortana (Search)"
 $ECortana.width                  = 205
 $ECortana.height                 = 30
-$ECortana.location               = New-Object System.Drawing.Point(3,702)
+$ECortana.location               = New-Object System.Drawing.Point(3,670)
 $ECortana.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$laptopnumlock                   = New-Object system.Windows.Forms.Button
+$laptopnumlock.text              = "Laptop Numlock Fix"
+$laptopnumlock.width             = 205
+$laptopnumlock.height            = 30
+$laptopnumlock.location          = New-Object System.Drawing.Point(4,30)
+$laptopnumlock.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$restorepower                    = New-Object system.Windows.Forms.Button
+$restorepower.text               = "Restore Power Options"
+$restorepower.width              = 205
+$restorepower.height             = 30
+$restorepower.location           = New-Object System.Drawing.Point(4,65)
+$restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$ncpa                            = New-Object system.Windows.Forms.Button
+$ncpa.text                       = "Network Connections"
+$ncpa.width                      = 205
+$ncpa.height                     = 30
+$ncpa.location                   = New-Object System.Drawing.Point(4,100)
+$ncpa.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$oldcontrolpanel                 = New-Object system.Windows.Forms.Button
+$oldcontrolpanel.text            = "Control Panel"
+$oldcontrolpanel.width           = 205
+$oldcontrolpanel.height          = 30
+$oldcontrolpanel.location        = New-Object System.Drawing.Point(4,135)
+$oldcontrolpanel.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$oldsoundpanel                   = New-Object system.Windows.Forms.Button
+$oldsoundpanel.text              = "Sound Panel"
+$oldsoundpanel.width             = 205
+$oldsoundpanel.height            = 30
+$oldsoundpanel.location          = New-Object System.Drawing.Point(4,170)
+$oldsoundpanel.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$oldsystempanel                  = New-Object system.Windows.Forms.Button
+$oldsystempanel.text             = "System Panel"
+$oldsystempanel.width            = 205
+$oldsystempanel.height           = 30
+$oldsystempanel.location         = New-Object System.Drawing.Point(4,205)
+$oldsystempanel.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$oldpower                        = New-Object system.Windows.Forms.Button
+$oldpower.text                   = "Power Panel"
+$oldpower.width                  = 205
+$oldpower.height                 = 30
+$oldpower.location               = New-Object System.Drawing.Point(4,240)
+$oldpower.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$yourphonefix                    = New-Object system.Windows.Forms.Button
+$yourphonefix.text               = "Your Phone App Fix"
+$yourphonefix.width              = 205
+$yourphonefix.height             = 30
+$yourphonefix.location           = New-Object System.Drawing.Point(4,275)
+$yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label15                         = New-Object system.Windows.Forms.Label
 $Label15.text                    = "Windows Update"
@@ -411,13 +473,6 @@ $Panel3.height                   = 381
 $Panel3.width                    = 220
 $Panel3.location                 = New-Object System.Drawing.Point(464,54)
 
-$yourphonefix                    = New-Object system.Windows.Forms.Button
-$yourphonefix.text               = "Your Phone App Fix"
-$yourphonefix.width              = 211
-$yourphonefix.height             = 30
-$yourphonefix.location           = New-Object System.Drawing.Point(5,332)
-$yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
 $windowsupdatefix                = New-Object system.Windows.Forms.Button
 $windowsupdatefix.text           = "Windows Update Reset"
 $windowsupdatefix.width          = 300
@@ -439,41 +494,6 @@ $Label10.width                   = 25
 $Label10.height                  = 10
 $Label10.location                = New-Object System.Drawing.Point(658,448)
 $Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
-
-$ncpa                            = New-Object system.Windows.Forms.Button
-$ncpa.text                       = "Network Connections"
-$ncpa.width                      = 211
-$ncpa.height                     = 30
-$ncpa.location                   = New-Object System.Drawing.Point(4,126)
-$ncpa.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$oldcontrolpanel                 = New-Object system.Windows.Forms.Button
-$oldcontrolpanel.text            = "Win7 Control Panel"
-$oldcontrolpanel.width           = 211
-$oldcontrolpanel.height          = 30
-$oldcontrolpanel.location        = New-Object System.Drawing.Point(4,193)
-$oldcontrolpanel.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$oldsoundpanel                   = New-Object system.Windows.Forms.Button
-$oldsoundpanel.text              = "Win7 Sound Panel"
-$oldsoundpanel.width             = 211
-$oldsoundpanel.height            = 30
-$oldsoundpanel.location          = New-Object System.Drawing.Point(5,262)
-$oldsoundpanel.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$oldsystempanel                  = New-Object system.Windows.Forms.Button
-$oldsystempanel.text             = "Win7 System Panel"
-$oldsystempanel.width            = 211
-$oldsystempanel.height           = 30
-$oldsystempanel.location         = New-Object System.Drawing.Point(5,298)
-$oldsystempanel.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$laptopnumlock                   = New-Object system.Windows.Forms.Button
-$laptopnumlock.text              = "Laptop Numlock Fix"
-$laptopnumlock.width             = 211
-$laptopnumlock.height            = 30
-$laptopnumlock.location          = New-Object System.Drawing.Point(4,92)
-$laptopnumlock.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $disableupdates                  = New-Object system.Windows.Forms.Button
 $disableupdates.text             = "Disable Update Services"
@@ -497,23 +517,10 @@ $Label12.height                  = 10
 $Label12.location                = New-Object System.Drawing.Point(98,275)
 $Label12.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
-$oldpower                        = New-Object system.Windows.Forms.Button
-$oldpower.text                   = "Win7 Power Panel"
-$oldpower.width                  = 211
-$oldpower.height                 = 30
-$oldpower.location               = New-Object System.Drawing.Point(4,227)
-$oldpower.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$restorepower                    = New-Object system.Windows.Forms.Button
-$restorepower.text               = "Restore Power Options"
-$restorepower.width              = 211
-$restorepower.height             = 30
-$restorepower.location           = New-Object System.Drawing.Point(4,159)
-$restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons))
+$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$laptopnumlock,$oldpower,$restorepower))
 
