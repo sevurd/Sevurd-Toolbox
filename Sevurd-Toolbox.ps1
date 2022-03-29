@@ -1349,6 +1349,18 @@ $DDefender.Add_Click({
     $ResultText.text = "`r`n" + "`r`n" + "Disabled Defender"
 })
 
+$EDefender.Add_Click({
+    Write-Host "Enabling Defender"
+    $ResultText.text = "`r`n" + "`r`n" + "Enabling Defender"
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Enable%20Defender.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable Defender.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Enable%20SmartSceen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable SmartScreen.reg'
+    PowerRun regedit /S "C:\Sevurd Toolbox\Enable Defender.reg"
+    PowerRun regedit /S "C:\Sevurd Toolbox\Enable SmartScreen.reg"
+    Write-Host "Enabled Defender"
+    $ResultText.text = "`r`n" + "`r`n" + "Enabled Defender"
+})
 
 $laptopnumlock.Add_Click({
     Set-ItemProperty -Path "HKU:\.DEFAULT\Control Panel\Keyboard" -Name "InitialKeyboardIndicators" -Type DWord -Value 0
