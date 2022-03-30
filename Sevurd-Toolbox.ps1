@@ -393,11 +393,11 @@ $yourphonefix.location           = New-Object System.Drawing.Point(3,740)
 $yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label30                         = New-Object system.Windows.Forms.Label
-$Label30.text                    = "Legacy Panel"
+$Label30.text                    = "Controls"
 $Label30.AutoSize                = $true
 $Label30.width                   = 230
 $Label30.height                  = 25
-$Label30.location                = New-Object System.Drawing.Point(467,11)
+$Label30.location                = New-Object System.Drawing.Point(500,11)
 $Label30.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $programs                        = New-Object system.Windows.Forms.Button
