@@ -1579,7 +1579,7 @@ $win11tweaks.Add_Click({
     _nvidiaProfileInspector.exe "C:\Windows\_NvidiaBaseProfile.nip" -silent
     Write-Host "Installing Timer Resolution Service"
     _SetTimerResolutionService.exe -install
-    sc config STR start=auto
+    #sc config STR start=auto
     net start STR
     Write-Host "Rebuild Performance Counter"
     lodctr /r
