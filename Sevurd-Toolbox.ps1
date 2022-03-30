@@ -242,11 +242,11 @@ $Panel2.width                    = 211
 $Panel2.location                 = New-Object System.Drawing.Point(240,54)
 
 $Label3                          = New-Object system.Windows.Forms.Label
-$Label3.text                     = "Optimizations"
+$Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
 $Label3.width                    = 230
 $Label3.height                   = 25
-$Label3.location                 = New-Object System.Drawing.Point(349,11)
+$Label3.location                 = New-Object System.Drawing.Point(249,11)
 $Label3.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $essentialtweaks                 = New-Object System.Windows.Forms.Button
@@ -382,15 +382,37 @@ $laptopnumlock                   = New-Object system.Windows.Forms.Button
 $laptopnumlock.text              = "Laptop Numlock Fix"
 $laptopnumlock.width             = 205
 $laptopnumlock.height            = 30
-$laptopnumlock.location          = New-Object System.Drawing.Point(4,30)
+$laptopnumlock.location          = New-Object System.Drawing.Point(3,705)
 $laptopnumlock.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $yourphonefix                    = New-Object system.Windows.Forms.Button
 $yourphonefix.text               = "Your Phone App Fix"
 $yourphonefix.width              = 205
 $yourphonefix.height             = 30
-$yourphonefix.location           = New-Object System.Drawing.Point(4,65)
+$yourphonefix.location           = New-Object System.Drawing.Point(3,740)
 $yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$Label30                         = New-Object system.Windows.Forms.Label
+$Label30.text                    = "Legacy Panel"
+$Label30.AutoSize                = $true
+$Label30.width                   = 230
+$Label30.height                  = 25
+$Label30.location                = New-Object System.Drawing.Point(467,11)
+$Label30.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
+
+$programs                        = New-Object system.Windows.Forms.Button
+$programs.text                   = "Programs and Features"
+$programs.width                  = 205
+$programs.height                 = 30
+$programs.location               = New-Object System.Drawing.Point(4,30)
+$programs.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$devicemgr                       = New-Object system.Windows.Forms.Button
+$devicemgr.text                  = "Device Manager"
+$devicemgr.width                 = 205
+$devicemgr.height                = 30
+$devicemgr.location              = New-Object System.Drawing.Point(4,65)
+$devicemgr.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $restorepower                    = New-Object system.Windows.Forms.Button
 $restorepower.text               = "Restore Power Options"
@@ -524,11 +546,11 @@ $Label10.height                  = 10
 $Label10.location                = New-Object System.Drawing.Point(658,448)
 $Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
-$Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
+$Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons))
+$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix))
+$Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$laptopnumlock,$oldpower,$restorepower,$winservices))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -1848,6 +1870,14 @@ $yourphonefix.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "You may need to Reboot and right-click Your Phone app and select repair"
 })
 
+$programs.Add_Click({
+    cmd /c appwiz.cpl
+})
+
+$devicemgr.Add_Click({
+    cmd /c devmgmt.msc
+})
+
 $ncpa.Add_Click({
     cmd /c ncpa.cpl
 })
@@ -1879,6 +1909,8 @@ $restorepower.Add_Click({
 $winservices.Add_Click({
     cmd /c services.msc
 })
+
+
 
 $windowsupdatefix.Add_Click({
     Write-Host "1. Stopping Windows Update Services..." 
