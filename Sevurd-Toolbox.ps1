@@ -249,19 +249,27 @@ $Label3.height                   = 25
 $Label3.location                 = New-Object System.Drawing.Point(249,11)
 $Label3.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
-$essentialtweaks                 = New-Object System.Windows.Forms.Button
-$essentialtweaks.text            = "Essential Tweaks"
-$essentialtweaks.width           = 205
-$essentialtweaks.height          = 45
-$essentialtweaks.location        = New-Object System.Drawing.Point(3,29)
-$essentialtweaks.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
-$essentialtweaks.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#FF0000")
+$win10tweaks                     = New-Object System.Windows.Forms.Button
+$win10tweaks.text                = "Windows 10 Tweaks"
+$win10tweaks.width               = 205
+$win10tweaks.height              = 45
+$win10tweaks.location            = New-Object System.Drawing.Point(3,29)
+$win10tweaks.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+$win10tweaks.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#FF0000")
+
+$win11tweaks                     = New-Object System.Windows.Forms.Button
+$win11tweaks.text                = "Windows 11 Tweaks"
+$win11tweaks.width               = 205
+$win11tweaks.height              = 45
+$win11tweaks.location            = New-Object System.Drawing.Point(3,80)
+$win11tweaks.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+$win11tweaks.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#FF0000")
 
 $removebloat                     = New-Object system.Windows.Forms.Button
 $removebloat.text                = "Remove Bloatware"
 $removebloat.width               = 205
 $removebloat.height              = 45
-$removebloat.location            = New-Object System.Drawing.Point(3,80)
+$removebloat.location            = New-Object System.Drawing.Point(3,130)
 $removebloat.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 $removebloat.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#00FF00")
 
@@ -269,7 +277,7 @@ $cleanup                         = New-Object system.Windows.Forms.Button
 $cleanup.text                    = "Cleanup Windows"
 $cleanup.width                   = 205
 $cleanup.height                  = 45
-$cleanup.location                = New-Object System.Drawing.Point(3,130)
+$cleanup.location                = New-Object System.Drawing.Point(3,180)
 $cleanup.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 $cleanup.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#00FFFF")
 
@@ -277,119 +285,119 @@ $onedrive                        = New-Object system.Windows.Forms.Button
 $onedrive.text                   = "Uninstall OneDrive"
 $onedrive.width                  = 205
 $onedrive.height                 = 30
-$onedrive.location               = New-Object System.Drawing.Point(3,180)
+$onedrive.location               = New-Object System.Drawing.Point(3,230)
 $onedrive.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $DDefender                       = New-Object system.Windows.Forms.Button
 $DDefender.text                  = "Disable Defender"
 $DDefender.width                 = 205
 $DDefender.height                = 30
-$DDefender.location              = New-Object System.Drawing.Point(3,215)
+$DDefender.location              = New-Object System.Drawing.Point(3,265)
 $DDefender.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $EDefender                       = New-Object system.Windows.Forms.Button
 $EDefender.text                  = "Enable Defender"
 $EDefender.width                 = 205
 $EDefender.height                = 30
-$EDefender.location              = New-Object System.Drawing.Point(3,250)
+$EDefender.location              = New-Object System.Drawing.Point(3,300)
 $EDefender.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $actioncenter                    = New-Object system.Windows.Forms.Button
 $actioncenter.text               = "Disable Action Center"
 $actioncenter.width              = 205
 $actioncenter.height             = 30
-$actioncenter.location           = New-Object System.Drawing.Point(3,285)
+$actioncenter.location           = New-Object System.Drawing.Point(3,335)
 $actioncenter.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $EActionCenter                   = New-Object system.Windows.Forms.Button
 $EActionCenter.text              = "Enable Action Center"
 $EActionCenter.width             = 205
 $EActionCenter.height            = 30
-$EActionCenter.location          = New-Object System.Drawing.Point(3,320)
+$EActionCenter.location          = New-Object System.Drawing.Point(3,370)
 $EActionCenter.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $STrayIcons                      = New-Object System.Windows.Forms.Button
 $STrayIcons.text                 = "Show Tray Icons"
 $STrayIcons.width                = 205
 $STrayIcons.height               = 30
-$STrayIcons.location             = New-Object System.Drawing.Point(3,355)
+$STrayIcons.location             = New-Object System.Drawing.Point(3,405)
 $STrayIcons.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $HTrayIcons                      = New-Object system.Windows.Forms.Button
 $HTrayIcons.text                 = "Hide Tray Icons"
 $HTrayIcons.width                = 205
 $HTrayIcons.height               = 30
-$HTrayIcons.location             = New-Object System.Drawing.Point(3,390)
+$HTrayIcons.location             = New-Object System.Drawing.Point(3,440)
 $HTrayIcons.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $darkmode                        = New-Object system.Windows.Forms.Button
 $darkmode.text                   = "Dark Mode"
 $darkmode.width                  = 205
 $darkmode.height                 = 30
-$darkmode.location               = New-Object System.Drawing.Point(3,425)
+$darkmode.location               = New-Object System.Drawing.Point(3,475)
 $darkmode.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $lightmode                       = New-Object system.Windows.Forms.Button
 $lightmode.text                  = "Light Mode"
 $lightmode.width                 = 205
 $lightmode.height                = 30
-$lightmode.location              = New-Object System.Drawing.Point(3,460)
+$lightmode.location              = New-Object System.Drawing.Point(3,510)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $appearancefx                    = New-Object system.Windows.Forms.Button
 $appearancefx.text               = "Appearance Visual FX"
 $appearancefx.width              = 205
 $appearancefx.height             = 30
-$appearancefx.location           = New-Object System.Drawing.Point(3,495)
+$appearancefx.location           = New-Object System.Drawing.Point(3,545)
 $appearancefx.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $performancefx                   = New-Object system.Windows.Forms.Button
 $performancefx.text              = "Performance Visual FX"
 $performancefx.width             = 205
 $performancefx.height            = 30
-$performancefx.location          = New-Object System.Drawing.Point(3,530)
+$performancefx.location          = New-Object System.Drawing.Point(3,580)
 $performancefx.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $backgroundapps                  = New-Object system.Windows.Forms.Button
 $backgroundapps.text             = "Disable Background Apps"
 $backgroundapps.width            = 205
 $backgroundapps.height           = 30
-$backgroundapps.location         = New-Object System.Drawing.Point(3,565)
+$backgroundapps.location         = New-Object System.Drawing.Point(3,615)
 $backgroundapps.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $RBackgroundApps                 = New-Object system.Windows.Forms.Button
 $RBackgroundApps.text            = "Allow Background Apps"
 $RBackgroundApps.width           = 205
 $RBackgroundApps.height          = 30
-$RBackgroundApps.location        = New-Object System.Drawing.Point(3,600)
+$RBackgroundApps.location        = New-Object System.Drawing.Point(3,650)
 $RBackgroundApps.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $cortana                         = New-Object system.Windows.Forms.Button
 $cortana.text                    = "Disable Cortana (Search)"
 $cortana.width                   = 205
 $cortana.height                  = 30
-$cortana.location                = New-Object System.Drawing.Point(3,635)
+$cortana.location                = New-Object System.Drawing.Point(3,685)
 $cortana.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $ECortana                        = New-Object system.Windows.Forms.Button
 $ECortana.text                   = "Enable Cortana (Search)"
 $ECortana.width                  = 205
 $ECortana.height                 = 30
-$ECortana.location               = New-Object System.Drawing.Point(3,670)
+$ECortana.location               = New-Object System.Drawing.Point(3,720)
 $ECortana.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $laptopnumlock                   = New-Object system.Windows.Forms.Button
 $laptopnumlock.text              = "Laptop Numlock Fix"
 $laptopnumlock.width             = 205
 $laptopnumlock.height            = 30
-$laptopnumlock.location          = New-Object System.Drawing.Point(3,705)
+$laptopnumlock.location          = New-Object System.Drawing.Point(3,755)
 $laptopnumlock.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $yourphonefix                    = New-Object system.Windows.Forms.Button
 $yourphonefix.text               = "Your Phone App Fix"
 $yourphonefix.width              = 205
 $yourphonefix.height             = 30
-$yourphonefix.location           = New-Object System.Drawing.Point(3,740)
+$yourphonefix.location           = New-Object System.Drawing.Point(3,790)
 $yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label30                         = New-Object system.Windows.Forms.Label
@@ -548,7 +556,7 @@ $Label10.Font                    = New-Object System.Drawing.Font('Microsoft San
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix))
+$Panel2.controls.AddRange(@($win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 
@@ -774,7 +782,7 @@ $steam.Add_Click({
     $ResultText.text = "`r`n" + "Finished Installing Steam" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
-$essentialtweaks.Add_Click({
+$win10tweaks.Add_Click({
     Write-Host "Creating Restore Point incase something bad happens"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Essential Tools... Please Wait" 
     Enable-ComputerRestore -Drive "C:\"
@@ -787,7 +795,6 @@ $essentialtweaks.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
-    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.ini?raw=true" -Destination 'C:\Windows\PowerRun.ini'
 
     Write-Host "Running O&O Shutup with Recommended Settings"
     $ResultText.text += "`r`n" +"Running O&O Shutup with Recommended Settings"
@@ -1189,6 +1196,541 @@ $essentialtweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Narrator\NoRoam" -Name "OnlineServicesEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Narrator" -Name "NarratorCursorHighlight" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Narrator" -Name "CoupleNarratorCursorKeyboard" -Type DWord -Value 0
+
+    # Disable ease of access settings 
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Ease of Access" -Name "selfvoice" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Ease of Access" -Name "selfscan" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility" -Name "Sound on Activation" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility" -Name "Warning Sounds" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\HighContrast" -Name "Flags" -Type String -Value "4194"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name "Flags" -Type String -Value "2"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name "AutoRepeatRate" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name "AutoRepeatDelay" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\MouseKeys" -Name "Flags" -Type String -Value "130"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\MouseKeys" -Name "MaximumSpeed" -Type String -Value "39"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\MouseKeys" -Name "TimeToMaximumSpeed" -Type String -Value "3000"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "2"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name "Flags" -Type String -Value "34"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SoundSentry" -Name "Flags" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SoundSentry" -Name "FSTextEffect" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SoundSentry" -Name "TextEffect" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SoundSentry" -Name "WindowsEffect" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SlateLaunch" -Name "ATapp" -Type String -Value ""
+    Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\SlateLaunch" -Name "LaunchAT" -Type DWord -Value 0
+
+    # Disable automatic maintenance
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" -Name "MaintenanceDisabled" -Type DWord -Value 1
+
+    # Disable use my sign in info after restart
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DisableAutomaticRestartSignOn" -Type DWord -Value 1
+
+    # Disable automatically update maps
+    Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
+
+    # Alt tab open windows only
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "MultiTaskingAltTabFilter" -Type DWord -Value 3
+
+    # Service tweaks to Manual 
+    $ResultText.text += "`r`n" +"Tweaking Services"
+
+    $services = @(
+    "diagnosticshub.standardcollector.service"     # Microsoft (R) Diagnostics Hub Standard Collector Service
+    #"DiagTrack"                                    # Diagnostics Tracking Service
+    #"DPS"
+    #"dmwappushservice"                             # WAP Push Message Routing Service (see known issues)
+    #"lfsvc"                                        # Geolocation Service
+    "MapsBroker"                                   # Downloaded Maps Manager
+    "NetTcpPortSharing"                            # Net.Tcp Port Sharing Service
+    "RemoteAccess"                                 # Routing and Remote Access
+    "RemoteRegistry"                               # Remote Registry
+    "SharedAccess"                                 # Internet Connection Sharing (ICS)
+    "TrkWks"                                       # Distributed Link Tracking Client
+    "WbioSrvc"                                     # Windows Biometric Service (required for Fingerprint reader / facial detection)
+    #"WlanSvc"                                      # WLAN AutoConfig
+    "WMPNetworkSvc"                                # Windows Media Player Network Sharing Service
+    #"wscsvc"                                       # Windows Security Center Service
+    "ndu"                                          # Windows Network Data Usage Monitor
+    "WerSvc"                                       #disables windows error reporting
+    "Spooler"                                      #Disables your printer
+    "Fax"                                          #Disables fax
+    "fhsvc"                                        #Disables fax histroy
+    "stisvc"                                       #Disables Windows Image Acquisition (WIA)
+    "AJRouter"                                     #Disables (needed for AllJoyn Router Service)
+    "MSDTC"                                        # Disables Distributed Transaction Coordinator
+    "WpcMonSvc"                                    #Disables Parental Controls
+    "PhoneSvc"                                     #Disables Phone Service(Manages the telephony state on the device)
+    "PrintNotify"                                  #Disables Windows printer notifications and extentions
+    "PcaSvc"                                       #Disables Program Compatibility Assistant Service
+    "RmSvc"
+    "WPDBusEnum"                                   #Disables Portable Device Enumerator Service
+    #"LicenseManager"                               #Disable LicenseManager(Windows store may not work properly)
+    "seclogon"                                     #Disables  Secondary Logon(disables other credentials only password will work)
+    #"SysMain"                                      #Disables sysmain
+    "lmhosts"                                      #Disables TCP/IP NetBIOS Helper
+    "wisvc"                                        #Disables Windows Insider program(Windows Insider will not work)
+    "FontCache"                                    #Disables Windows font cache
+    "RetailDemo"                                   #Disables RetailDemo whic is often used when showing your device
+    "ALG"                                          # Disables Application Layer Gateway Service(Provides support for 3rd party protocol plug-ins for Internet Connection Sharing)
+    #"BFE"                                         #Disables Base Filtering Engine (BFE) (is a service that manages firewall and Internet Protocol security)
+    #"BrokerInfrastructure"                         #Disables Windows infrastructure service that controls which background tasks can run on the system.
+    "SCardSvr"                                      #Disables Windows smart card
+    "EntAppSvc"                                     #Disables enterprise application management.
+    "BthAvctpSvc"                                   #Disables AVCTP service (if you use  Bluetooth Audio Device or Wireless Headphones. then don't disable this)
+    #"FrameServer"                                   #Disables Windows Camera Frame Server(this allows multiple clients to access video frames from camera devices.)
+    "Browser"                                       #Disables computer browser
+    "BthAvctpSvc"                                   #AVCTP service (This is Audio Video Control Transport Protocol service.)
+    #"BDESVC"                                        #Disables bitlocker
+    "iphlpsvc"                                      #Disables ipv6 but most websites don't use ipv6 they use ipv4                             
+    "SEMgrSvc"                                      #Disables Payments and NFC/SE Manager (Manages payments and Near Field Communication (NFC) based secure elements)
+    #"PNRPsvc"                                      # Disables peer Name Resolution Protocol ( some peer-to-peer and collaborative applications, such as Remote Assistance, may not function, Discord will still work)
+    #"p2psvc"                                       # Disbales Peer Name Resolution Protocol(nables multi-party communication using Peer-to-Peer Grouping.  If disabled, some applications, such as HomeGroup, may not function. Discord will still work)
+    #"p2pimsvc"                                     # Disables Peer Networking Identity Manager (Peer-to-Peer Grouping services may not function, and some applications, such as HomeGroup and Remote Assistance, may not function correctly.Discord will still work)
+    "PerfHost"                                      #Disables  remote users and 64-bit processes to query performance .
+    "BcastDVRUserService_48486de"                   #Disables GameDVR and Broadcast   is used for Game Recordings and Live Broadcasts
+    #"CaptureService_48486de"                        #Disables ptional screen capture functionality for applications that call the Windows.Graphics.Capture API.  
+    #"cbdhsvc_48486de"                               #Disables   cbdhsvc_48486de (clipboard service it disables)
+    #"BluetoothUserService_48486de"                  #disbales BluetoothUserService_48486de (The Bluetooth user service supports proper functionality of Bluetooth features relevant to each user session.)
+    #"StorSvc"                                       #Disables StorSvc (usb external hard drive will not be reconised by windows)
+    "RtkBtManServ"                                  #Disables Realtek Bluetooth Device Manager Service
+    "QWAVE"                                         #Disables Quality Windows Audio Video Experience (audio and video might sound worse)
+    #Hp services
+    "gupdate"                                      #Disables google update
+    "gupdatem"                                     #Disable another google update
+    "HPAppHelperCap"
+    "HPDiagsCap"
+    "HPNetworkCap"
+    "HPSysInfoCap"
+    "HpTouchpointAnalyticsService"
+    #hyper-v services
+    "HvHost"                          
+    "vmickvpexchange"
+    "vmicguestinterface"
+    "vmicshutdown"
+    "vmicheartbeat"
+    "vmicvmsession"
+    "vmicrdv"
+    "vmictimesync" 
+    # Services which cannot be disabled
+    #"WdNisSvc"
+    )
+
+    foreach ($service in $services) {
+        # -ErrorAction SilentlyContinue is so it doesn't write an error to stdout if a service doesn't exist
+
+        Write-Host "Setting $service StartupType to Manual"
+        Get-Service -Name $service -ErrorAction SilentlyContinue | Set-Service -StartupType Manual
+    }
+
+    # Sevice tweaks to Disabled
+
+    $services = @(
+    "DPS"
+    "dmwappushservice"
+    "edgeupdate"                                    # Disables one of edge update service  
+    "MicrosoftEdgeElevationService"                 # Disables one of edge  service 
+    "edgeupdatem"                                  # disbales another one of update service (disables edgeupdatem)
+    "GoogleChromeElevationService"
+    "lfsvc"
+    "WpnService"                                    #Disables WpnService (Push Notifications may not work )
+    "XblAuthManager"                               # Xbox Live Auth Manager
+    "XblGameSave"                                  # Xbox Live Game Save Service
+    "XboxNetApiSvc"                                # Xbox Live Networking Service
+    "XboxGipSvc"                                   #Disables Xbox Accessory Management Service
+    "WSearch"                                      # Windows Search
+
+    )
+
+    foreach ($service in $services) {
+        # -ErrorAction SilentlyContinue is so it doesn't write an error to stdout if a service doesn't exist
+
+        Write-Host "Setting $service StartupType to Disabled"
+        Get-Service -Name $service -ErrorAction SilentlyContinue | Set-Service -StartupType Disabled
+    }
+
+    $ResultText.text = "`r`n" + "Essential Tweaks Done" + "`r`n" + "`r`n" + "Please Reboot"
+    Write-Host "Essential Tweaks Completed - Please Reboot"
+    
+    
+    
+    $msgBoxInput =  [System.Windows.Forms.MessageBox]::Show('Essential Tweaks Done. Click OK to Restart. Press Cancel to Reboot Manually.','Sevurd Toolbox','OKCancel')
+    switch  ($msgBoxInput) {
+	    'OK' {
+            
+            C:\Windows\System32\shutdown.exe /r /t 0
+
+        }
+	    'Cancel' {
+			
+		    /Exit
+		
+	    }
+    }
+})
+
+$win11tweaks.Add_Click({
+    Write-Host "Creating Restore Point incase something bad happens"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Essential Tools... Please Wait" 
+    Enable-ComputerRestore -Drive "C:\"
+    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+
+    Write-Host "Transfering Essential Files..."
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+
+    Write-Host "Running O&O Shutup with Recommended Settings"
+    $ResultText.text += "`r`n" +"Running O&O Shutup with Recommended Settings"
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/files/ooshutup10.cfg?raw=true" -Destination ooshutup10.cfg
+    Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
+    ./OOSU10.exe ooshutup10.cfg /quiet
+
+    $ResultText.text += "`r`n" +"Disabling Unnecessary Things"
+    Write-Host "Disabling Telemetry..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Application Experience\ProgramDataUpdater" | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Autochk\Proxy" | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Customer Experience Improvement Program\Consolidator" | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" | Out-Null
+    Write-Host "Disabling Wi-Fi Sense..."
+    #$ResultText.text += "`r`n" +"Disabling Wi-Fi Sense..."
+    If (!(Test-Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting")) {
+        New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" -Name "Value" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" -Name "Value" -Type DWord -Value 0
+    Write-Host "Disabling Application suggestions..."
+    #$ResultText.text += "`r`n" +"Disabling Application suggestions..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "ContentDeliveryAllowed" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "OemPreInstalledAppsEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "PreInstalledAppsEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "PreInstalledAppsEverEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SilentInstalledAppsEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338387Enabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338388Enabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338389Enabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-353698Enabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SystemPaneSuggestionsEnabled" -Type DWord -Value 0
+    If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent")) {
+        New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableWindowsConsumerFeatures" -Type DWord -Value 1
+    Write-Host "Disabling Activity History..."
+    #$ResultText.text += "`r`n" +"Disabling Activity History..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableActivityFeed" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "PublishUserActivities" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "UploadUserActivities" -Type DWord -Value 0
+    # Keep Location Tracking commented out if you want the ability to locate your device
+    Write-Host "Disabling Location Tracking..."
+    #$ResultText.text += "`r`n" +"Disabling Location Tracking..."
+    If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location")) {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Name "Value" -Type String -Value "Deny"
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" -Name "SensorPermissionState" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration" -Name "Status" -Type DWord -Value 0
+    Write-Host "Disabling Automatic Maps Updates..."
+    #$ResultText.text += "`r`n" +"Disabling Automatic Maps Updates..."
+    Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
+    Write-Host "Disabling Feedback..."
+    #$ResultText.text += "`r`n" +"Disabling Feedback..."
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Siuf\Rules" -Name "NumberOfSIUFInPeriod" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "DoNotShowFeedbackNotifications" -Type DWord -Value 1
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClient" -ErrorAction SilentlyContinue | Out-Null
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" -ErrorAction SilentlyContinue | Out-Null
+    Write-Host "Disabling Tailored Experiences..."
+    #$ResultText.text += "`r`n" +"Disabling Tailored Experiences..."
+    If (!(Test-Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent")) {
+        New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableTailoredExperiencesWithDiagnosticData" -Type DWord -Value 1
+    Write-Host "Disabling Advertising ID..."
+    #$ResultText.text += "`r`n" +"Disabling Advertising ID..."
+    If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo")) {
+        New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" -Name "DisabledByGroupPolicy" -Type DWord -Value 1
+    Write-Host "Disabling Error Reporting..."
+    #$ResultText.text += "`r`n" +"Disabling Error Reporting..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Type DWord -Value 1
+    Disable-ScheduledTask -TaskName "Microsoft\Windows\Windows Error Reporting\QueueReporting" | Out-Null
+    Write-Host "Restricting Windows Update P2P only to local network..."
+    #$ResultText.text += "`r`n" +"Restricting Windows Update P2P Only to Local Network..."
+    If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config")) {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
+    Write-Host "Enabling F8 boot menu options..."
+    #$ResultText.text += "`r`n" +"Enabling F8 boot menu options"
+    bcdedit /set `{current`} bootmenupolicy Legacy | Out-Null
+    # Disabling Services
+    #$ResultText.text += "`r`n" +"Disabling unnecessary things..."
+    Write-Host "Stopping and disabling Diagnostics Tracking Service..."
+    Stop-Service "DiagTrack" -WarningAction SilentlyContinue
+    Set-Service "DiagTrack" -StartupType Disabled
+    Write-Host "Stopping and disabling Home Groups services..."
+    Stop-Service "HomeGroupListener" -WarningAction SilentlyContinue
+    Set-Service "HomeGroupListener" -StartupType Disabled
+    Stop-Service "HomeGroupProvider" -WarningAction SilentlyContinue
+    Set-Service "HomeGroupProvider" -StartupType Disabled
+    Write-Host "Disabling Remote Assistance..."
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance" -Name "fAllowToGetHelp" -Type DWord -Value 0
+    Write-Host "Disabling Storage Sense..."
+    Remove-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" -Recurse -ErrorAction SilentlyContinue
+    Write-Host "Stopping and disabling Superfetch service..."
+    Stop-Service "SysMain" -WarningAction SilentlyContinue
+    Set-Service "SysMain" -StartupType Disabled
+    Write-Host "Disabling Origin Services..."
+    New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Origin Client Service" -Force
+    New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Origin Web Helper Service" -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Origin Client Service" -Name "Start" -Type DWord -Value 4
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Origin Web Helper Service" -Name "Start" -Type DWord -Value 4
+    Write-Host "Disabling Hibernation..."
+    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Session Manager\Power" -Name "HibernteEnabled" -Type Dword -Value 0
+    If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings")) {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" -Name "ShowHibernateOption" -Type Dword -Value 0
+    Write-Host "Showing task manager details..."
+    $taskmgr = Start-Process -WindowStyle Hidden -FilePath taskmgr.exe -PassThru
+    Do {
+        Start-Sleep -Milliseconds 100
+        $preferences = Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\TaskManager" -Name "Preferences" -ErrorAction SilentlyContinue
+    } Until ($preferences)
+    Stop-Process $taskmgr
+    $preferences.Preferences[28] = 0
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\TaskManager" -Name "Preferences" -Type Binary -Value $preferences.Preferences
+    Write-Host "Showing file operations details..."
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" -Name "EnthusiastMode" -Type DWord -Value 1
+    $ResultText.text += "`r`n" +"Applying Visualization Tweaks"
+    Write-Host "Hiding Task View button..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
+    Write-Host "Set searchbox to icon..."
+    #$ResultText.text += "`r`n" +"Set searchbox to icon..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
+    Write-Host "Show tray icons..."
+    #$ResultText.text += "`r`n" +"Show tray icons..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+    Write-Host "Enabling NumLock after startup..."
+    #$ResultText.text += "`r`n" +"Enabling NumLock after startup..."
+    If (!(Test-Path "HKU:")) {
+        New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
+    }
+    Set-ItemProperty -Path "HKU:\.DEFAULT\Control Panel\Keyboard" -Name "InitialKeyboardIndicators" -Type DWord -Value 2147483650
+    Add-Type -AssemblyName System.Windows.Forms
+    If (!([System.Windows.Forms.Control]::IsKeyLocked('NumLock'))) {
+        $wsh = New-Object -ComObject WScript.Shell
+        $wsh.SendKeys('{NUMLOCK}')
+    }
+
+    Write-Host "Changing default Explorer view to This PC..."
+    #$ResultText.text += "`r`n" +"Changing default Explorer view to This PC..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
+
+    Write-Host "Hiding 3D Objects icon from This PC..."
+    #$ResultText.text += "`r`n" +"Hiding 3D Objects icon from This PC..."
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" -Recurse -ErrorAction SilentlyContinue
+
+	# Network Tweaks
+	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" -Name "IRPStackSize" -Type DWord -Value 20
+
+    # Group svchost.exe processes
+    $ram = (Get-CimInstance -ClassName Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum / 1kb
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control" -Name "SvcHostSplitThresholdInKB" -Type DWord -Value $ram -Force
+
+    #Write-Host "Installing Windows Media Player..."
+	#Enable-WindowsOptionalFeature -Online -FeatureName "WindowsMediaPlayer" -NoRestart -WarningAction SilentlyContinue | Out-Null
+
+    Write-Host "Removing AutoLogger file and restricting directory..."
+    $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger"
+    If (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl") {
+        Remove-Item "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl"
+    }
+    icacls $autoLoggerDir /deny SYSTEM:`(OI`)`(CI`)F | Out-Null
+
+    Write-Host "Showing known file extensions..."
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 0
+
+    
+    $ResultText.text += "`r`n" +"Tweaking System for Best Performance"
+
+    
+    Write-Host "Disable Hibernate"
+    powercfg -h off
+    Write-Host "Import Power Plan"
+    powercfg -import "C:\Windows\_BitsumHighestPerformance.pow" 77777777-7777-7777-7777-777777777777
+    powercfg -SETACTIVE "77777777-7777-7777-7777-777777777777"
+    powercfg -delete 381b4222-f694-41f0-9685-ff5bb260df2e
+    powercfg -delete 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c 
+    powercfg -delete a1841308-3541-4fab-bc81-f71556f20b4a
+    Write-Host "Import Nvidia Settings"
+    _nvidiaProfileInspector.exe "C:\Windows\_NvidiaBaseProfile.nip" -silent
+    Write-Host "Installing Timer Resolution Service"
+    _SetTimerResolutionService.exe -install
+    sc config STR start=auto
+    net start STR
+    Write-Host "Rebuild Performance Counter"
+    lodctr /r
+    lodctr /r
+
+    $ResultText.text += "`r`n" +"Applying Registry Tweaks"
+
+
+    # Chrome
+    Write-Host "Tweaking Chrome..."
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Force
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "StartupBoostEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "HardwareAccelerationModeEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "BackgroundModeEnabled" -Type DWord -Value 0
+
+    # Edge
+    Write-Host "Tweaking Edge..."
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineCore" | Out-Null
+    Disable-ScheduledTask -TaskName "MicrosoftEdgeUpdateTaskMachineUA" | Out-Null
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "HardwareAccelerationModeEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "BackgroundModeEnabled" -Type DWord -Value 0
+
+    # Store
+    Write-Host "Disabling AutoUpdate in MS Store..."
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" -Force
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" -Name "AutoDownload" -Type DWord -Value 2
+
+    # Start Menu
+    Write-Host "Always hide most used list in start menu..."
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Force
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "ShowOrHideMostUsedApps" -Type DWord -Value 2
+    Write-Host "Hide recently added apps..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "HideRecentlyAddedApps" -Type DWord -Value 1
+    New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Force
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HideRecentlyAddedApps" -Type DWord -Value 1
+    Write-Host "Hide recently opened items in start, jump lists and file explorer..."
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_TrackDocs" -Type DWord -Value 0
+
+    # Explorer
+    Write-Host "Hide frequent folders in quick access..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowFrequent" -Type DWord -Value 0
+    Write-Host "Disable Search histroy..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "IsDeviceSearchHistoryEnabled" -Type DWord -Value 0
+    Write-Host "Disable menu show delay..."
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "MenuShowDelay" -Type String -Value "0"
+    Write-Host "Disable shortcut text..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "link" -Type Binary -Value 00,00,00,00
+    Write-Host "Cleaning up File Explorer..."
+    # Remove Desktop From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}" -Force
+    # Remove Documents From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}" -Force
+    # Remove Downloads From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{374DE290-123F-4565-9164-39C4925E467B}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{374DE290-123F-4565-9164-39C4925E467B}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}" -Force
+    # Remove Music From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{1CF1260C-4DD0-4ebb-811F-33C572699FDE}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{1CF1260C-4DD0-4ebb-811F-33C572699FDE}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}" -Force
+    # Remove Pictures From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3ADD1653-EB32-4cb0-BBD7-DFA0ABB5ACCA}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3ADD1653-EB32-4cb0-BBD7-DFA0ABB5ACCA}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}" -Force
+    # Remove Videos From This PC
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A0953C92-50DC-43bf-BE83-3742FED03C9C}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A0953C92-50DC-43bf-BE83-3742FED03C9C}" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}" -Force
+
+
+    # Personalization
+    Write-Host "Setting DPI to 100..."
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "LogPixels" -Type DWord -Value 96
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "Win8DpiScaling" -Type DWord -Value 0
+    New-Item -Path "HKCU:\Control Panel\Desktop\PerMonitorSettings\AUOD1ED0_22_07E3_A9^BA177C8FC0A6F9DFF117ED6F7C4E6DD7" -Force
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\PerMonitorSettings\AUOD1ED0_22_07E3_A9^BA177C8FC0A6F9DFF117ED6F7C4E6DD7" -Name "DpiValue" -Type DWord -Value 4294967295
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name "AppliedDPI" -Type DWord -Value 96
+    Write-Host "Disable Transparency..."
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "EnableTransparency" -Type DWord -Value 0
+    Write-Host "Increase wallpaper quality..."
+    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "JPEGImportQuality" -Type DWord -Value 100
+
+    # Sound
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Multimedia\Audio" -Name "UserDuckingPreference" -Type DWord -Value 3
+    
+    # Mouse
+    Write-Host "Turn off enhance pointer precision..."
+    Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseSpeed" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold1" -Type String -Value "0"
+    Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold2" -Type String -Value "0"
+
+    # Autoruns
+    Remove-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
+    New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
+    New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Force
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "ctfmon" -Type String -Value "C:\\Windows\\System32\\ctfmon.exe"
+
+    # Power Settings
+    Write-Host "Disable Sleep..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" -Name "ShowSleepOption" -Type DWord -Value 0
+    Write-Host "Disable power throttling..."
+    New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" -Name "PowerThrottlingOff" -Type DWord -Value 1
+
+    # Network throttling & system responsiveness
+    Write-Host "Tweaking System..."
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" -Name "NetworkThrottlingIndex" -Type DWord -Value 4294967295
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" -Name "SystemResponsiveness" -Type DWord -Value 0
+
+    # Game scheduling
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Affinity" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Background Only" -Type String -Value "False"
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Clock Rate" -Type DWord -Value 10000
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "GPU Priority" -Type DWord -Value 8
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Priority" -Type DWord -Value 6
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Scheduling Category" -Type String -Value "High"
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "SFIO Priority" -Type String -Value "High"
+
+    # Turn on hardware accelerated gpu scheduling
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" -Name "HwSchMode" -Type DWord -Value 2
+
+    # Battery options optimize for video quality
+    New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\VideoSettings" -Force
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\VideoSettings" -Name "VideoQualityOnBattery" -Type DWord -Value 1
+
+    # Adjust for best performance of programs
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\PriorityControl" -Name "Win32PrioritySeparation" -Type DWord -Value 38
+
+    # Game bar and game mode
+    Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name "GameDVR_Enabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" -Name "AppCaptureEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "UseNexusForGameBarEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Type DWord -Value 1
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
+    PowerRun regedit /S "C:\Sevurd Toolbox\Gamebar Presence Writer.reg"
+
+    # Search
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "SafeSearchMode" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "IsAADCloudSearchEnabled" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "IsMSACloudSearchEnabled" -Type DWord -Value 0
 
     # Disable ease of access settings 
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Ease of Access" -Name "selfvoice" -Type DWord -Value 0
