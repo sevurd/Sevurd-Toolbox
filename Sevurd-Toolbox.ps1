@@ -385,54 +385,61 @@ $laptopnumlock.height            = 30
 $laptopnumlock.location          = New-Object System.Drawing.Point(4,30)
 $laptopnumlock.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$yourphonefix                    = New-Object system.Windows.Forms.Button
+$yourphonefix.text               = "Your Phone App Fix"
+$yourphonefix.width              = 205
+$yourphonefix.height             = 30
+$yourphonefix.location           = New-Object System.Drawing.Point(4,65)
+$yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $restorepower                    = New-Object system.Windows.Forms.Button
 $restorepower.text               = "Restore Power Options"
 $restorepower.width              = 205
 $restorepower.height             = 30
-$restorepower.location           = New-Object System.Drawing.Point(4,65)
+$restorepower.location           = New-Object System.Drawing.Point(4,100)
 $restorepower.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $ncpa                            = New-Object system.Windows.Forms.Button
 $ncpa.text                       = "Network Connections"
 $ncpa.width                      = 205
 $ncpa.height                     = 30
-$ncpa.location                   = New-Object System.Drawing.Point(4,100)
+$ncpa.location                   = New-Object System.Drawing.Point(4,135)
 $ncpa.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldcontrolpanel                 = New-Object system.Windows.Forms.Button
 $oldcontrolpanel.text            = "Control Panel"
 $oldcontrolpanel.width           = 205
 $oldcontrolpanel.height          = 30
-$oldcontrolpanel.location        = New-Object System.Drawing.Point(4,135)
+$oldcontrolpanel.location        = New-Object System.Drawing.Point(4,170)
 $oldcontrolpanel.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldsoundpanel                   = New-Object system.Windows.Forms.Button
 $oldsoundpanel.text              = "Sound"
 $oldsoundpanel.width             = 205
 $oldsoundpanel.height            = 30
-$oldsoundpanel.location          = New-Object System.Drawing.Point(4,170)
+$oldsoundpanel.location          = New-Object System.Drawing.Point(4,205)
 $oldsoundpanel.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldsystempanel                  = New-Object system.Windows.Forms.Button
 $oldsystempanel.text             = "System Properties"
 $oldsystempanel.width            = 205
 $oldsystempanel.height           = 30
-$oldsystempanel.location         = New-Object System.Drawing.Point(4,205)
+$oldsystempanel.location         = New-Object System.Drawing.Point(4,240)
 $oldsystempanel.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldpower                        = New-Object system.Windows.Forms.Button
 $oldpower.text                   = "Power Options"
 $oldpower.width                  = 205
 $oldpower.height                 = 30
-$oldpower.location               = New-Object System.Drawing.Point(4,240)
+$oldpower.location               = New-Object System.Drawing.Point(4,275)
 $oldpower.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$yourphonefix                    = New-Object system.Windows.Forms.Button
-$yourphonefix.text               = "Your Phone App Fix"
-$yourphonefix.width              = 205
-$yourphonefix.height             = 30
-$yourphonefix.location           = New-Object System.Drawing.Point(4,275)
-$yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$winservices                     = New-Object system.Windows.Forms.Button
+$winservices.Text                = "Services"
+$winservices.Width               = 205
+$winservices.Height              = 30
+$winservices.Location            = New-Object System.Drawing.Point(4,310)
+$winservices.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label15                         = New-Object system.Windows.Forms.Label
 $Label15.text                    = "Windows Update"
@@ -521,7 +528,7 @@ $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($essentialtweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$laptopnumlock,$oldpower,$restorepower))
+$Panel3.controls.AddRange(@($yourphonefix,$ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$laptopnumlock,$oldpower,$restorepower,$winservices))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -1867,6 +1874,10 @@ $restorepower.Add_Click({
     powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
     Write-Host "Restored all power plans: Balanced, High Performance, and Power Saver"
     $ResultText.text = "`r`n" +"`r`n" + "Restored all power plans: Balanced, High Performance, and Power Saver"
+})
+
+$winservices.Add_Click({
+    cmd /c services.msc
 })
 
 $windowsupdatefix.Add_Click({
