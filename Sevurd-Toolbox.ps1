@@ -407,21 +407,21 @@ $oldcontrolpanel.location        = New-Object System.Drawing.Point(4,135)
 $oldcontrolpanel.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldsoundpanel                   = New-Object system.Windows.Forms.Button
-$oldsoundpanel.text              = "Sound Panel"
+$oldsoundpanel.text              = "Sound"
 $oldsoundpanel.width             = 205
 $oldsoundpanel.height            = 30
 $oldsoundpanel.location          = New-Object System.Drawing.Point(4,170)
 $oldsoundpanel.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldsystempanel                  = New-Object system.Windows.Forms.Button
-$oldsystempanel.text             = "System Panel"
+$oldsystempanel.text             = "System Properties"
 $oldsystempanel.width            = 205
 $oldsystempanel.height           = 30
 $oldsystempanel.location         = New-Object System.Drawing.Point(4,205)
 $oldsystempanel.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $oldpower                        = New-Object system.Windows.Forms.Button
-$oldpower.text                   = "Power Panel"
+$oldpower.text                   = "Power Options"
 $oldpower.width                  = 205
 $oldpower.height                 = 30
 $oldpower.location               = New-Object System.Drawing.Point(4,240)
@@ -449,17 +449,46 @@ $Panel4.location                 = New-Object System.Drawing.Point(699,54)
 
 $defaultwindowsupdate            = New-Object system.Windows.Forms.Button
 $defaultwindowsupdate.text       = "Default Settings"
-$defaultwindowsupdate.width      = 300
-$defaultwindowsupdate.height     = 30
-$defaultwindowsupdate.location   = New-Object System.Drawing.Point(24,26)
+$defaultwindowsupdate.width      = 250
+$defaultwindowsupdate.height     = 40
+$defaultwindowsupdate.location   = New-Object System.Drawing.Point(36,28)
 $defaultwindowsupdate.Font       = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
 $securitywindowsupdate           = New-Object system.Windows.Forms.Button
 $securitywindowsupdate.text      = "Security Updates Only"
-$securitywindowsupdate.width     = 300
-$securitywindowsupdate.height    = 30
-$securitywindowsupdate.location  = New-Object System.Drawing.Point(24,142)
+$securitywindowsupdate.width     = 250
+$securitywindowsupdate.height    = 40
+$securitywindowsupdate.location  = New-Object System.Drawing.Point(36,75)
 $securitywindowsupdate.Font      = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+
+$enableupdates                   = New-Object system.Windows.Forms.Button
+$enableupdates.text              = "Enable Update Services"
+$enableupdates.width             = 250
+$enableupdates.height            = 40
+$enableupdates.location          = New-Object System.Drawing.Point(36,120)
+$enableupdates.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+
+$windowsupdatefix                = New-Object system.Windows.Forms.Button
+$windowsupdatefix.text           = "Windows Update Reset"
+$windowsupdatefix.width          = 250
+$windowsupdatefix.height         = 40
+$windowsupdatefix.location       = New-Object System.Drawing.Point(36,165)
+$windowsupdatefix.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
+
+$Label12                         = New-Object system.Windows.Forms.Label
+$Label12.text                    = "NOT RECOMMENDED!!!"
+$Label12.AutoSize                = $true
+$Label12.width                   = 25
+$Label12.height                  = 10
+$Label12.location                = New-Object System.Drawing.Point(78,230)
+$Label12.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
+
+$disableupdates                  = New-Object system.Windows.Forms.Button
+$disableupdates.text             = "Disable Update Services"
+$disableupdates.width            = 250
+$disableupdates.height           = 40
+$disableupdates.location         = New-Object System.Drawing.Point(36,255)
+$disableupdates.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
 $PictureBox1                     = New-Object system.Windows.Forms.PictureBox
 $PictureBox1.width               = 343
@@ -472,13 +501,6 @@ $Panel3                          = New-Object system.Windows.Forms.Panel
 $Panel3.height                   = 381
 $Panel3.width                    = 220
 $Panel3.location                 = New-Object System.Drawing.Point(464,54)
-
-$windowsupdatefix                = New-Object system.Windows.Forms.Button
-$windowsupdatefix.text           = "Windows Update Reset"
-$windowsupdatefix.width          = 300
-$windowsupdatefix.height         = 30
-$windowsupdatefix.location       = New-Object System.Drawing.Point(25,216)
-$windowsupdatefix.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
 $ResultText                      = New-Object System.Windows.Forms.TextBox  
 $ResultText.width                = 382
@@ -494,29 +516,6 @@ $Label10.width                   = 25
 $Label10.height                  = 10
 $Label10.location                = New-Object System.Drawing.Point(658,448)
 $Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
-
-$disableupdates                  = New-Object system.Windows.Forms.Button
-$disableupdates.text             = "Disable Update Services"
-$disableupdates.width            = 300
-$disableupdates.height           = 30
-$disableupdates.location         = New-Object System.Drawing.Point(23,292)
-$disableupdates.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
-
-$enableupdates                   = New-Object system.Windows.Forms.Button
-$enableupdates.text              = "Enable Update Services"
-$enableupdates.width             = 300
-$enableupdates.height            = 30
-$enableupdates.location          = New-Object System.Drawing.Point(25,179)
-$enableupdates.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
-
-$Label12                         = New-Object system.Windows.Forms.Label
-$Label12.text                    = "NOT RECOMMENDED!!!"
-$Label12.AutoSize                = $true
-$Label12.width                   = 25
-$Label12.height                  = 10
-$Label12.location                = New-Object System.Drawing.Point(98,275)
-$Label12.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
