@@ -2310,7 +2310,7 @@ $onedrive.Add_Click({
 
 $darkmode.Add_Click({
     Write-Host "Enabling Dark Mode"
-    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 0
+    #Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "SystemUsesLightTheme" -Typr DWord -Value 0
     #Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 0
     Write-Host "Enabled Dark Mode"
@@ -2321,7 +2321,7 @@ $lightmode.Add_Click({
     Write-Host "Switching Back to Light Mode"
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 1
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "SystemUsesLightTheme" -Typr DWord -Value 1
-    #Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 1
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Typr DWord -Value 1
     Write-Host "Switched Back to Light Mode"
     $ResultText.text = "`r`n" +"`r`n" + "Enabled Light Mode"
 })
