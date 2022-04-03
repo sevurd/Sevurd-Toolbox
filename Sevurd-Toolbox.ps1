@@ -796,15 +796,6 @@ $win10tweaks.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
 
-    <#
-    Write-Host "Running O&O Shutup with Recommended Settings"
-    $ResultText.text += "`r`n" +"Running O&O Shutup with Recommended Settings"
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://raw.githubusercontent.com/sevurd/Sevurd-Toolbox/main/files/ooshutup10.cfg?raw=true" -Destination ooshutup10.cfg
-    Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
-    ./OOSU10.exe ooshutup10.cfg /quiet
-    #>
-
     $ResultText.text += "`r`n" +"Disabling Unnecessary Things"
     Write-Host "Disabling Telemetry..."
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0
