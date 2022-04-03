@@ -400,6 +400,13 @@ $yourphonefix.height             = 30
 $yourphonefix.location           = New-Object System.Drawing.Point(3,790)
 $yourphonefix.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$blockthespot                    = New-Object system.Windows.Forms.Button
+$blockthespot.Text               = "Block Spotify Ads"
+$blockthespot.Width              = 205
+$blockthespot.Height             = 30
+$blockthespot.Location           = New-Object System.Drawing.Point(3,825)
+$blockthespot.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $Label30                         = New-Object system.Windows.Forms.Label
 $Label30.text                    = "Controls"
 $Label30.AutoSize                = $true
@@ -556,7 +563,7 @@ $Label10.Font                    = New-Object System.Drawing.Font('Microsoft San
 
 $Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix))
+$Panel2.controls.AddRange(@($win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 
@@ -2493,6 +2500,14 @@ $yourphonefix.Add_Click({
 	}
     Write-Host "You may need to Reboot and right-click Your Phone app and select repair"
     $ResultText.text = "`r`n" +"`r`n" + "You may need to Reboot and right-click Your Phone app and select repair"
+})
+
+$blockthespot.Add_Click({
+    Write-Host "Installing script"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing script"
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/mrpond/BlockTheSpot/master/install.ps1') } -UninstallSpotifyStoreEdition -UpdateSpotify -RemoveAdPlaceholder"
+    Write-Host "Blocked Spotify Ads"
+    $ResultText.text = "`r`n" +"`r`n" + "Blocked Spotify Ads"
 })
 
 $programs.Add_Click({
