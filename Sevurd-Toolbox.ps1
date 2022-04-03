@@ -2505,7 +2505,7 @@ $yourphonefix.Add_Click({
 $blockthespot.Add_Click({
     Write-Host "Installing script"
     $ResultText.text = "`r`n" +"`r`n" + "Installing script"
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/mrpond/BlockTheSpot/master/install.ps1') } -UninstallSpotifyStoreEdition -UpdateSpotify -RemoveAdPlaceholder"
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/mrpond/BlockTheSpot/master/install.ps1') } -UninstallSpotifyStoreEdition -RemoveAdPlaceholder"
     Write-Host "Blocked Spotify Ads"
     $ResultText.text = "`r`n" +"`r`n" + "Blocked Spotify Ads"
 })
