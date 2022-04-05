@@ -1,5 +1,5 @@
 # Sevurd-Toolbox
-Windows 10 Toolbox. Edited from ChrisTitusTech Toolbox.
+Windows 10 Toolbox. Optimized for Gaming.
 
 # Requirments
  - Internet
