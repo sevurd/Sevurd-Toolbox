@@ -4,7 +4,7 @@ Windows 10 Toolbox. Optimized for Gaming.
 # Requirments
  - Internet
  
- - Windows 10
+ - Windows 10 or 11
 
 # How to run
 Open Powershell with Admin Privilege
