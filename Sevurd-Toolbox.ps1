@@ -842,9 +842,9 @@ $vscode.Add_Click({
 $vs.Add_Click({
     Write-Host "Installing Visual Studio"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Visual Studio... Please Wait"
-    choco install visualstudio-installer -y -f
-    choco install chocolatey-visualstudio.extension -y -f
-    choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" -y -f --ignore-checksums | Out-Host
+    choco install visualstudio-installer -y -f | Out-Null
+    choco install chocolatey-visualstudio.extension -y -f | Out-Null
+    choco install visualstudio2022community -y -f | Out-Host
     Write-Host "Installed Visual Studio"
     $ResultText.text = "`r`n" + "Finished Installing Visual Studio" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
