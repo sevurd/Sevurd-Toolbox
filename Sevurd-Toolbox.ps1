@@ -45,16 +45,36 @@ $Form.Width                   = $objImage.Width
 $Form.Height                  = $objImage.Height
 
 $Panel1                          = New-Object system.Windows.Forms.Panel
-$Panel1.height                   = 939
-$Panel1.width                    = 219
-$Panel1.location                 = New-Object System.Drawing.Point(6,54)
+$Panel1.height                   = 940
+$Panel1.width                    = 220
+$Panel1.location                 = New-Object System.Drawing.Point(5,54)
+
+$Panel5                          = New-Object system.Windows.Forms.Panel
+$Panel5.height                   = 940
+$Panel5.width                    = 220
+$Panel5.location                 = New-Object System.Drawing.Point(240,54)
+
+$Panel2                          = New-Object system.Windows.Forms.Panel
+$Panel2.height                   = 940
+$Panel2.width                    = 220
+$Panel2.location                 = New-Object System.Drawing.Point(475,54)
+
+$Panel3                          = New-Object system.Windows.Forms.Panel
+$Panel3.height                   = 381
+$Panel3.width                    = 220
+$Panel3.location                 = New-Object System.Drawing.Point(710,54)
+
+$Panel4                          = New-Object system.Windows.Forms.Panel
+$Panel4.height                   = 328
+$Panel4.width                    = 340
+$Panel4.location                 = New-Object System.Drawing.Point(945,54)
 
 $Label1                          = New-Object system.Windows.Forms.Label
-$Label1.text                     = "Installer"
+$Label1.text                     = "Installers"
 $Label1.AutoSize                 = $true
 $Label1.width                    = 230
 $Label1.height                   = 25
-$Label1.location                 = New-Object System.Drawing.Point(60,11)
+$Label1.location                 = New-Object System.Drawing.Point(154,11)
 $Label1.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $Label2                          = New-Object system.Windows.Forms.Label
@@ -62,7 +82,7 @@ $Label2.text                     = "Utilities"
 $Label2.AutoSize                 = $true
 $Label2.width                    = 25
 $Label2.height                   = 10
-$Label2.location                 = New-Object System.Drawing.Point(89,11)
+$Label2.location                 = New-Object System.Drawing.Point(89,9)
 $Label2.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
 $7zip                            = New-Object system.Windows.Forms.Button
@@ -161,7 +181,7 @@ $gchrome                         = New-Object system.Windows.Forms.Button
 $gchrome.text                    = "Google Chrome"
 $gchrome.width                   = 212
 $gchrome.height                  = 30
-$gchrome.location                = New-Object System.Drawing.Point(3,490)
+$gchrome.location                = New-Object System.Drawing.Point(4,490)
 $gchrome.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label8                          = New-Object system.Windows.Forms.Label
@@ -236,17 +256,48 @@ $msimode.height                  = 30
 $msimode.location                = New-Object System.Drawing.Point(4,850)
 $msimode.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$Panel2                          = New-Object system.Windows.Forms.Panel
-$Panel2.height                   = 938
-$Panel2.width                    = 211
-$Panel2.location                 = New-Object System.Drawing.Point(240,54)
+$Label31                         = New-Object system.Windows.Forms.Label
+$Label31.text                    = "Coding"
+$Label31.AutoSize                = $true
+$Label31.width                   = 25
+$Label31.height                  = 10
+$Label31.location                = New-Object System.Drawing.Point(83,9)
+$Label31.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
+
+$vscode                          = New-Object system.Windows.Forms.Button
+$vscode.Text                     = "Visual Studio Code"
+$vscode.Width                    = 212
+$vscode.Height                   = 30
+$vscode.Location                 = New-Object System.Drawing.Point(4,30)
+$vscode.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$vs                              = New-Object system.Windows.Forms.Button
+$vs.Text                         = "Visual Studio"
+$vs.Width                        = 212
+$vs.Height                       = 30
+$vs.Location                     = New-Object System.Drawing.Point(4,65)
+$vs.Font                         = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$github                          = New-Object system.Windows.Forms.Button
+$github.Text                     = "GitHub Desktop"
+$github.Width                    = 212
+$github.Height                   = 30
+$github.Location                 = New-Object System.Drawing.Point(4,100)
+$github.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$git                             = New-Object system.Windows.Forms.Button
+$git.Text                        = "Git"
+$git.Width                       = 212
+$git.Height                      = 30
+$git.Location                    = New-Object System.Drawing.Point(4,135)
+$git.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
 $Label3.width                    = 230
 $Label3.height                   = 25
-$Label3.location                 = New-Object System.Drawing.Point(249,11)
+$Label3.location                 = New-Object System.Drawing.Point(481,11)
 $Label3.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $win10tweaks                     = New-Object System.Windows.Forms.Button
@@ -412,7 +463,7 @@ $Label30.text                    = "Controls"
 $Label30.AutoSize                = $true
 $Label30.width                   = 230
 $Label30.height                  = 25
-$Label30.location                = New-Object System.Drawing.Point(500,11)
+$Label30.location                = New-Object System.Drawing.Point(748,11)
 $Label30.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $programs                        = New-Object system.Windows.Forms.Button
@@ -483,13 +534,8 @@ $Label15.text                    = "Windows Update"
 $Label15.AutoSize                = $true
 $Label15.width                   = 25
 $Label15.height                  = 10
-$Label15.location                = New-Object System.Drawing.Point(732,11)
+$Label15.location                = New-Object System.Drawing.Point(976,11)
 $Label15.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
-
-$Panel4                          = New-Object system.Windows.Forms.Panel
-$Panel4.height                   = 328
-$Panel4.width                    = 340
-$Panel4.location                 = New-Object System.Drawing.Point(699,54)
 
 $defaultwindowsupdate            = New-Object system.Windows.Forms.Button
 $defaultwindowsupdate.text       = "Default Settings"
@@ -534,19 +580,14 @@ $disableupdates.height           = 40
 $disableupdates.location         = New-Object System.Drawing.Point(36,255)
 $disableupdates.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
-$PictureBox1                     = New-Object system.Windows.Forms.PictureBox
+<#$PictureBox1                     = New-Object system.Windows.Forms.PictureBox
 $PictureBox1.width               = 343
 $PictureBox1.height              = 136
 $PictureBox1.location            = New-Object System.Drawing.Point(580,850)
 $PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
-$PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom
+$PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom#>
 
-$Panel3                          = New-Object system.Windows.Forms.Panel
-$Panel3.height                   = 381
-$Panel3.width                    = 220
-$Panel3.location                 = New-Object System.Drawing.Point(464,54)
-
-$ResultText                      = New-Object System.Windows.Forms.TextBox  
+<#$ResultText                      = New-Object System.Windows.Forms.TextBox  
 $ResultText.width                = 382
 $ResultText.height               = 250
 $ResultText.location             = New-Object System.Drawing.Point(576,491)
@@ -559,13 +600,14 @@ $Label10.AutoSize                = $true
 $Label10.width                   = 25
 $Label10.height                  = 10
 $Label10.location                = New-Object System.Drawing.Point(658,448)
-$Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
+$Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)#>
 
-$Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10))
+$Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Panel5))
 $Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
 $Panel2.controls.AddRange(@($win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -787,6 +829,39 @@ $steam.Add_Click({
     choco install steam-client -y -f --ignore-checksums | Out-Host
     Write-Host "Installed Steam"
     $ResultText.text = "`r`n" + "Finished Installing Steam" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$vscode.Add_Click({
+    Write-Host "Installing Visual Studio Code"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Visual Studio Code... Please Wait"
+    choco install vscode.install -y -f --ignore-checksums | Out-Host
+    Write-Host "Installed Visual Studio Code"
+    $ResultText.text = "`r`n" + "Finished Installing Visual Studio Code" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$vs.Add_Click({
+    Write-Host "Installing Visual Studio"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Visual Studio... Please Wait"
+    choco install visualstudio-installer -y -f
+    choco install visualstudio2022community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" -y -f --ignore-checksums | Out-Host
+    Write-Host "Installed Visual Studio"
+    $ResultText.text = "`r`n" + "Finished Installing Visual Studio" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$github.Add_Click({
+    Write-Host "Installing GitHub Desktop"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing GitHub Desktop... Please Wait"
+    choco install github-desktop -y -f --ignore-checksums | Out-Host
+    Write-Host "Installed GitHub Desktop"
+    $ResultText.text = "`r`n" + "Finished Installing GitHub Desktop" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$git.Add_Click({
+    Write-Host "Installing Git"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Git... Please Wait"
+    choco install git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /NoCredentialManager /WindowsTerminalProfile /SChannel /NoAutoCrlf /Editor:VisualStudioCode" -y -f --ignore-checksums | Out-Host
+    Write-Host "Installed Git"
+    $ResultText.text = "`r`n" + "Finished Installing Git" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $win10tweaks.Add_Click({
