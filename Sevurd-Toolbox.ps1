@@ -82,7 +82,7 @@ $Label2.text                     = "Utilities"
 $Label2.AutoSize                 = $true
 $Label2.width                    = 25
 $Label2.height                   = 10
-$Label2.location                 = New-Object System.Drawing.Point(89,9)
+$Label2.location                 = New-Object System.Drawing.Point(85,9)
 $Label2.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
 $7zip                            = New-Object system.Windows.Forms.Button
@@ -113,46 +113,53 @@ $notepad.height                  = 30
 $notepad.location                = New-Object System.Drawing.Point(4,135)
 $notepad.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$discord                         = New-Object system.Windows.Forms.Button
-$discord.text                    = "Discord"
-$discord.width                   = 212
-$discord.height                  = 30
-$discord.location                = New-Object System.Drawing.Point(4,170)
-$discord.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$ddu                             = New-Object system.Windows.Forms.Button
+$ddu.text                        = "Display Driver Uninstaller"
+$ddu.width                       = 212
+$ddu.height                      = 30
+$ddu.location                    = New-Object System.Drawing.Point(4,170)
+$ddu.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$spotify                         = New-Object system.Windows.Forms.Button
-$spotify.text                    = "Spotify"
-$spotify.width                   = 212
-$spotify.height                  = 30
-$spotify.location                = New-Object System.Drawing.Point(4,205)
-$spotify.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$nvcleanstall                    = New-Object system.Windows.Forms.Button
+$nvcleanstall.text               = "NVCleanstall"
+$nvcleanstall.width              = 212
+$nvcleanstall.height             = 30
+$nvcleanstall.location           = New-Object System.Drawing.Point(4,205)
+$nvcleanstall.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$whatsapp                        = New-Object system.Windows.Forms.Button
-$whatsapp.text                   = "WhatsApp"
-$whatsapp.width                  = 212
-$whatsapp.height                 = 30
-$whatsapp.location               = New-Object System.Drawing.Point(4,240)
-$whatsapp.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$nvidia                          = New-Object system.Windows.Forms.Button
+$nvidia.text                     = "Nvidia Display Driver"
+$nvidia.width                    = 212
+$nvidia.height                   = 30
+$nvidia.location                 = New-Object System.Drawing.Point(4,240)
+$nvidia.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
+$msimode                         = New-Object system.Windows.Forms.Button
+$msimode.text                    = "MSI Mode Utility"
+$msimode.width                   = 212
+$msimode.height                  = 30
+$msimode.location                = New-Object System.Drawing.Point(4,275)
+$msimode.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $sdio                            = New-Object system.Windows.Forms.Button
 $sdio.text                       = "Snappy Driver Installer"
 $sdio.width                      = 212
 $sdio.height                     = 30
-$sdio.location                   = New-Object System.Drawing.Point(4,275)
+$sdio.location                   = New-Object System.Drawing.Point(4,310)
 $sdio.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $autoruns                        = New-Object system.Windows.Forms.Button
 $autoruns.text                   = "Autoruns"
 $autoruns.width                  = 212
 $autoruns.height                 = 30
-$autoruns.location               = New-Object System.Drawing.Point(4,310)
+$autoruns.location               = New-Object System.Drawing.Point(4,345)
 $autoruns.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $rufus                           = New-Object system.Windows.Forms.Button
 $rufus.text                      = "Rufus"
 $rufus.width                     = 212
 $rufus.height                    = 30
-$rufus.location                  = New-Object System.Drawing.Point(4,345)
+$rufus.location                  = New-Object System.Drawing.Point(4,380)
 $rufus.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label9                          = New-Object system.Windows.Forms.Label
@@ -160,28 +167,28 @@ $Label9.text                     = "Web Browsers"
 $Label9.AutoSize                 = $true
 $Label9.width                    = 25
 $Label9.height                   = 10
-$Label9.location                 = New-Object System.Drawing.Point(67,400)
+$Label9.location                 = New-Object System.Drawing.Point(67,440)
 $Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
 $brave                           = New-Object system.Windows.Forms.Button
 $brave.text                      = "Brave Browser"
 $brave.width                     = 212
 $brave.height                    = 30
-$brave.location                  = New-Object System.Drawing.Point(4,420)
+$brave.location                  = New-Object System.Drawing.Point(4,460)
 $brave.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $firefox                         = New-Object system.Windows.Forms.Button
 $firefox.text                    = "Firefox"
 $firefox.width                   = 212
 $firefox.height                  = 30
-$firefox.location                = New-Object System.Drawing.Point(4,455)
+$firefox.location                = New-Object System.Drawing.Point(4,495)
 $firefox.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $gchrome                         = New-Object system.Windows.Forms.Button
 $gchrome.text                    = "Google Chrome"
 $gchrome.width                   = 212
 $gchrome.height                  = 30
-$gchrome.location                = New-Object System.Drawing.Point(4,490)
+$gchrome.location                = New-Object System.Drawing.Point(4,530)
 $gchrome.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label8                          = New-Object system.Windows.Forms.Label
@@ -189,35 +196,35 @@ $Label8.text                     = "Game Launchers"
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(60,550)
+$Label8.location                 = New-Object System.Drawing.Point(60,590)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
 $steam                           = New-Object system.Windows.Forms.Button
 $steam.text                      = "Steam"
 $steam.width                     = 212
 $steam.height                    = 30
-$steam.location                  = New-Object System.Drawing.Point(4,570)
+$steam.location                  = New-Object System.Drawing.Point(4,610)
 $steam.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $ubisoft                         = New-Object system.Windows.Forms.Button
 $ubisoft.text                    = "Ubisoft Connect"
 $ubisoft.width                   = 212
 $ubisoft.height                  = 30
-$ubisoft.location                = New-Object System.Drawing.Point(4,605)
+$ubisoft.location                = New-Object System.Drawing.Point(4,645)
 $ubisoft.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $origin                          = New-Object system.Windows.Forms.Button
 $origin.text                     = "Origin"
 $origin.width                    = 212
 $origin.height                   = 30
-$origin.location                 = New-Object System.Drawing.Point(4,640)
+$origin.location                 = New-Object System.Drawing.Point(4,680)
 $origin.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $valorant                        = New-Object system.Windows.Forms.Button
 $valorant.text                   = "Valorant"
 $valorant.width                  = 212
 $valorant.height                 = 30
-$valorant.location               = New-Object System.Drawing.Point(4,675)
+$valorant.location               = New-Object System.Drawing.Point(4,715)
 $valorant.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label7                          = New-Object system.Windows.Forms.Label
@@ -225,36 +232,36 @@ $Label7.text                     = "Others"
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(90,725)
+$Label7.location                 = New-Object System.Drawing.Point(90,775)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
 
-$ddu                             = New-Object system.Windows.Forms.Button
-$ddu.text                        = "Display Driver Uninstaller"
-$ddu.width                       = 212
-$ddu.height                      = 30
-$ddu.location                    = New-Object System.Drawing.Point(4,745)
-$ddu.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$discord                         = New-Object system.Windows.Forms.Button
+$discord.text                    = "Discord"
+$discord.width                   = 212
+$discord.height                  = 30
+$discord.location                = New-Object System.Drawing.Point(4,795)
+$discord.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$nvcleanstall                    = New-Object system.Windows.Forms.Button
-$nvcleanstall.text               = "NVCleanstall"
-$nvcleanstall.width              = 212
-$nvcleanstall.height             = 30
-$nvcleanstall.location           = New-Object System.Drawing.Point(4,780)
-$nvcleanstall.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$spotify                         = New-Object system.Windows.Forms.Button
+$spotify.text                    = "Spotify"
+$spotify.width                   = 212
+$spotify.height                  = 30
+$spotify.location                = New-Object System.Drawing.Point(4,830)
+$spotify.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$nvidia                          = New-Object system.Windows.Forms.Button
-$nvidia.text                     = "Nvidia Display Driver"
-$nvidia.width                    = 212
-$nvidia.height                   = 30
-$nvidia.location                 = New-Object System.Drawing.Point(4,815)
-$nvidia.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$whatsapp                        = New-Object system.Windows.Forms.Button
+$whatsapp.text                   = "WhatsApp"
+$whatsapp.width                  = 212
+$whatsapp.height                 = 30
+$whatsapp.location               = New-Object System.Drawing.Point(4,865)
+$whatsapp.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$msimode                         = New-Object system.Windows.Forms.Button
-$msimode.text                    = "MSI Mode Utility"
-$msimode.width                   = 212
-$msimode.height                  = 30
-$msimode.location                = New-Object System.Drawing.Point(4,850)
-$msimode.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$vlc                             = New-Object system.Windows.Forms.Button
+$vlc.text                        = "VLC Player"
+$vlc.width                       = 212
+$vlc.height                      = 30
+$vlc.location                    = New-Object System.Drawing.Point(4,900)
+$vlc.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label31                         = New-Object system.Windows.Forms.Label
 $Label31.text                    = "Coding"
@@ -580,31 +587,31 @@ $disableupdates.height           = 40
 $disableupdates.location         = New-Object System.Drawing.Point(36,255)
 $disableupdates.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',14)
 
-<#$PictureBox1                     = New-Object system.Windows.Forms.PictureBox
+$PictureBox1                     = New-Object system.Windows.Forms.PictureBox
 $PictureBox1.width               = 343
 $PictureBox1.height              = 136
-$PictureBox1.location            = New-Object System.Drawing.Point(580,850)
+$PictureBox1.location            = New-Object System.Drawing.Point(850,850)
 $PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
-$PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom#>
+$PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom
 
-<#$ResultText                      = New-Object System.Windows.Forms.TextBox  
+$ResultText                      = New-Object System.Windows.Forms.TextBox  
 $ResultText.width                = 382
 $ResultText.height               = 250
-$ResultText.location             = New-Object System.Drawing.Point(576,491)
+$ResultText.location             = New-Object System.Drawing.Point(820,540)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ResultText.Multiline            = $true
 
 $Label10                         = New-Object system.Windows.Forms.Label
-$Label10.text                    = "Current Status:"
+$Label10.text                    = "-------Current Status-------"
 $Label10.AutoSize                = $true
 $Label10.width                   = 25
 $Label10.height                  = 10
-$Label10.location                = New-Object System.Drawing.Point(658,448)
-$Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)#>
+$Label10.location                = New-Object System.Drawing.Point(825,485)
+$Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
-$Form.controls.AddRange(@($Panel1,$Panel2,$Label3,$Label30,$Label15,$Panel4,$PictureBox1,$Label1,$Panel3,$ResultText,$Label10,$Panel5))
-$Panel1.controls.AddRange(@($brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$Label2,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$advancedipscanner,$putty,$autoruns,$translucenttb,$spotify,$discord,$autohotkey))
-$Panel2.controls.AddRange(@($win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$Label5,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
+$Form.controls.AddRange(@($Label3,$Panel2,$PictureBox1,$Panel1,$Label30,$Label15,$Panel4,$Label1,$Panel3,$ResultText,$Label10,$Panel5))
+$Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$notepad,$gchrome,$valorant,$origin,$ubisoft,$directx,$msimode,$visualc,$nvcleanstall,$rufus,$ddu,$sdio,$steam,$Label7,$Label8,$Label9,$putty,$autoruns,$spotify,$discord,$vlc))
+$Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git))
@@ -626,6 +633,14 @@ else{
 	Write-Host "Chocolatey Installed. Please close powershell and run the script again"
     	$ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
 }
+
+$vlc.Add_Click({
+    Write-Host "Installing VLC Player"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing VLC Player... Please Wait" 
+    choco install vlc -y -f | Out-Host
+    if($?) { Write-Host "Installed VLC Player" }
+    $ResultText.text = "`r`n" + "Finished Installing VLC Player" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
 
 $firefox.Add_Click({
     Write-Host "Installing Firefox"
