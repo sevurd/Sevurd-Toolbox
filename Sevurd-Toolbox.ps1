@@ -1111,7 +1111,7 @@ $win10tweaks.Add_Click({
     _nvidiaProfileInspector.exe "C:\Windows\_NvidiaBaseProfile.nip" -silent
     Write-Host "Installing Timer Resolution Service"
     _SetTimerResolutionService.exe -install
-    sc config STR start=auto
+    Set-Content config STR start=auto
     net start STR
     Write-Host "Rebuild Performance Counter"
     lodctr /r
@@ -1375,10 +1375,6 @@ $win10tweaks.Add_Click({
     "diagnosticshub.standardcollector.service"     # Microsoft (R) Diagnostics Hub Standard Collector Service
     "MapsBroker"                                   # Downloaded Maps Manager
     "NetTcpPortSharing"                            # Net.Tcp Port Sharing Service
-    "RasAuto"
-    "RasMan"
-    "SessionEnv"
-    "TermService"
     "RemoteAccess"                                 # Routing and Remote Access
     "RemoteRegistry"                               # Remote Registry
     "SharedAccess"                                 # Internet Connection Sharing (ICS)
@@ -1469,6 +1465,10 @@ $win10tweaks.Add_Click({
     "XboxNetApiSvc"                                 # Xbox Live Networking Service
     "XboxGipSvc"                                    # Disables Xbox Accessory Management Service
     "WSearch"                                       # Windows Search
+    "RasAuto"
+    "RasMan"
+    "SessionEnv"
+    "TermService"
 
     )
 
