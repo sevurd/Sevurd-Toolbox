@@ -969,11 +969,14 @@ $win10tweaks.Add_Click({
     #$ResultText.text += "`r`n" +"Disabling Error Reporting..."
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Type DWord -Value 1
     Disable-ScheduledTask -TaskName "Microsoft\Windows\Windows Error Reporting\QueueReporting" | Out-Null
-    Write-Host "Disabling Delivery Optimization..."
+    Write-Host "Restricting Windows Update P2P only to local network..."
     If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config")) {
         New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Force | Out-Null
     }
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 0
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
+    Write-Host "Disabling Delivery Optimization..."
+    New-Item -Path "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Force
+    Set-ItemProperty -Path "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Name "DODownloadMode" -Type DWord -Value 0
     Write-Host "Tweaking BCD Settings"
     bcdedit /set bootmenupolicy standard | Out-Null
     bcdedit /set disabledynamictick yes | Out-Null
