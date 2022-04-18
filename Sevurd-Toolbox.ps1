@@ -1395,7 +1395,6 @@ $win10tweaks.Add_Click({
     "PhoneSvc"                                     #Disables Phone Service(Manages the telephony state on the device)
     "PrintNotify"                                  #Disables Windows printer notifications and extentions
     "PcaSvc"                                       #Disables Program Compatibility Assistant Service
-    "RmSvc"
     "WPDBusEnum"                                   #Disables Portable Device Enumerator Service
     #"LicenseManager"                               #Disable LicenseManager(Windows store may not work properly)
     "seclogon"                                     #Disables  Secondary Logon(disables other credentials only password will work)
@@ -1469,6 +1468,7 @@ $win10tweaks.Add_Click({
     "RasMan"
     "SessionEnv"
     "TermService"
+    "RmSvc"
 
     )
 
