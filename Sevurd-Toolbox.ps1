@@ -975,8 +975,10 @@ $win10tweaks.Add_Click({
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
     Write-Host "Disabling Delivery Optimization..."
-    New-Item -Path "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Force
-    Set-ItemProperty -Path "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Name "DODownloadMode" -Type DWord -Value 0
+    If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization")) {
+        New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" -Name "DODownloadMode" -Type DWord -Value 0
     Write-Host "Tweaking BCD Settings"
     bcdedit /set bootmenupolicy standard | Out-Null
     bcdedit /set disabledynamictick yes | Out-Null
