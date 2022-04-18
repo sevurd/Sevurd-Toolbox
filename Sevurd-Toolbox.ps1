@@ -975,9 +975,11 @@ $win10tweaks.Add_Click({
         New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
-    Write-Host "Speed up boot times..."
-    #$ResultText.text += "`r`n" +"Enabling F8 boot menu options"
-    bcdedit /set `{current`} bootmenupolicy standard | Out-Null
+    Write-Host "Tweaking BCD Settings"
+    bcdedit /set bootmenupolicy standard | Out-Null
+    bcdedit /set disabledynamictick yes | Out-Null
+    bcdedit /set useplatformtick yes | Out-Null
+
     # Disabling Services
     #$ResultText.text += "`r`n" +"Disabling unnecessary things..."
     Write-Host "Stopping and disabling Diagnostics Tracking Service..."
