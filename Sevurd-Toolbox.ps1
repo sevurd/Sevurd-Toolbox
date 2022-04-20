@@ -910,8 +910,8 @@ $java.Add_Click({
     & "C:\Sevurd Toolbox\jdk.msi" /quiet
     Write-Host "Installed JDK"
     $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
-    $machinePATH = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-    [System.Environment]::SetEnvironmentVariable("Path", $machinePATH + "C:\Program Files\Java\jdk-18.0.1\bin", "Machine")
+    $machinePATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
+    [System.Environment]::SetEnvironmentVariable("PATH", $machinePATH + "C:\Program Files\Java\jdk-18.0.1\bin", "Machine")
 })
 
 $win10tweaks.Add_Click({
