@@ -17,7 +17,6 @@ $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.ln
 $Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 $Shortcut.Arguments = "iwr -useb https://bit.ly/sevurd-toolbox | iex"
 $Shortcut.Save()
-Write-Host "Creating folder in C drive..."
 New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
 $Form                         = New-Object system.Windows.Forms.Form
@@ -630,10 +629,6 @@ $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempane
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
 $Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java))
 
-# GUI Specs
-Write-Host "Checking if chocolatey installed..."
-#$ResultText.text = "`r`n" + "Checking if chocolatey installed..."
-
 # Check if chocolatey is installed
 if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
     'Chocolatey Already Installed'
@@ -641,11 +636,9 @@ if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
 else{
     # Installing chocolatey
 	Write-Host "Chocolatey not found, installing it now."
-    	#$ResultText.text += "`r`n" + "`r`n" + "Chocolatey not found"
-    	#$ResultText.text += "`r`n" + "`r`n" + "Installing Chocolatey... Please Wait"
 	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 	Write-Host "Chocolatey Installed. Please close powershell and run the script again"
-    	$ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
+    $ResultText.text += "`r`n" + "`r`n" + "Successfully Installed Chocolatey" + "`r`n" + "`r`n" + "Please close powershell and run the script again."
 }
 
 $vlc.Add_Click({
@@ -906,8 +899,8 @@ $java.Add_Click({
     Write-Host "Installing JDK"
     $ResultText.text = "`r`n" +"`r`n" + "Installing JDK... Please Wait"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination 'C:\Sevurd Toolbox\jdk.msi'
-    & "C:\Sevurd Toolbox\jdk.msi" | Out-Host
+    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi'
+    & 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi' /quiet
     if($?) { Write-Host "Installed JDK" }
     $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
     $machinePATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
