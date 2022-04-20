@@ -1070,6 +1070,8 @@ $win10tweaks.Add_Click({
     Write-Host "Set searchbox to icon..."
     #$ResultText.text += "`r`n" +"Set searchbox to icon..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
+    Write-Host "Disabling Bing Search"
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Type DWord -Value 0
     Write-Host "Show tray icons..."
     #$ResultText.text += "`r`n" +"Show tray icons..."
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
