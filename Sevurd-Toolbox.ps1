@@ -306,6 +306,13 @@ $python.Height                   = 30
 $python.Location                 = New-Object System.Drawing.Point(4,170)
 $python.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$java                            = New-Object system.Windows.Forms.Button
+$java.Text                       = "Java SE (JDK)"
+$java.Width                      = 212
+$java.Height                     = 30
+$java.Location                   = New-Object System.Drawing.Point(4,205)
+$java.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
@@ -621,7 +628,7 @@ $Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$not
 $Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -893,6 +900,16 @@ $python.Add_Click({
     choco install python3 -y -f | Out-Host
     Write-Host "Installed Python"
     $ResultText.text = "`r`n" + "Finished Installing Python" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$java.Add_Click({
+    Write-Host "Installing JDK"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing JDK... Please Wait"
+    Import-Module BitsTransfer
+    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi'
+    & 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi' /quiet | Out-Host
+    Write-Host "Installed JDK"
+    $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $win10tweaks.Add_Click({
