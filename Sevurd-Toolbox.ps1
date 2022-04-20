@@ -264,7 +264,7 @@ $vlc.location                    = New-Object System.Drawing.Point(4,900)
 $vlc.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label31                         = New-Object system.Windows.Forms.Label
-$Label31.text                    = "Coding"
+$Label31.text                    = "Coder's Hub"
 $Label31.AutoSize                = $true
 $Label31.width                   = 25
 $Label31.height                  = 10
