@@ -299,6 +299,13 @@ $git.Height                      = 30
 $git.Location                    = New-Object System.Drawing.Point(4,135)
 $git.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$python                          = New-Object system.Windows.Forms.Button
+$python.Text                     = "Python 3"
+$python.Width                    = 212
+$python.Height                   = 30
+$python.Location                 = New-Object System.Drawing.Point(4,170)
+$python.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
@@ -614,7 +621,7 @@ $Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$not
 $Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -878,6 +885,14 @@ $git.Add_Click({
     choco install git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /NoCredentialManager /WindowsTerminalProfile /SChannel /NoAutoCrlf /Editor:VisualStudioCode" -y -f | Out-Host
     Write-Host "Installed Git"
     $ResultText.text = "`r`n" + "Finished Installing Git" + "`r`n" + "`r`n" + "Ready for Next Task"
+})
+
+$python.Add_Click({
+    Write-Host "Installing Python"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Python... Please Wait"
+    choco install python3 -y -f | Out-Host
+    Write-Host "Installed Python"
+    $ResultText.text = "`r`n" + "Finished Installing Python" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $win10tweaks.Add_Click({
