@@ -313,13 +313,6 @@ $java.Height                     = 30
 $java.Location                   = New-Object System.Drawing.Point(4,205)
 $java.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$intellij                        = New-Object system.Windows.Forms.Button
-$intellij.Text                   = "IntelliJ IDEA"
-$intellij.Width                  = 212
-$intellij.Height                 = 30
-$intellij.Location               = New-Object System.Drawing.Point(4,240)
-$intellij.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
@@ -635,7 +628,7 @@ $Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$not
 $Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java,$intellij))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java))
 
 # GUI Specs
 Write-Host "Checking if chocolatey installed..."
@@ -917,14 +910,6 @@ $java.Add_Click({
     & "C:\Sevurd Toolbox\jdk.msi" /quiet
     Write-Host "Installed JDK"
     $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
-})
-
-$intellij.Add_Click({
-    Write-Host "Installing IntelliJ IDEA"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing IntelliJ IDEA... Please Wait"
-    choco install intellijidea-community -y -f | Out-Host
-    Write-Host "Installed IntelliJ IDEA"
-    $ResultText.text = "`r`n" + "Finished Installing IntelliJ IDEA" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $win10tweaks.Add_Click({
