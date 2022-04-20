@@ -906,8 +906,8 @@ $java.Add_Click({
     Write-Host "Installing JDK"
     $ResultText.text = "`r`n" +"`r`n" + "Installing JDK... Please Wait"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination "C:\Sevurd Toolbox\jdk.msi"
-    & "C:\Sevurd Toolbox\jdk.msi" | Out-Null
+    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination 'C:\Sevurd Toolbox\jdk.msi'
+    & 'C:\Sevurd Toolbox\jdk.msi'
     Write-Host "Installed JDK"
     $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
     $machinePATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
