@@ -309,6 +309,13 @@ $java.Height                     = 30
 $java.Location                   = New-Object System.Drawing.Point(4,205)
 $java.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$powershell7                     = New-Object system.Windows.Forms.Button
+$powershell7.Text                = "Powershell 7"
+$powershell7.Width               = 212
+$powershell7.Height              = 30
+$powershell7.Location            = New-Object System.Drawing.Point(4,240)
+$powershell7.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Optimization"
 $Label3.AutoSize                 = $true
@@ -624,7 +631,7 @@ $Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$not
 $Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java,$powershell7))
 
 # Check if chocolatey is installed
 if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
@@ -902,6 +909,14 @@ $java.Add_Click({
     $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
     $machinePATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
     [System.Environment]::SetEnvironmentVariable("PATH", $machinePATH + ";C:\Program Files\Java\jdk-18.0.1\bin", "Machine")
+})
+
+$powershell7.Add_Click({
+    Write-Host "Installing Powershell"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Powershell... Please Wait"
+    choco install powershell-core --install-arguments='"ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"' --packageparameters '"/CleanUpPath"' -y -f 
+    Write-Host "Installed Powershell"
+    $ResultText.text = "`r`n" + "Finished Installing Powershell" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
 $win10tweaks.Add_Click({
