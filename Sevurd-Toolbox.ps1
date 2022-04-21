@@ -609,7 +609,7 @@ $PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zo
 
 $ResultText                      = New-Object System.Windows.Forms.TextBox  
 $ResultText.width                = 382
-$ResultText.height               = 250
+$ResultText.height               = 150
 $ResultText.location             = New-Object System.Drawing.Point(820,540)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ResultText.Multiline            = $true
@@ -619,7 +619,7 @@ $Label10.text                    = "-: Current Status :-"
 $Label10.AutoSize                = $true
 $Label10.width                   = 25
 $Label10.height                  = 10
-$Label10.location                = New-Object System.Drawing.Point(825,485)
+$Label10.location                = New-Object System.Drawing.Point(870,485)
 $Label10.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',24)
 
 $Form.controls.AddRange(@($Label3,$Panel2,$PictureBox1,$Panel1,$Label30,$Label15,$Panel4,$Label1,$Panel3,$ResultText,$Label10,$Panel5))
@@ -2148,8 +2148,8 @@ $DDefender.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Disable%20SmartScreen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Disable SmartScreen.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Disable Defender.reg"
     PowerRun regedit /S "C:\Sevurd Toolbox\Disable SmartScreen.reg"
-    Write-Host "Disabled Defender"
-    $ResultText.text = "`r`n" + "`r`n" + "Disabled Defender"
+    Write-Host "Disabled Defender...Please Restart"
+    $ResultText.text = "`r`n" + "`r`n" + "Disabled Defender" + "`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $EDefender.Add_Click({
@@ -2161,8 +2161,8 @@ $EDefender.Add_Click({
     Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Enable%20SmartSceen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable SmartScreen.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Enable Defender.reg"
     PowerRun regedit /S "C:\Sevurd Toolbox\Enable SmartScreen.reg"
-    Write-Host "Enabled Defender"
-    $ResultText.text = "`r`n" + "`r`n" + "Enabled Defender"
+    Write-Host "Enabled Defender...Please Restart"
+    $ResultText.text = "`r`n" + "`r`n" + "Enabled Defender" + "`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $laptopnumlock.Add_Click({
@@ -2447,10 +2447,7 @@ $securitywindowsupdate.Add_Click({
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "NoAutoRebootWithLoggedOnUsers" -Type DWord -Value 1
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "AUPowerManagement" -Type DWord -Value 0
     Write-Host "Applied Security Updates Only"
-    $ResultText.text  = "`r`n" +"`r`n" + "Delayed Features Updates upto 3 years"
-    $ResultText.text += "`r`n" +"`r`n" + "Delayed Security Updates upto 4 days"
-    $ResultText.text += "`r`n" +"`r`n" + "Disabled Driver Update through Windows Update"
-    $ResultText.text += "`r`n" +"`r`n" + "Done" + "`r`n" + "`r`n" + "You will recieve only security updates from now."
+    $ResultText.text = "`r`n" +"`r`n" + "Set Update Settings to Security Updates Only"
 })
 
 $actioncenter.Add_Click({
@@ -2469,7 +2466,7 @@ $actioncenter.Add_Click({
     New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Force
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.StartupApp" -Name "Enabled" -Type DWord -Value 0
     Write-Host "Disabled Action Center and Notifications"
-    $ResultText.text = "`r`n" + "`r`n" + "Disabled Action Center and Notifications" +"`r`n" + "`r`n" + "Restart to take effect"
+    $ResultText.text = "`r`n" + "`r`n" + "Disabled Action Center and Notifications" + "`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $performancefx.Add_Click({
@@ -2484,8 +2481,8 @@ $performancefx.Add_Click({
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAnimations" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" -Name "VisualFXSetting" -Type DWord -Value 3
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name "EnableAeroPeek" -Type DWord -Value 0
-    Write-Host "Adjusted visual effects for performance"
-    $ResultText.text = "`r`n" +"`r`n" + "Adjusted VFX for performance"
+    Write-Host "Adjusted visual effects for performance...Restart to take effect"
+    $ResultText.text = "`r`n" +"`r`n" + "Adjusted VFX for performance" + "`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $appearancefx.Add_Click({
@@ -2500,7 +2497,8 @@ $appearancefx.Add_Click({
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAnimations" -Type DWord -Value 1
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" -Name "VisualFXSetting" -Type DWord -Value 3
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\DWM" -Name "EnableAeroPeek" -Type DWord -Value 1
-    $ResultText.text = "`r`n" +"`r`n" + "Visual effects are set for appearance (Defaults)"
+    Write-Host "Visual effects are set for appearance (Defaults)...Restart to take effect"
+    $ResultText.text = "`r`n" +"`r`n" + "Visual effects are set for appearance (Defaults)" + "`r`n" + "`r`n" + "Restart to take effect"
 })
 
 $onedrive.Add_Click({
@@ -2529,8 +2527,8 @@ $onedrive.Add_Click({
     }
     Remove-Item -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
     Remove-Item -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
-    Write-Host "Disabled OneDrive"
-    $ResultText.text = "`r`n" +"`r`n" + "Deleted and Disabled OneDrive"
+    Write-Host "Disabled and Uninstalled OneDrive"
+    $ResultText.text = "`r`n" +"`r`n" + "Disabled and Uninstalled OneDrive"
 })
 
 $darkmode.Add_Click({
