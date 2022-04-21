@@ -34,13 +34,11 @@ $Form.ClientSize              = '1050, 1000'
 $Form.FormBorderStyle         = 'FixedSingle'
 
 # GUI Icon
-#$iconBase64                      = 
-#$iconBytes                       = [Convert]::FromBase64String($iconBase64)
-#$stream                          = [System.IO.MemoryStream]::new($iconBytes, 0, $iconBytes.Length)
-$Form.Icon                       = [System.Drawing.Icon]::ExtractAssociatedIcon('C:\Users\Administrator\Downloads\pngegg.ico')
+$iconBase64                      = ''
+$iconBytes                       = [Convert]::FromBase64String($iconBase64)
+$stream                          = New-Object IO.MemoryStream($iconBytes, 0, $iconBytes.Length)
+$Form.Icon                       = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
-#$Form.Width                      = $objImage.Width
-#$Form.Height                     = $objImage.Height
 
 $Panel1                          = New-Object system.Windows.Forms.Panel
 $Panel1.height                   = 940
@@ -2921,3 +2919,6 @@ foreach ($service in $services) {
 })
 
 [void]$Form.ShowDialog()
+
+$stream.Dispose()
+$Form.Dispose()
