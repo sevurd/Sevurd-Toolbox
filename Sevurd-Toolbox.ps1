@@ -615,7 +615,7 @@ $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft San
 $ResultText.Multiline            = $true
 
 $Label10                         = New-Object system.Windows.Forms.Label
-$Label10.text                    = "-------Current Status-------"
+$Label10.text                    = "-: Current Status :-"
 $Label10.AutoSize                = $true
 $Label10.width                   = 25
 $Label10.height                  = 10
