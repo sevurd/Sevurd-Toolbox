@@ -19,19 +19,19 @@ $Shortcut.Arguments = "iwr -useb https://bit.ly/sevurd-toolbox | iex"
 $Shortcut.Save()
 New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
-$Form                         = New-Object system.Windows.Forms.Form
-$Form.ClientSize              = New-Object System.Drawing.Point(1050,1000)
-$Form.text                    = "Sevurd Toolbox"
-$Form.StartPosition           = "CenterScreen"
-$Form.TopMost                 = $false
-$Form.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#202020")
-$Form.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#FFFFFF")
-$Form.AutoScaleMode           = "Dpi"
-$Form.AutoScaleDimensions     = '192, 192'
-$Form.AutoSize                = $True
-$Form.AutoScroll              = $True
-$Form.ClientSize              = '1050, 1000'
-$Form.FormBorderStyle         = 'FixedSingle'
+$Form                            = New-Object system.Windows.Forms.Form
+$Form.ClientSize                 = New-Object System.Drawing.Point(1050,1000)
+$Form.text                       = "Sevurd Toolbox"
+$Form.StartPosition              = "CenterScreen"
+$Form.TopMost                    = $false
+$Form.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml("#202020")
+$Form.ForeColor                  = [System.Drawing.ColorTranslator]::FromHtml("#FFFFFF")
+$Form.AutoScaleMode              = "Dpi"
+$Form.AutoScaleDimensions        = '192, 192'
+$Form.AutoSize                   = $True
+$Form.AutoScroll                 = $True
+$Form.ClientSize                 = '1050, 1000'
+$Form.FormBorderStyle            = 'FixedSingle'
 
 # GUI Icon
 $iconBase64                      = 'iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAFVPQlfAAAACXBIWXMAAAsSAAALEgHS3X78AAAACXRFWHRDb21tZW50AACJKo0GAAAC30lEQVR4nO3YQWrDQBREQd3/0gnZhmxemEayqDrA8HlubPB1nfV1iLe85S1vectbb3rrcT+0P3d5y1ve8pa3vPWWt87+RJ7irMJZhbMKZxXOKpxVOKtwVuGswlmFswpnFUf/Kj7r7jS/OatwVuGswlmFswpnFc4qnFU4q3BW4azCWYWzCmcVziqcVTircFbhrMJZhbMKZxXOKpxVXPzH3R/bBxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECu4gIe4+9vgA4gViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFVzAw9z9rcAbGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhMGBYThsWEYTFhWEwYFhOGxYRhMWFYTBgWE4bFhGExYVhM/DEsgKf7Bm9bbK4Ai9a0AAAAAElFTkSuQmCC'
