@@ -779,7 +779,7 @@ $nvcleanstall.Add_Click({
 $ddu.Add_Click({
     Write-Host "Installing Display Driver Uninstaller"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Display Driver Uninstaller... Please Wait"
-    choco install ddu -y -f | Out-Host
+    choco install ddu -y -f --ignore-checksums | Out-Host
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Display Driver Uninstaller.lnk")
     $Shortcut.TargetPath = "C:\ProgramData\chocolatey\bin\Display Driver Uninstaller.exe"
@@ -822,7 +822,7 @@ $rufus.Add_Click({
 $spotify.Add_Click({
     Write-Host "Installing Spotify"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Spotify... Please Wait" 
-    choco install spotify -y -f | Out-Host
+    choco install spotify -y -f --ignore-checksums | Out-Host
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "Spotify"
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
