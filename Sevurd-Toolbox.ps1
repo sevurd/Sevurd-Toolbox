@@ -912,7 +912,7 @@ $java.Add_Click({
 $powershell7.Add_Click({
     Write-Host "Installing Powershell"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Powershell... Please Wait"
-    choco install powershell-core --install-arguments='"ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"' --packageparameters '"/CleanUpPath"' -y -f 
+    choco install powershell-core --install-arguments='"ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=0 ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=0 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"' --packageparameters '"/CleanUpPath"' -y -f 
     Write-Host "Installed Powershell"
     $ResultText.text = "`r`n" + "Finished Installing Powershell" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
