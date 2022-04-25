@@ -1508,7 +1508,6 @@ $win10tweaks.Add_Click({
     "XblGameSave"                               # Xbox Live Game Save Service
     "XboxNetApiSvc"                             # Xbox Live Networking Service
     "XboxGipSvc"                                # Disables Xbox Accessory Management Service
-    "WSearch"                                   # Windows Search
     "RasAuto"                                   
     "RasMan"
     "SessionEnv"
@@ -2059,7 +2058,6 @@ $win11tweaks.Add_Click({
     "XblGameSave"                                  # Xbox Live Game Save Service
     "XboxNetApiSvc"                                # Xbox Live Networking Service
     "XboxGipSvc"                                   #Disables Xbox Accessory Management Service
-    "WSearch"                                      # Windows Search
     "RasAuto"
     "RasMan"
     "SessionEnv"
