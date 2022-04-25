@@ -2064,7 +2064,6 @@ $win11tweaks.Add_Click({
     "RasMan"
     "SessionEnv"
     "TermService"
-    "RmSvc"
 
     )
 
@@ -2308,7 +2307,7 @@ $Bloatware = @(
     "Microsoft.ScreenSketch"
     "Microsoft.Xbox.TCUI"
     "Microsoft.XboxGameOverlay"
-	"Microsoft.XboxGamingOverlay"
+    "Microsoft.XboxGamingOverlay"
     "Microsoft.XboxGameCallableUI"
     "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.MixedReality.Portal"
@@ -2319,9 +2318,9 @@ $Bloatware = @(
     "Microsoft.Getstarted"
     "Microsoft.MicrosoftOfficeHub"
     "MicrosoftWindows.Client.WebExperience"
-	"Disney.37853FC22B2CE"
+    "Disney.37853FC22B2CE"
     "SpotifyAB.SpotifyMusic"
-	"Microsoft.549981C3F5F10"
+    "Microsoft.549981C3F5F10"
 	
 	
 
@@ -2338,6 +2337,10 @@ $Bloatware = @(
     "*Flipboard*"
     "*Twitter*"
     "*Facebook*"
+    "*Instagram*"
+    "WhatsApp"
+    "*Clipchamp*"
+    "*Prime Video*"
     "*Royal Revolt*"
     "*Sway*"
     "*Speed Test*"
