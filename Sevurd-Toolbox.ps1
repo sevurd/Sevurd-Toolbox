@@ -1171,9 +1171,9 @@ $win10tweaks.Add_Click({
     Write-Host "Import Nvidia Settings"
     _nvidiaProfileInspector.exe "C:\Windows\_NvidiaBaseProfile.nip" -silent
     Write-Host "Installing Timer Resolution Service"
-    _SetTimerResolutionService.exe -install
-    Set-Content config STR start=auto
-    net start STR
+    cmd /c _SetTimerResolutionService.exe -install
+    cmd /c sc config STR start=auto
+    cmd /c net start STR
     Write-Host "Rebuild Performance Counter"
     lodctr /r
     lodctr /r
@@ -1482,6 +1482,8 @@ $win10tweaks.Add_Click({
     "vmicvmsession"
     "vmicrdv"
     "vmictimesync" 
+    "WSearch"
+    
     )
 
     foreach ($service in $services) {
@@ -1770,9 +1772,9 @@ $win11tweaks.Add_Click({
     Write-Host "Import Nvidia Settings"
     _nvidiaProfileInspector.exe "C:\Windows\_NvidiaBaseProfile.nip" -silent
     Write-Host "Installing Timer Resolution Service"
-    _SetTimerResolutionService.exe -install
-    Set-Content config STR start=auto
-    net start STR
+    cmd /c _SetTimerResolutionService.exe -install
+    cmd /c sc config STR start=auto
+    cmd /c net start STR
     Write-Host "Rebuild Performance Counter"
     lodctr /r
     lodctr /r
@@ -2055,6 +2057,8 @@ $win11tweaks.Add_Click({
     "vmicvmsession"
     "vmicrdv"
     "vmictimesync" 
+    "WSearch"
+    
     )
 
     foreach ($service in $services) {
