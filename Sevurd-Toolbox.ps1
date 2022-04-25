@@ -2926,3 +2926,5 @@ foreach ($service in $services) {
 })
 
 [void]$Form.ShowDialog()
+
+Export-ModuleMember -Variable 'iconBase64'
