@@ -2338,7 +2338,7 @@ $Bloatware = @(
     "*Twitter*"
     "*Facebook*"
     "*Instagram*"
-    "WhatsApp"
+    "*WhatsApp*"
     "*Clipchamp*"
     "*Prime Video*"
     "*Royal Revolt*"
@@ -2368,7 +2368,7 @@ $removebloat.Add_Click({
     Write-Host "Removing Bloatware"
 
     foreach ($Bloat in $Bloatware) {
-        Get-AppxPackage -AllUsers $Bloat| Remove-AppxPackage
+        Get-AppxPackage -Name $Bloat| Remove-AppxPackage
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Bloat | Remove-AppxProvisionedPackage -Online
         Write-Host "Trying to remove $Bloat."
         $ResultText.text = "`r`n" +"`r`n" + "Trying to remove $Bloat."
