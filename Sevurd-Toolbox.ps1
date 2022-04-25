@@ -884,7 +884,7 @@ $github.Add_Click({
 $git.Add_Click({
     Write-Host "Installing Git"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Git... Please Wait"
-    choco install git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /NoCredentialManager /WindowsTerminalProfile /SChannel /NoAutoCrlf /Editor:VisualStudioCode" -y -f | Out-Host
+    choco install git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /NoCredentialManager /NoGuiHereIntegration /WindowsTerminalProfile /SChannel /NoAutoCrlf /Editor:VisualStudioCode" -y -f | Out-Host
     Write-Host "Installed Git"
     $ResultText.text = "`r`n" + "Finished Installing Git" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
