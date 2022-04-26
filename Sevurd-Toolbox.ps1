@@ -258,7 +258,7 @@ $vlc.location                    = New-Object System.Drawing.Point(4,900)
 $vlc.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label31                         = New-Object system.Windows.Forms.Label
-$Label31.text                    = "Coder's Hub"
+$Label31.text                    = "Dev Tools"
 $Label31.AutoSize                = $true
 $Label31.width                   = 25
 $Label31.height                  = 10
@@ -272,46 +272,25 @@ $vscode.Height                   = 30
 $vscode.Location                 = New-Object System.Drawing.Point(4,30)
 $vscode.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$vs                              = New-Object system.Windows.Forms.Button
-$vs.Text                         = "Visual Studio"
-$vs.Width                        = 212
-$vs.Height                       = 30
-$vs.Location                     = New-Object System.Drawing.Point(4,65)
-$vs.Font                         = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
 $github                          = New-Object system.Windows.Forms.Button
 $github.Text                     = "GitHub Desktop"
 $github.Width                    = 212
 $github.Height                   = 30
-$github.Location                 = New-Object System.Drawing.Point(4,100)
+$github.Location                 = New-Object System.Drawing.Point(4,65)
 $github.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $git                             = New-Object system.Windows.Forms.Button
 $git.Text                        = "Git"
 $git.Width                       = 212
 $git.Height                      = 30
-$git.Location                    = New-Object System.Drawing.Point(4,135)
+$git.Location                    = New-Object System.Drawing.Point(4,100)
 $git.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$python                          = New-Object system.Windows.Forms.Button
-$python.Text                     = "Python 3"
-$python.Width                    = 212
-$python.Height                   = 30
-$python.Location                 = New-Object System.Drawing.Point(4,170)
-$python.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
-$java                            = New-Object system.Windows.Forms.Button
-$java.Text                       = "Java SE (JDK)"
-$java.Width                      = 212
-$java.Height                     = 30
-$java.Location                   = New-Object System.Drawing.Point(4,205)
-$java.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $powershell7                     = New-Object system.Windows.Forms.Button
 $powershell7.Text                = "Powershell 7"
 $powershell7.Width               = 212
 $powershell7.Height              = 30
-$powershell7.Location            = New-Object System.Drawing.Point(4,240)
+$powershell7.Location            = New-Object System.Drawing.Point(4,135)
 $powershell7.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label3                          = New-Object system.Windows.Forms.Label
@@ -629,7 +608,7 @@ $Panel1.controls.AddRange(@($Label2,$brave,$firefox,$7zip,$whatsapp,$nvidia,$not
 $Panel2.controls.AddRange(@($Label5,$win10tweaks,$win11tweaks,$cleanup,$DDefender,$EDefender,$backgroundapps,$cortana,$actioncenter,$darkmode,$performancefx,$onedrive,$lightmode,$EActionCenter,$ECortana,$RBackgroundApps,$HTrayIcons,$removebloat,$WarningLabel,$appearancefx,$STrayIcons,$laptopnumlock,$yourphonefix,$blockthespot))
 $Panel3.controls.AddRange(@($ncpa,$oldcontrolpanel,$oldsoundpanel,$oldsystempanel,$oldpower,$restorepower,$winservices,$devicemgr,$programs))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$windowsupdatefix,$disableupdates,$enableupdates,$Label12))
-$Panel5.Controls.AddRange(@($Label31,$vscode,$vs,$github,$git,$python,$java,$powershell7))
+$Panel5.Controls.AddRange(@($Label31,$vscode,$github,$git,$powershell7))
 
 # Check if chocolatey is installed
 if (Test-Path C:\ProgramData\chocolatey\bin\choco.exe){
@@ -863,16 +842,6 @@ $vscode.Add_Click({
     $ResultText.text = "`r`n" + "Finished Installing Visual Studio Code" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
 
-$vs.Add_Click({
-    Write-Host "Installing Visual Studio"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Visual Studio... Please Wait"
-    choco install visualstudio-installer -y -f | Out-Null
-    choco install chocolatey-visualstudio.extension -y -f | Out-Null
-    choco install visualstudio2022community -y -f | Out-Host
-    Write-Host "Installed Visual Studio"
-    $ResultText.text = "`r`n" + "Finished Installing Visual Studio" + "`r`n" + "`r`n" + "Ready for Next Task"
-})
-
 $github.Add_Click({
     Write-Host "Installing GitHub Desktop"
     $ResultText.text = "`r`n" +"`r`n" + "Installing GitHub Desktop... Please Wait"
@@ -887,26 +856,6 @@ $git.Add_Click({
     choco install git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /NoCredentialManager /NoGuiHereIntegration /WindowsTerminalProfile /SChannel /NoAutoCrlf /Editor:VisualStudioCode" -y -f | Out-Host
     Write-Host "Installed Git"
     $ResultText.text = "`r`n" + "Finished Installing Git" + "`r`n" + "`r`n" + "Ready for Next Task"
-})
-
-$python.Add_Click({
-    Write-Host "Installing Python"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Python... Please Wait"
-    choco install python3 -y -f | Out-Host
-    Write-Host "Installed Python"
-    $ResultText.text = "`r`n" + "Finished Installing Python" + "`r`n" + "`r`n" + "Ready for Next Task"
-})
-
-$java.Add_Click({
-    Write-Host "Installing JDK"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing JDK... Please Wait"
-    Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://download.oracle.com/java/18/latest/jdk-18_windows-x64_bin.msi" -Destination 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi'
-    & 'C:\Sevurd Toolbox\jdk-18_windows-x64_bin.msi' /quiet
-    if($?) { Write-Host "Installed JDK" }
-    $ResultText.text = "`r`n" + "Finished Installing JDK" + "`r`n" + "`r`n" + "Ready for Next Task"
-    $machinePATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
-    [System.Environment]::SetEnvironmentVariable("PATH", $machinePATH + ";C:\Program Files\Java\jdk-18.0.1\bin", "Machine")
 })
 
 $powershell7.Add_Click({
