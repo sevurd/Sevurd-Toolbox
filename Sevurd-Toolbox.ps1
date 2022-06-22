@@ -13,7 +13,7 @@ Write-Host "Creating shortcut on Desktop..."
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Sevurd Toolbox.lnk")
 $Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-$Shortcut.Arguments = "iwr -useb https://bit.ly/sevurd-box | iex"
+$Shortcut.Arguments = "iwr -useb https://bit.ly/sevurdbox | iex"
 $Shortcut.Save()
 New-Item -Path "C:\" -Name "Sevurd Toolbox" -ItemType "directory" -ErrorAction SilentlyContinue
 
@@ -585,7 +585,7 @@ $PictureBox1                     = New-Object system.Windows.Forms.PictureBox
 $PictureBox1.width               = 343
 $PictureBox1.height              = 136
 $PictureBox1.location            = New-Object System.Drawing.Point(850,850)
-$PictureBox1.imageLocation       = "https://github.com/d1payan/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
+$PictureBox1.imageLocation       = "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Sevurd-Toolbox-White.png?raw=true"
 $PictureBox1.SizeMode            = [System.Windows.Forms.PictureBoxSizeMode]::zoom
 
 $ResultText                      = New-Object System.Windows.Forms.TextBox  
@@ -669,7 +669,7 @@ $discord.Add_Click({
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "Discord"
     #New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "discord" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/discord/settings.json?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\discord\settings.json"
     if($?) { Write-Host "Installed Discord" }
     $ResultText.text = "`r`n" + "Finished Installing Discord" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -686,7 +686,7 @@ $msimode.Add_Click({
     Write-Host "Installing MSI Mode Utility"
     $ResultText.text = "`r`n" +"`r`n" + "Installing MSI Mode Utility" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/MSI%20Mode.zip?raw=true" -Destination "C:\Sevurd Toolbox\MSI Mode.zip"
     Expand-Archive -Path 'C:\Sevurd Toolbox\MSI Mode.zip' -DestinationPath 'C:\Program Files (x86)'
     & 'C:\Program Files (x86)\MSI Mode\MSI_util_v3.exe'
     $WshShell = New-Object -comObject WScript.Shell
@@ -703,7 +703,7 @@ $notepad.Add_Click({
     choco install notepadplusplus.install -y -f | Out-Host
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Notepad++" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Notepad%2B%2B/config.xml?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Notepad++\config.xml"
     Write-Host "Installed Notepad++"
     $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -739,7 +739,7 @@ $7zip.Add_Click({
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     choco install 7zip.install -y -f | Out-Host
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/7-ZIP.reg?raw=true" -Destination 'C:\Sevurd Toolbox\7-ZIP.reg'
     regedit /s "C:\Sevurd Toolbox\7-ZIP.reg"
     if($?) { Write-Host "Installed 7-Zip Compression Tool" }
     $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "`r`n" + "Ready for Next Task"
@@ -749,7 +749,7 @@ $nvcleanstall.Add_Click({
     Write-Host "Installing NVCleanstall"
     $ResultText.text = "`r`n" +"`r`n" + "Installing NVCleanstall... Please Wait" 
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/NVCleanstall_1.13.0.exe?raw=true" -Destination 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/NVCleanstall_1.13.0.exe?raw=true" -Destination 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
     & 'C:\Sevurd Toolbox\NVCleanstall_1.13.0.exe'
     if($?) { Write-Host "Installed NVCleanstall" }
     $ResultText.text = "`r`n" + "Finished Installing NVCleanstall" + "`r`n" + "`r`n" + "Ready for Next Task"
@@ -805,7 +805,7 @@ $spotify.Add_Click({
     Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "Spotify"
     New-Item -Path "$env:USERPROFILE\AppData\Roaming\" -Name "Spotify" -ItemType "directory" -ErrorAction SilentlyContinue
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/Spotify/prefs?raw=true" -Destination "$env:USERPROFILE\AppData\Roaming\Spotify\prefs"
     if($?) { Write-Host "Installed Spotify" }
     $ResultText.text = "`r`n" + "Finished Installing Spotify" + "`r`n" + "`r`n" + "Ready for Next Task"
 })
@@ -874,11 +874,11 @@ $win10tweaks.Add_Click({
 
     Write-Host "Transfering Essential Files..."
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
 
     $ResultText.text += "`r`n" +"Disabling Unnecessary Things"
     Write-Host "Disabling Telemetry..."
@@ -1273,7 +1273,7 @@ $win10tweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "UseNexusForGameBarEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Type DWord -Value 1
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Gamebar Presence Writer.reg"
 
     # Search
@@ -1504,11 +1504,11 @@ $win11tweaks.Add_Click({
 
     Write-Host "Transfering Essential Files..."
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_BitsumHighestPerformance.pow?raw=true" -Destination 'C:\Windows\_BitsumHighestPerformance.pow'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaBaseProfile.nip?raw=true" -Destination 'C:\Windows\_NvidiaBaseProfile.nip'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_NvidiaProfileInspector.exe?raw=true" -Destination 'C:\Windows\_NvidiaProfileInspector.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/_SetTimerResolutionService.exe?raw=true" -Destination 'C:\Windows\_SetTimerResolutionService.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
 
     $ResultText.text += "`r`n" +"Disabling Unnecessary Things"
     # Disabling Telemetry
@@ -1845,7 +1845,7 @@ $win11tweaks.Add_Click({
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "UseNexusForGameBarEnabled" -Type DWord -Value 0
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Type DWord -Value 1
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Gamebar%20Presence%20Writer.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Gamebar Presence Writer.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Gamebar Presence Writer.reg"
 
     # Search
@@ -2058,9 +2058,9 @@ $DDefender.Add_Click({
     Write-Host "Disabling Defender"
     $ResultText.text = "`r`n" + "`r`n" + "Disabling Defender"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Disable%20Defender.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Disable Defender.reg'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Disable%20SmartScreen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Disable SmartScreen.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Disable%20Defender.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Disable Defender.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Disable%20SmartScreen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Disable SmartScreen.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Disable Defender.reg"
     PowerRun regedit /S "C:\Sevurd Toolbox\Disable SmartScreen.reg"
     Write-Host "Disabled Defender...Please Restart"
@@ -2071,9 +2071,9 @@ $EDefender.Add_Click({
     Write-Host "Enabling Defender"
     $ResultText.text = "`r`n" + "`r`n" + "Enabling Defender"
     Import-Module BitsTransfer
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Enable%20Defender.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable Defender.reg'
-    Start-BitsTransfer -Source "https://github.com/d1payan/Sevurd-Toolbox/blob/main/files/Enable%20SmartSceen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable SmartScreen.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/PowerRun.exe?raw=true" -Destination 'C:\Windows\PowerRun.exe'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Enable%20Defender.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable Defender.reg'
+    Start-BitsTransfer -Source "https://github.com/sevurd/Sevurd-Toolbox/blob/main/files/Enable%20SmartSceen.reg?raw=true" -Destination 'C:\Sevurd Toolbox\Enable SmartScreen.reg'
     PowerRun regedit /S "C:\Sevurd Toolbox\Enable Defender.reg"
     PowerRun regedit /S "C:\Sevurd Toolbox\Enable SmartScreen.reg"
     Write-Host "Enabled Defender...Please Restart"
